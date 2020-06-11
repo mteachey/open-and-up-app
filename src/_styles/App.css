@@ -39,6 +39,7 @@ nav, footer{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-block-end: 0;
 }
 
 .nav-list li{
@@ -56,7 +57,7 @@ nav, footer{
 }
 
 main{
-  padding:20px 0px;
+  padding:0px;
 }
 
 section{

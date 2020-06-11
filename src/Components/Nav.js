@@ -9,7 +9,7 @@ class Nav extends Component{
     render(){
         let List="";
         if (this.props.pageType === 'interior'){
-         List = (
+         List = ( 
             <nav className="main-nav nav">
                 <h1><Link className="site-heading" to={'/dashboard'}>Open and Up</Link></h1>
                 <ul className="nav-list">

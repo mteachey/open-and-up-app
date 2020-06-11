@@ -5,6 +5,7 @@
     flex-direction: column;
     text-align: left;
     padding:10px;
+    border-bottom: 1px solid #1F4008;
 }
 
 .post-span {
@@ -16,16 +17,41 @@
     font-size: 25px;
 }
 
-.post-content{
+.post-info{
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.post-content a{
-    color:#fff;
+.post-content{
+    text-align:center;
+}
+
+.music-post{
+    background-color:#738c11;
+}
+.reflection-post{
+    background-color:#324211;
+}
+
+.event-post{
+    background-color:#c4bd82;
+}
+.podcast-post{
+    background-color:#292e10;
+}
+.music-post{
+    background-color:#738c11;
+}
+
+.post-info a{
+    color:#000;
     text-decoration: underline;
+}
+
+.reflection-post a, .reflection-post, .podcast-post, .podcast-post a{
+    color:#fff;
 }
 
 .post-icons-buttons {
@@ -57,4 +83,12 @@
 .post-icons-buttons svg{
     margin: 15px auto;
     display: block;
+}
+
+.post-icon svg path{
+    fill:#152604;
+}
+
+.reflection-post svg path, .podcast-post svg path{
+    fill:#fff;
 }

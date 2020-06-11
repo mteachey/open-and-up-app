@@ -22,10 +22,20 @@ export default {
         "post_id":"1",
         "user_id":"1",
         "username":"melinda",
-        "content":"My inner growth propelled me to by my own 'I'-to be an authentic woman who was contained in herself, who chose and determined and handled her life from her own genuine spiritual center-Sue Monk Kidd",
+        "content":"My inner growth propelled me to by my own 'I'-to be an authentic woman who was contained in herself, who chose and determined and handled her life from her own genuine spiritual center  -Sue Monk Kidd",
         "type":"reflection",
         "date_created":"June 7th 2020"           
      },
+     {
+      "post_id":"6",
+      "user_id":"2",
+      "username":"teachey",
+      "title":"Untamed",
+      "author":"Glennon Doyle",
+      "description":"Soulful and uproarious, forceful and tender, Untamed is both an intimate memoir and a galvanizing wake-up call. It is the story of how one woman learned that a responsible mother is not one who slowly dies for her children, but one who shows them how to fully live.",
+      "type":"book",
+      "date_created":"June 9th 2020"            
+   },
      {
       "post_id":"9",
       "user_id":"3",
@@ -38,7 +48,7 @@ export default {
       "post_id":"7",
       "user_id":"1",
       "username":"melinda",
-      "content":"'If you are walking a path of low expectations, the next thing you find will support those low expectations.'-Deepak Chopra",
+      "content":"'If you are walking a path of low expectations, the next thing you find will support those low expectations.'  -Deepak Chopra",
       "type":"reflection",
       "date_created":"June 7th 2020"           
    },{
@@ -60,7 +70,16 @@ export default {
       "description":"Transformation can't stop with the body, however; it must involve the soul. The soul–seemingly invisible, aloof, and apart from the material world–actually creates the body. Only by going to the level of the soul will you access your full potential, bringing more intelligence, creativity, and awareness into every aspect of your life.",
       "type":"book",
       "date_created":"June 8th 2020"            
-   },{
+   },
+   {
+      "post_id":"10",
+      "user_id":"3",
+      "username":"mteachey", 
+      "content":"Remember to take some time alone with yourself and tune into what feels true beyond the voice of ego and external forces-@RisingWoman IG",
+      "type":"reflection",
+      "date_created":"June 11th 2020"           
+   },
+   {
         "post_id":"3",
         "user_id":"3",
         "username":"mteachey", 
@@ -89,16 +108,6 @@ export default {
         "description":"A wake-up call for the entire planet . . . [A New Earth] helps us to stop creating our own suffering and obsessing over the past and what the future might be, and to put ourselves in the now.",
         "type":"book",
         "date_created":"June 8th 2020"            
-     },
-     {
-        "post_id":"6",
-        "user_id":"2",
-        "username":"teachey",
-        "title":"Untamed",
-        "author":"Glennon Doyle",
-        "description":"Soulful and uproarious, forceful and tender, Untamed is both an intimate memoir and a galvanizing wake-up call. It is the story of how one woman learned that a responsible mother is not one who slowly dies for her children, but one who shows them how to fully live.",
-        "type":"book",
-        "date_created":"June 9th 2020"            
      },
     ],
 }

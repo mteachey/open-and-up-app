@@ -18,7 +18,6 @@ class Dashboard extends Component{
                 />
                 </header>
                 <main>
-                    <p>Dashboard</p>
                     <FilterButtons/>
                     <SearchRow/>
                     <ResultList/>

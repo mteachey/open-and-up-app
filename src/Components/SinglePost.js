@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import '../libraries/fontawesome.js';
 import '../_styles/posts.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faBookmark, faPodcast, faMusic, faLink, faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faPodcast, faMusic, faLink, faBookOpen, faSun } from '@fortawesome/free-solid-svg-icons';
 
 class SinglePost extends Component{
     render(){
@@ -11,8 +11,8 @@ class SinglePost extends Component{
         const{post_id, user_id, username, type, date_created,title, artist,description, author, link, content} = this.props;
         let listItem ='';
         if(type==='music'){
-            listItem = (<li className="single-post" key={this.props.post_id}>
-               <div className="post-content">
+            listItem = (<li className="single-post music-post" key={this.props.post_id}>
+               <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faMusic} /></span>
                     <span className="post-span post-username">{username}</span>
                     <span className="post-span post-title">{title}</span>
@@ -26,8 +26,8 @@ class SinglePost extends Component{
             </li>)
         }
         else if(type==='reflection'){
-            listItem = (<li className="single-post" key={this.props.post_id}>
-                <div className="post-content">
+            listItem = (<li className="single-post reflection-post" key={this.props.post_id}>
+                <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faLightbulb} /></span>
                     <span className="post-span post-username">{username}</span>
                     <span className="post-span post-content">{content}</span>
@@ -39,8 +39,8 @@ class SinglePost extends Component{
             </li>)
         }
         else if(type==='podcast'){
-            listItem = (<li className="single-post" key={this.props.post_id}>
-                <div className="post-content">
+            listItem = (<li className="single-post podcast-post" key={this.props.post_id}>
+                <div className="post-info">
                  <span className="post-span post-icon"><FontAwesomeIcon icon={faPodcast} /></span>
                     <span className="post-span post-username">{username}</span>
                     <span className="post-span post-title">{title}</span>
@@ -54,8 +54,8 @@ class SinglePost extends Component{
             </li>)
         }
         else if(type==='event'){
-            listItem = (<li className="single-post" key={this.props.post_id}>
-                <div className="post-content">
+            listItem = (<li className="single-post event-post" key={this.props.post_id}>
+                <div className="post-info">
                      <span className="post-span post-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
                     <span className="post-span post-username">{username}</span>
                     <span className="post-span post-title">{title}</span>
@@ -69,8 +69,8 @@ class SinglePost extends Component{
             </li>)
         }
         else if(type==='book'){
-            listItem = (<li className="single-post" key={this.props.post_id}>
-                <div className="post-content">
+            listItem = (<li className="single-post book-post" key={this.props.post_id}>
+                <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faBookOpen} /></span>
                     <span className="post-span post-username">{username}</span>
                     <span className="post-span post-title">{title}</span>
