@@ -72,6 +72,7 @@ class NewPost extends Component{
                             <button type="submit">Post</button>
                             <button type="reset">Cancel</button>
                         </div>
+                        <p class="form-disclaimer">We realize that what constitutes postivity is subjective. Please know we reserve the right to remove any post that we do not find meets our guidelines. You are welcome to dispute any removed post and share your feelings regarding it.  You also are always welcome to decide to no longer use our app. Thank you for understanding!</p>  
                     </form>
                 </main>
             </div>

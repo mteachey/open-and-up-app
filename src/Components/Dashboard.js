@@ -24,7 +24,7 @@ class Dashboard extends Component{
                 </main>
                 <footer>
                     <ButtonRow
-                     links ={[{'/dashboard':'Home'},{'/dashboard':'My Post'},{'/new-post':'New Post'},{'/my-account':'My Account'}]}/>
+                     links ={[{'/dashboard':'Home'},{'/dashboard':'My Posts'},{'/new-post':'New Post'},{'/my-account':'My Account'}]}/>
                 </footer>
             </div>
         )

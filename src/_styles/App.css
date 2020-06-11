@@ -167,3 +167,8 @@ svg.filter-icon path {
   fill:#152604;
 }
 
+.form-disclaimer{
+  font-size:.75em;
+  text-align: center;
+  font-style: italic;
+}
