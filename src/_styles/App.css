@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  
+}
+body{
+  margin:0;
+  padding:0;
+}
+
+h1{
+  color:#fff;
+  margin-block-start: auto;
+  padding-top: 1.25em;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1 a{
+  color:#fff;
+  
+}
+
+nav, footer{
+  background-color:#152604;
+  color:#fff;   
+}
+
+.nav-list{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.nav-list li{
+  padding:10px;
+}
+
+.nav-list a{
+  color:#fff;
+  text-decoration: none;
+}
+
+.filter-form{
+  display: flex;
+  justify-content: space-around;
+}
+
+main{
+  padding:20px 0px;
+}
+
+section{
+  padding:10px;
+}
+
+section:nth-child(even){
+  background-color:#5B8C11;
+  color:#fff;
+}
+
+.individual-post-container{
+  padding:10px;
+  text-align: left;
+}
+
+.individual-post-container:nth-child(even){
+  background-color:#fff;
+  color:#000;
+}
+
+.individual-post-container:nth-child(odd){
+  background-color:#5B8C11;
+  color:#fff;
+}
+
+h1{
+  font-size:1.75em;
+}
+
+h2{
+  font-size:1.5em;
+}
+
+h3{
+  font-size:1.25em;
+}
+
+form {
+  text-align: left;
+  width: 95%;
+  margin: auto;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+form.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-selection{
+  display:flex;
+  justify-content: space-around;
+}
+
+input {
+  border: 1px rgba(0,0,0,.5)solid;
+  margin-bottom: 10px;
+}
+
+input[type=radio]{
+  width:15px;
+  display:inline-block;
+}
+
+button{
+  margin: 10px auto;
+  background-color: #fff;
+  display: block;
+}
+
+button[type="submit"]{
+  margin: 10px auto;
+  background-color: #fff;
+  display: block;
+}
+
+ul{
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+.form-disclaimer{
+  font-size:.75em;
+  text-align: center;
+  font-style: italic;
+}
+
+.button-link {
+  color:#fff;
+  width: 120px;
+  display: inline-block;
+  padding:10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+svg.filter-icon path {
+  fill:#152604;
+}
+

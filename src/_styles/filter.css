@@ -1,0 +1,13 @@
+.filter-button-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter-button-row svg{
+    font-size:28px;
+}
+
+svg.filter-icon {
+    margin: 15px auto;
+    display: block;
+}

@@ -1,0 +1,60 @@
+.single-post {
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding:10px;
+}
+
+.post-span {
+    padding-bottom: 10px;
+    font-size:22px;
+}
+
+.post-title {
+    font-size: 25px;
+}
+
+.post-content{
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.post-content a{
+    color:#fff;
+    text-decoration: underline;
+}
+
+.post-icons-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.post-span{
+    width:100%;
+}
+
+.post-icon, .post-username {
+    width: 50%;
+    padding-bottom:20px;
+}
+
+.post-username {
+    text-align: right;
+}
+
+.post-icon{
+    display: inline-block;
+}
+
+.post-icon svg{
+    font-size:28px;
+}
+
+.post-icons-buttons svg{
+    margin: 15px auto;
+    display: block;
+}
