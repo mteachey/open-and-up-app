@@ -27,7 +27,6 @@ a{
 
 h1 a{
   color:#fff;
-  
 }
 
 nav, footer{
@@ -49,6 +48,17 @@ nav, footer{
 .nav-list a{
   color:#fff;
   text-decoration: none;
+}
+
+.home-nav-links{
+  display:flex;
+  justify-content: flex-end;
+  padding-top:10px;
+}
+
+.home-nav-links button{
+  margin: 0px 10px;
+
 }
 
 .filter-form{
@@ -171,4 +181,16 @@ svg.filter-icon path {
   font-size:.75em;
   text-align: center;
   font-style: italic;
+}
+
+/****start page****/
+.start-page h1{
+  color:#000;
+  font-size:26px;
+}
+
+.start-page a{
+  color:#000;
+  font-size:20px;
+  text-decoration:underline;
 }

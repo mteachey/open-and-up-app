@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Nav from './Nav.js'
+import Nav from './Nav.js';
+import ButtonRow from './ButtonRow.js';
 
 
 class MyAccount extends Component{
@@ -33,6 +34,8 @@ class MyAccount extends Component{
                     <button type="submit">Update</button>
                     <button type="reset">Cancel</button>
                    </form>
+                   <ButtonRow
+                     links ={[{'/dashboard':'Home'},{'/dashboard':'My Posts'},{'/new-post':'New Post'},{'/my-account':'My Account'}]}/>
             </div>
         )
     }

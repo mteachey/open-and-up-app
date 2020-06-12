@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Nav from './Nav.js';
 import FilterButtons from './FilterButtons.js';
-import '../_styles/Form.css'
+import '../_styles/Form.css';
+import ButtonRow from './ButtonRow.js';
 
 
 class NewPost extends Component{
@@ -74,6 +75,8 @@ class NewPost extends Component{
                         </div>
                         <p class="form-disclaimer">We realize that what constitutes postivity is subjective. Please know we reserve the right to remove any post that we do not find meets our guidelines. You are welcome to dispute any removed post and share your feelings regarding it.  You also are always welcome to decide to no longer use our app. Thank you for understanding!</p>  
                     </form>
+                    <ButtonRow
+                     links ={[{'/dashboard':'Home'},{'/dashboard':'My Posts'},{'/new-post':'New Post'},{'/my-account':'My Account'}]}/>
                 </main>
             </div>
         )
