@@ -8,7 +8,7 @@ import OpenUpContext from '../OpenUpContext.js';
 
 
 
-class Dashboard extends Component{
+class BookmarkPage extends Component{
     static contextType = OpenUpContext;
 
 
@@ -24,8 +24,8 @@ class Dashboard extends Component{
                     <FilterButtons/>
                     <SearchRow/>
                     <ResultList
-                    
-                    />
+                     
+                     />
                 </main>
                 <footer>
                     <ButtonRow
@@ -36,4 +36,4 @@ class Dashboard extends Component{
     }
 }
 
-export default Dashboard;
+export default BookmarkPage;

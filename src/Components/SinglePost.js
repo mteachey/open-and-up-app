@@ -3,17 +3,18 @@ import '../libraries/fontawesome.js';
 import '../_styles/posts.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faBookmark, faPodcast, faMusic, faLink, faBookOpen, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark, faPodcast, faMusic, faLink, faBookOpen, faSun} from '@fortawesome/free-solid-svg-icons';
 
 class SinglePost extends Component{
     render(){
 
-        const{post_id, user_id, username, type, date_created,title, artist,description, author, link, content} = this.props;
+        const{username, type, title, artist,description, author, link, content} = this.props;
         let listItem ='';
         if(type==='music'){
             listItem = (<li className="single-post music-post" key={this.props.post_id}>
                <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faMusic} /></span>
+                    <span className="post-span post-icon"><FontAwesomeIcon icon={faSun} /></span>
                     <span className="post-span post-username">{username}</span>
                     <span className="post-span post-title">{title}</span>
                     <span className="post-span post-artist">{artist}</span>

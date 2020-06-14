@@ -5,7 +5,7 @@ const OpenUpContext = React.createContext({
         "user_id":"1",
         "username":"melinda",   
         "followee_ids":["2","3"],
-        "bookmark_ids":[1,2,3]
+        "bookmark_ids":[1,2,3],
         "date_created":"June 7th 2020",
     },{
       "user_id":"2",
@@ -15,6 +15,24 @@ const OpenUpContext = React.createContext({
       "date_created":"June 8th 2020",    
       }
     ],
+    bookmarks:[{
+      "bookmark_id":1,
+      "user_id":1,
+      "post_id":1,
+      "content":'I really loved this post.....'
+    },
+    {
+      "bookmark_id":2,
+      "user_id":1,
+      "post_id":2,
+      "content":'I really loved this post.....'
+    },
+    {
+      "bookmark_id":3,
+      "user_id":1,
+      "post_id":10,
+      "content":'I really loved this post.....'
+    },],
       post:[ {
         "post_id":"1",
         "user_id":"1",
@@ -39,16 +57,22 @@ const OpenUpContext = React.createContext({
         "date_created":"June 9th 2020"            
      }
     ],
+    displayType:'followees',
+    currentDisplay:{
+      dashboard:{current_user:'default', current_post_type:'all'},
+      bookmark_display:{current_user:'default', current_post_type:'all'}
+    },
       addPost:()=>{},
-      addUser:()=>{},
+      addUserAccount:()=>{},
       addFollower:()=>{},
       addBookmark:()=>{},
       deletePost:()=>{},
       deleteFollower:()=>{},
       deleteBookmark:()=>{},
-      updateUser:()=>{},
+      updateCurrentUser:()=>{},
+      updateUserAccoutn:()=>{},
       addUser:()=>{},
-      deleteUser:()=>{},
+      deleteUserAccount:()=>{},
 })
 
 export default OpenUpContext;

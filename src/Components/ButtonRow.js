@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../_styles/filter.css'
+
+
 
 class ButtonRow extends Component{
     static defaultProps ={
@@ -7,11 +10,11 @@ class ButtonRow extends Component{
        link1_label:'',
        link2:'',
        link2_label:'',
+       link3:'',
        link3_label:'',
        link4_label:'',
-       link5_label:'',
-       link3:'',
        link4:'',
+       link5_label:'',    
        link5:''
       };
 

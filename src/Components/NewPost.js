@@ -65,6 +65,7 @@ class NewPost extends Component{
                                     type="image"
                                     name="post-image"
                                     id="post-image"
+                                    alt="user-uploaded-image"
                                     />
                             </div>
                         </div>

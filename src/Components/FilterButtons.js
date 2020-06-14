@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faBookOpen, faDoorOpen, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faPodcast, faMusic, faBookOpen, faHome } from '@fortawesome/free-solid-svg-icons';
 import '../_styles/filter.css'
 
 class FilterButtons extends Component{

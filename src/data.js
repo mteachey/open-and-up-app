@@ -1,34 +1,83 @@
 export default {
     users:[{
-        "user_id":"1",
+        "user_id":1,
         "username":"melinda",   
-        "followee_ids":["2","3"],
-        "bookmark_ids":[1,2,3],
+        "followee_ids":[2,3],
+        "bookmark_ids":[1,2,10],
         "date_created":"June 7th 2020",
     },{
-      "user_id":"2",
+      "user_id":2,
       "username":"teachey",  
-      "followee_ids":["1","3"],   
-      "bookmark_ids":[5,4,6],
+      "followee_ids":[1,3],   
+      "bookmark_ids":[5,4,7],
       "date_created":"June 8th 2020",    
       },{
-        "user_id":"3",
+        "user_id":3,
         "username":"mteachey", 
-        "followee_ids":["2","1"], 
-        "bookmark_ids":[2,6,3],   
+        "followee_ids":[2,1], 
+        "bookmark_ids":[8,9],   
         "date_created":"June 9th 2020",      
       }],
+      bookmarks:[{
+         "bookmark_id":1,
+         "user_id":1,
+         "post_id":1,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":2,
+         "user_id":1,
+         "post_id":2,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":3,
+         "user_id":1,
+         "post_id":10,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":4,
+         "user_id":2,
+         "post_id":5,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":5,
+         "user_id":2,
+         "post_id":4,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":6,
+         "user_id":2,
+         "post_id":7,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":7,
+         "user_id":3,
+         "post_id":8,
+         "content":'I really loved this post.....'
+      },
+      {
+         "bookmark_id":8,
+         "user_id":3,
+         "post_id":9,
+         "content":'I really loved this post.....'
+      },
+      ],
       posts:[ {
-        "post_id":"1",
-        "user_id":"1",
+        "post_id":1,
+        "user_id":1,
         "username":"melinda",
         "content":"My inner growth propelled me to by my own 'I'-to be an authentic woman who was contained in herself, who chose and determined and handled her life from her own genuine spiritual center  -Sue Monk Kidd",
         "type":"reflection",
         "date_created":"June 7th 2020"           
      },
      {
-      "post_id":"6",
-      "user_id":"2",
+      "post_id":6,
+      "user_id":2,
       "username":"teachey",
       "title":"Untamed",
       "author":"Glennon Doyle",
@@ -37,23 +86,23 @@ export default {
       "date_created":"June 9th 2020"            
    },
      {
-      "post_id":"9",
-      "user_id":"3",
+      "post_id":9,
+      "user_id":3,
       "username":"mteachey", 
       "content":"In order to love who you are, you cannot hate the experiences that shaped you",
       "type":"reflection",
       "date_created":"June 11th 2020"           
    },
      {
-      "post_id":"7",
-      "user_id":"1",
+      "post_id":7,
+      "user_id":1,
       "username":"melinda",
       "content":"'If you are walking a path of low expectations, the next thing you find will support those low expectations.'  -Deepak Chopra",
       "type":"reflection",
       "date_created":"June 7th 2020"           
    },{
-        "post_id":"8",
-        "user_id":"1",
+        "post_id":8,
+        "user_id":1,
         "username":"melinda",
         "title":"Three Little Birds",
         "artist":"Bob Marley",
@@ -62,8 +111,8 @@ export default {
         "date_created":"June 8th 2020"            
      },
      {
-      "post_id":"2",
-      "user_id":"1",
+      "post_id":2,
+      "user_id":1,
       "username":"melinda",
       "title":"Reinventing the Body, Resurrecting the Soul",
       "author":"Deepak Chopra",
@@ -72,16 +121,16 @@ export default {
       "date_created":"June 8th 2020"            
    },
    {
-      "post_id":"10",
-      "user_id":"3",
+      "post_id":10,
+      "user_id":3,
       "username":"mteachey", 
       "content":"Remember to take some time alone with yourself and tune into what feels true beyond the voice of ego and external forces-@RisingWoman IG",
       "type":"reflection",
       "date_created":"June 11th 2020"           
    },
    {
-        "post_id":"3",
-        "user_id":"3",
+        "post_id":3,
+        "user_id":3,
         "username":"mteachey", 
         "title":"Super Soul Conversations: Dream Big with Joel Osteen",
         "description":"Pastor Joel Osteen discusses how to dream big and pray bold. Pastor Osteen explains why it’s important to focus on how far you’ve come and not on how much further you need to go to achieve your dream. He also shares why he believes gratitude plays a key role in dreaming big.",
@@ -90,8 +139,8 @@ export default {
         "date_created":"June 9th 2020"            
      },
      {
-        "post_id":"4",
-        "user_id":"2",
+        "post_id":4,
+        "user_id":2,
         "username":"teachey",
         "title":"Some Uplifting Event",
         "description":"Get inspired. Get uplifted. Connect",
@@ -100,8 +149,8 @@ export default {
         "date_created":"June 7th 2020"            
      },
      {
-        "post_id":"5",
-        "user_id":"2",
+        "post_id":5,
+        "user_id":2,
         "username":"teachey",
         "title":"A New Earth",
         "author":"Eckhart Tolle",
