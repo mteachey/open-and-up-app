@@ -28,6 +28,17 @@ class App extends Component{
 
   }
 
+  //filter buttons function to update type of post displayed
+  updatePostType=(postType)=>{
+    console.log(postType)
+    console.log(`this UPT from app ran`)
+    const {currentDisplay} = this.state;
+    
+    currentDisplay.dashboard.current_post_type=postType;
+    this.setState({
+      currentDisplay:currentDisplay})
+  }
+
   render () {
     const contextValue={
       currentUserInfo:this.state.currentUserInfo,
@@ -35,7 +46,8 @@ class App extends Component{
       bookmarks:this.state.bookmarks,
       users:this.state.users,
       displayType:this.state.displayType,
-      currentDisplay:this.state.currentDisplay
+      currentDisplay:this.state.currentDisplay,
+      updatePostType:this.updatePostType,
     }
     return (
       <div className="App">

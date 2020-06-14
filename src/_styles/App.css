@@ -149,6 +149,12 @@ button[type="submit"]{
   display: block;
 }
 
+.icon-button{
+  margin:0;
+  border-width: 0px;
+  
+}
+
 ul{
   list-style-type: none;
   padding-inline-start: 0px;

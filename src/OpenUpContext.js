@@ -70,9 +70,10 @@ const OpenUpContext = React.createContext({
       deleteFollower:()=>{},
       deleteBookmark:()=>{},
       updateCurrentUser:()=>{},
-      updateUserAccoutn:()=>{},
+      updateUserAccount:()=>{},
       addUser:()=>{},
       deleteUserAccount:()=>{},
+      updatePostType:()=>{},
 })
 
 export default OpenUpContext;

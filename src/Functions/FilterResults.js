@@ -28,6 +28,8 @@ export const FilterPosts = (posts, currentUserId, users, displayType, currentDis
 
     //using buttons for filtering  by type of post (book, music, etc)
     if(currentDisplay.dashboard.current_post_type!=='all'){
+        console.log(`if statement ran`)
+        console.log(currentDisplay.dashboard.current_post_type)
         filteredPosts = filteredPosts.filter(post=>post.type===currentDisplay.dashboard.current_post_type)
     }
 
