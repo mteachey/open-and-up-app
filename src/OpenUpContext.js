@@ -32,36 +32,42 @@ const OpenUpContext = React.createContext({
       "user_id":1,
       "post_id":10,
       "content":'I really loved this post.....'
-    },],
+    }],
       post:[ {
-        "post_id":"1",
-        "user_id":"1",
-        "content":"I watched a complete stranger help another complete stranger pick up all of their groceries that had fallen out of their busted shopping bag",
+        "post_id":1,
+        "user_id":1,
+        "username":"melinda",
+        "title":"",
+        "link":"",
+        "event_dates":"",
+        "by":"",
+        "content":"My inner growth propelled me to by my own 'I'-to be an authentic woman who was contained in herself, who chose and determined and handled her life from her own genuine spiritual center  -Sue Monk Kidd",
         "type":"reflection",
         "date_created":"June 7th 2020"           
-     },{
-        "post_id":"2",
-        "user_id":"1",
-        "title":"Three Little Birds",
-        "artist":"Bob Marley",
-        "type":"music",
-        "link":"https://youtu.be/zaGUr6wzyT8",
-        "date_created":"June 8th 2020"            
-     },{
-        "post_id":"3",
-        "user_id":"3",
-        "title":"Super Soul Conversations: Dream Big with Joel Osteen",
-        "description":"Pastor Joel Osteen discusses how to dream big and pray bold. Pastor Osteen explains why it’s important to focus on how far you’ve come and not on how much further you need to go to achieve your dream. He also shares why he believes gratitude plays a key role in dreaming big.",
-        "type":"podcast",
-        "link":"https://podcasts.apple.com/us/podcast/joel-osteen-dream-big/id1264843400?i=1000472985491",
-        "date_created":"June 9th 2020"            
-     }
-    ],
-    displayType:'followees',
+     },
+     {
+      "post_id":6,
+      "user_id":2,
+      "username":"teachey",
+      "title":"Untamed",
+      "link":"",
+      "event_dates":"",
+      "by":"Glennon Doyle",
+      "content":"Soulful and uproarious, forceful and tender, Untamed is both an intimate memoir and a galvanizing wake-up call. It is the story of how one woman learned that a responsible mother is not one who slowly dies for her children, but one who shows them how to fully live.",
+      "type":"book",
+      "date_created":"June 9th 2020"            
+   }],
     currentDisplay:{
       dashboard:{current_user:'default', current_post_type:'all'},
       bookmark_display:{current_user:'default', current_post_type:'all'}
     },
+    currentUserInfo:{
+      "user_id":"1",
+      "username":"melinda",   
+      "followee_ids":["2","3"],
+      "bookmark_ids":[1,2,3],
+      "date_created":"June 7th 2020",
+  },
       addPost:()=>{},
       addUserAccount:()=>{},
       addFollower:()=>{},

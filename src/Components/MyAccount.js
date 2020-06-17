@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Nav from './Nav.js';
-import ButtonRow from './ButtonRow.js';
+import FilterButtons from './FilterButtons.js';
+import { faPlusSquare, faIdCard  } from '@fortawesome/free-regular-svg-icons';
+import { faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 
 class MyAccount extends Component{
@@ -34,8 +36,15 @@ class MyAccount extends Component{
                     <button type="submit">Update</button>
                     <button type="reset">Cancel</button>
                    </form>
-                   <ButtonRow
-                     links ={[{'/dashboard':'Home'},{'/dashboard':'My Posts'},{'/new-post':'New Post'},{'/my-account':'My Account'}]}/>
+                   <FilterButtons
+                        buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers'},
+                        {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees'},
+                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user'},
+                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all'},
+                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all'}
+                        ]}
+                    
+                    />
             </div>
         )
     }

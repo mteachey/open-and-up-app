@@ -13,12 +13,11 @@ class ResultList extends Component{
         let users=this.context.users;
         let currentDisplay= this.context.currentDisplay;
         let currentUserId = this.context.currentUserInfo.user_id;
+        console.log(`this is the current user id ${currentUserId}`);
 
-        //need to make dyanmic
-        let displayType = this.context.displayType;
         //need to make dyanmic based on user       
 
-        let filteredResults = FilterPosts(posts, currentUserId, users, displayType, currentDisplay);
+        let filteredResults = FilterPosts(posts, currentUserId, users, currentDisplay);
         console.log(filteredResults);
         return(
             <section className="results-list">

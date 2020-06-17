@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Nav from './Nav.js';
-import ButtonRow from './ButtonRow.js';
 import ResultList from './ResultList.js';
 import FilterButtons from './FilterButtons.js';
 import SearchRow from './SearchRow';
 import OpenUpContext from '../OpenUpContext.js';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt, faLightbulb, faPlusSquare, faIdCard  } from '@fortawesome/free-regular-svg-icons';
+import { faPodcast, faMusic, faBookOpen, faHome, faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -24,17 +24,17 @@ class Dashboard extends Component{
                 </header>
                 <main>
                     <FilterButtons
-                        buttonInfo={[{ariaLabel:'all types of posts',icon_type:'faHome', post_type:'all'},
-                        {aria_label:'reflection posts',icon_type:'faLightbulb',
-                        post_type:'reflection'},
-                        {aria_label:'book posts',icon_type:'faBookOpen',
-                        post_type:'book'},
-                        {aria_label:'podcast posts',icon_type:'Podcast',
-                        post_type:'podcast'},
-                        {aria_label:'music posts',icon_type:'faMusic',
-                        post_type:'music'},
-                        {aria_label:'event posts',icon_type:'faCalendarAlt',
-                        post_type:'event'}]}
+                        buttonInfo={[{ariaLabel:'all types of posts',icon_type:faHome, display_change:'all', link:'/dashboard'},
+                        {aria_label:'reflection posts',icon_type:faLightbulb, link:'/dashboard',
+                        display_change:'reflection'},
+                        {aria_label:'book posts',icon_type:faBookOpen, link:'/dashboard',
+                        display_change:'book'},
+                        {aria_label:'podcast posts',icon_type:faPodcast, link:'/dashboard',
+                        display_change:'podcast'},
+                        {aria_label:'music posts',icon_type:faMusic, link:'/dashboard',
+                        display_change:'music'},
+                        {aria_label:'event posts',icon_type:faCalendarAlt, link:'/dashboard',
+                        display_change:'event'}]}
                     />
                     <SearchRow/>
                     <ResultList
@@ -42,8 +42,15 @@ class Dashboard extends Component{
                     />
                 </main>
                 <footer>
-                    <ButtonRow
-                     links ={[{'/dashboard':'Home'},{'/dashboard':'My Posts'},{'/new-post':'New Post'},{'/my-account':'My Account'},{'/bookmarks':'My Bookmarks'}]}/>
+                <FilterButtons
+                        buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers'},
+                        {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees'},
+                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user'},
+                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all'},
+                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all'}
+                        ]}
+                    
+                    />
                 </footer>
             </div>
         )

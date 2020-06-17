@@ -13,7 +13,7 @@
 label {
     margin-right: 5px;
     margin-bottom: 10px;
-    width: 115px;
+    width: 100px;
     display: inline-block;
 }
 
@@ -31,8 +31,12 @@ select {
 }
 
 input, textarea{
-width: 200px;
-margin-bottom:10px;
+    width: 210px;
+    margin-bottom:10px;
+}
+
+textarea{
+    height:150px;
 }
 
 input[type="text"]:disabled {
@@ -53,7 +57,6 @@ input{
     text-decoration: none;
     display: inline-block;
 }
-
 
 .form-buttons{
     flex-direction: column;
