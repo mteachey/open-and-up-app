@@ -38,13 +38,20 @@ class NewPost extends Component{
     updateFields=(fieldTypeSelected)=>{
         
         const {areTypeSpecificFieldsVisible} = this.state;
-        areTypeSpecificFieldsVisible['title']=false;
-        areTypeSpecificFieldsVisible['author']=false;
-        areTypeSpecificFieldsVisible['artist']=false;
-        areTypeSpecificFieldsVisible['link']=false;
-        areTypeSpecificFieldsVisible['content']=false;
-        areTypeSpecificFieldsVisible['descrip']=false;
-        areTypeSpecificFieldsVisible['dates']=false;
+        const {inputs} = this.state
+        //first resetting fields to not display
+        Object.keys(areTypeSpecificFieldsVisible).forEach(key => {
+            areTypeSpecificFieldsVisible[key]=false
+          });
+
+        //resetting any touched input values to false
+        Object.keys(inputs).forEach(key => {
+            inputs[key].touched=false;
+          });
+        //clear values
+        Object.keys(inputs).forEach(key => {
+            inputs[key].value="";
+          });
 
         if(fieldTypeSelected==='book'){
             areTypeSpecificFieldsVisible['title']=true;
@@ -71,34 +78,64 @@ class NewPost extends Component{
             areTypeSpecificFieldsVisible['content']=true;
         }
 
+        //clear all form fields 
+         this.refs.form.reset();
+
         this.setState({
             fieldType:fieldTypeSelected,
+            inputs:inputs,
+            submitDisabled:true,
             areTypeSpecificFieldsVisible:areTypeSpecificFieldsVisible})
     }
 
     updateChange=(inputValue, id)=>{
        const {inputs} = this.state;
+       if(this.state.fieldType==='book'&& id==='by'){
+           id='author'
+       }
+       else if(this.state.fieldType==='book' && id==='by'){
+           id='artist'
+       }
        inputs[id]={value:inputValue,touched:true}
        this.setState({inputs:inputs})
+
+       this.checkDisableSubmit();
     }
 
     checkDisableSubmit(){
-        if(this.state.fieldType==='reflection' && this.state.inputs.content.touched && this.state.submitDisabled){
+        console.log(`cDS ${this.state.fieldType} ${this.state.inputs.content.touched}`)
+        if(this.state.fieldType === 'music' || this.state.fieldType === 'event' || this.state.fieldType === 'podcast') {
+          if( this.state.inputs.title.touched && this.state.inputs.link.touched && this.state.submitDisabled)
+           {this.setState({submitDisabled:false})}
+        }
+        else if(this.state.fieldType==='reflection' && this.state.inputs.content.touched && this.state.submitDisabled){
            console.log(`this if ran `)
-          // this.setState({submitDisabled:false})  
-       }}
+           this.setState({submitDisabled:false})  
+        }
+        else if(this.state.fieldType==='book' && this.state.inputs.title.touched && this.state.inputs.author.touched && this.state.submitDisabled){
+            console.log(`this if ran `)
+            this.setState({submitDisabled:false})  
+        }  
+    }
 
     validateContent(){
         const content = this.state.inputs.content.value.trim();
-        if (content.length>400){
-            return 'Please keep posts under 400 characters.'
+        if (content.length>800){
+            return 'Please keep posts under 800 characters.'
         } 
-       this.checkDisableSubmit();
-       /*else if(this.state.inputs.content.touched && this.state.submitDisabled){
-            console.log(`this if ran `)
-            this.setState({submitDisabled:false})  
-        }*/
     }
+
+    validateLink(){
+        const link = this.state.inputs.link.value;
+        let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+
+        if (!regexp.test(link))
+        {
+            return 'Please enter a valid url'
+        }
+    
+    }
+    
 
 
     handleSubmit=(e)=>{
@@ -125,6 +162,7 @@ class NewPost extends Component{
 
         const { areTypeSpecificFieldsVisible } = this.state;
         const contentError = this.validateContent();
+        const linkError = this.validateLink();
 
         return(
             <div className="new-post">
@@ -143,14 +181,15 @@ class NewPost extends Component{
                     />
 
                     <form className="new-post-form" 
-                        onSubmit={e=>this.handleSubmit(e)}>
+                        onSubmit={e=>this.handleSubmit(e)}
+                        ref="form">
                         <div className="form-intro">
                             <p>Please use the buttons above to select the type of post you want to create and the form below to share some positivity with others.<FontAwesomeIcon className="filter-icon inline-block-icon" icon={faSmile} /></p>
                             <h2>You can currently create a new {this.state.fieldType} post</h2>
                         </div>
                         <div>
                             <div className={`form-field-group field-title ${areTypeSpecificFieldsVisible['title'] ? "" : " hidden"}`}>
-                                <label htmlFor="title">Title</label>
+                                <label htmlFor="title">Title*</label>
                                 <input 
                                     type="text" name="title" id="title" placeholder="A New Earth"
                                     onChange={e => this.updateChange(e.target.value, e.target.id)}/>
@@ -177,13 +216,14 @@ class NewPost extends Component{
                                     />
                             </div>
                             <div className={`form-field-group field-link ${areTypeSpecificFieldsVisible['link'] ? "" : " hidden"} `}>
-                                <label htmlFor="link">Link</label>
+                                <label htmlFor="link">Link*</label>
                                 <input 
                                     type="url" name="link" id="link" placeholder="http://someamazingsite.com"
                                     onChange={e => this.updateChange(e.target.value, e.target.id)}/>
                             </div>
+                            {this.state.inputs.link.touched  && (<ValidationError message={linkError}/>)}
                             <div className={`form-field-group field-content ${areTypeSpecificFieldsVisible['content'] ? "" : " hidden"} `}>
-                                <label htmlFor="content">Content</label>
+                                <label htmlFor="content">Content*</label>
                                 <textarea
                                     type="textarea" name="content"
                                     id="content"
@@ -214,7 +254,7 @@ class NewPost extends Component{
                             <button 
                                 type="submit"
                                 disabled={
-                                    this.state.submitDisabled
+                                    this.state.submitDisabled || this.validateLink()
                                 }
 
                             >
