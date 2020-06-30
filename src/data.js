@@ -67,6 +67,17 @@ export default {
          "content":'I really loved this post.....'
       },
       ],
+      connections:[
+         {"id":1,
+         "user_id":1,
+        "followee_id":1},
+        {"id":2,
+         "user_id":1,
+        "followee_id":3},
+        {"id":3,
+        "user_id":1,
+       "followee_id":4}
+       ],
       posts:[ {
         "post_id":1,
         "user_id":1,

@@ -32,7 +32,7 @@ class FilterButtons extends Component{
                     key={i} 
                     to={link}
                     aria-label={`button-access ${ariaLabel}`}
-                    onClick={e=>this.context.updatePostType(displayChange)}
+                    onClick={e=>{this.context.updatePostType(displayChange);}}
                     className="button-icon-link"
                 >
                 <FontAwesomeIcon className="filter-icon" icon={iconType} />
@@ -54,8 +54,7 @@ class FilterButtons extends Component{
             return(button)
 
         })
-                
-
+            
         return(
             <section className="filter-button-row">
                 {Buttons}

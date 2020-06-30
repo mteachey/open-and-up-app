@@ -57,6 +57,7 @@ const OpenUpContext = React.createContext({
       "type":"book",
       "date_created":"June 9th 2020"            
    }],
+   connectionIds:[],
     currentDisplay:{
       dashboard:{current_user:'default', current_post_type:'all'},
       bookmark_display:{current_user:'default', current_post_type:'all'}
@@ -80,6 +81,8 @@ const OpenUpContext = React.createContext({
       addUser:()=>{},
       deleteUserAccount:()=>{},
       updatePostType:()=>{},
+      updatePostsDisplayed:()=>{},
+      getPostsByUser:()=>{}
 })
 
 export default OpenUpContext;
