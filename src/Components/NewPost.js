@@ -6,6 +6,7 @@ import OpenUpContext from '../OpenUpContext'
 import '../_styles/Form.css';
 import ValidationError from './ValidationError'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import config from '../config.js';
 import { faCalendarAlt, faLightbulb,faPlusSquare, faIdCard, faSmile  } from '@fortawesome/free-regular-svg-icons';
 import { faPodcast, faMusic, faBookOpen,faUser, faHome} from '@fortawesome/free-solid-svg-icons';
 
@@ -93,7 +94,7 @@ class NewPost extends Component{
        if(this.state.fieldType==='book'&& id==='by'){
            id='author'
        }
-       else if(this.state.fieldType==='book' && id==='by'){
+       else if(this.state.fieldType==='music' && id==='by'){
            id='artist'
        }
        inputs[id]={value:inputValue,touched:true}
@@ -103,17 +104,17 @@ class NewPost extends Component{
     }
 
     checkDisableSubmit(){
-        console.log(`cDS ${this.state.fieldType} ${this.state.inputs.content.touched}`)
+        console.log(`cDS ${this.state.fieldType} ${this.state.inputs.title.touched} ${this.state.inputs.author.touched} ${this.state.submitDisabled}`)
         if(this.state.fieldType === 'music' || this.state.fieldType === 'event' || this.state.fieldType === 'podcast') {
           if( this.state.inputs.title.touched && this.state.inputs.link.touched && this.state.submitDisabled)
            {this.setState({submitDisabled:false})}
         }
         else if(this.state.fieldType==='reflection' && this.state.inputs.content.touched && this.state.submitDisabled){
-           console.log(`this if ran `)
+           console.log(`this reflection if ran `)
            this.setState({submitDisabled:false})  
         }
         else if(this.state.fieldType==='book' && this.state.inputs.title.touched && this.state.inputs.author.touched && this.state.submitDisabled){
-            console.log(`this if ran `)
+            console.log(`this book if ran `)
             this.setState({submitDisabled:false})  
         }  
     }
@@ -133,29 +134,66 @@ class NewPost extends Component{
         {
             return 'Please enter a valid url'
         }
-    
     }
     
-
-
     handleSubmit=(e)=>{
         e.preventDefault();
         const {inputs, fieldType}=this.state;
+        console.log(inputs)
 
-        let newPost = {
-        post_id:5,
-        user_id:2,
-        username:'teachey',
-        type:fieldType,
-        date_created:"June 25th 2020",
+        let byValue = ""
+        if(fieldType==='book'){
+            byValue = inputs.author.value
+        }
+        else if(fieldType==='music'){
+            byValue = inputs.artist.value
+        }
+        console.log(byValue)
+        
+      let newPost = {
+        user_id:1,
+        post_type:fieldType,
         title:inputs.title.value,
         link:inputs.link.value,
         content:inputs.content.value,
-        by:inputs.by.value,
-        event_dates:inputs.event_dates.value}
-       
-        this.context.addPost(newPost)
+        by:byValue}
 
+        console.log(newPost)
+
+        let url = `${config.API_DEV_ENDPOINT}/posts`
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(newPost),
+            headers: {
+              'content-type': 'application/json',
+             // 'authorization': `Bearer ${config.API_KEY}`
+            }
+          })
+            .then(res => {
+              if (!res.ok) {
+                // get the error message from the response,
+                return res.json().then(error => {
+                  // then throw it
+                  throw error
+                })
+              }
+              return res.json()
+            })
+            .then(post => {
+            // title.value = ''
+             // url.value = ''
+             // description.value = ''
+              //rating.value = ''
+              console.log(`this is the new post from res`)
+              console.log(post)
+              this.props.history.push('/dashboard')
+              this.context.addPost(newPost)
+              //this.props.onAddBookmark(data)
+            })
+            .catch(error => {
+              this.setState({ error })
+            })
     }
 
     render(){
@@ -254,7 +292,8 @@ class NewPost extends Component{
                             <button 
                                 type="submit"
                                 disabled={
-                                    this.state.submitDisabled || this.validateLink()
+                                 //   this.state.submitDisabled || this.validateLink()
+                                 this.state.submitDisabled
                                 }
 
                             >

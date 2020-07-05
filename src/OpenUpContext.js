@@ -82,7 +82,8 @@ const OpenUpContext = React.createContext({
       deleteUserAccount:()=>{},
       updatePostType:()=>{},
       updatePostsDisplayed:()=>{},
-      getPostsByUser:()=>{}
+      getPostsByUser:()=>{},
+      updateUsernameToDisplay:()=>{}
 })
 
 export default OpenUpContext;

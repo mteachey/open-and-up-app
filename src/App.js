@@ -8,6 +8,7 @@ import NewPost from './Components/NewPost.js';
 import BookmarkPage from './Components/BookmarkPage.js';
 import MyAccount from './Components/MyAccount.js';
 import OpenUpContext from './OpenUpContext.js';
+//import { AddUserNames } from '../Functions/FilterResults'
 import './_styles/App.css';
 import data from './data.js';
 import config from './config.js';
@@ -25,6 +26,7 @@ class App extends Component{
       //of current user
       connectionIds:[],
       currentDisplay:{
+        user_posts_displayed:'your connections',
         dashboard:{current_user:'followees', current_post_type:'all'},
         bookmark_display:{current_user:'followees', current_post_type:'all'}
       }
@@ -51,6 +53,23 @@ class App extends Component{
     
   }
 
+  updateUsernameToDisplay=(name)=>{
+    const {currentDisplay} = this.state;
+    if(name==='allUsers'){
+      currentDisplay.user_posts_displayed="all users"
+    }
+    else if(name==='followees'){
+      currentDisplay.user_posts_displayed="your connections"
+    }
+    else if(name==='user'){
+      currentDisplay.user_posts_displayed="your own"
+    }
+    else{
+    currentDisplay.user_posts_displayed=name}
+    this.setState({
+      currentDisplay:currentDisplay})
+  }
+
   addPost=(newPost)=>{
     this.setState({
       posts:[...this.state.posts, newPost]
@@ -68,6 +87,17 @@ class App extends Component{
     })
   }
 
+  deletePost=(postId)=>{
+    const newPosts = this.state.posts.filter(post=>
+      post.post_id !== postId)
+      console.log(`this is the posts after delete`)
+    console.log(newPosts)
+    this.setState({
+      posts:newPosts
+    })
+
+  }
+
   getPostsByUser=(userToDisplay,currentUserId)=>{
     console.log(`this is the userToDisplay from Getposts ${userToDisplay} ${currentUserId}`)
     let url = `${config.API_DEV_ENDPOINT}/posts`
@@ -79,7 +109,7 @@ class App extends Component{
         url=`${config.API_DEV_ENDPOINT}/posts?userconnection=${currentUserId}`;
         console.log(url)
     }
-    else if(userToDisplay==='all'){
+    else if(userToDisplay==='allUsers'){
       url = `${config.API_DEV_ENDPOINT}/posts`
       console.log(url)
     }
@@ -196,7 +226,9 @@ getConnections=()=>{
       updatePostType:this.updatePostType,
       updatePostsDisplayed:this.updatePostsDisplayed,
       addPost:this.addPost,
-      getPostsByUser:this.getPostsByUser
+      getPostsByUser:this.getPostsByUser,
+      updateUsernameToDisplay:this.updateUsernameToDisplay,
+      deletePost:this.deletePost,
     }
     return (
       <div className="App">

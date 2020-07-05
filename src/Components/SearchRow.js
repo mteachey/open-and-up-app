@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import OpenUpContext from '../OpenUpContext.js';
 import { FindUserId } from '../Functions/FilterResults'
-import config from '../config.js'
 
 class SearchRow extends Component{
     static contextType = OpenUpContext;
@@ -10,7 +9,6 @@ class SearchRow extends Component{
         this.state={
             error:null,
             username:{value:"current", touched:false},
-            usernameToDisplay:"your connections",
         }
     }//end of constructor
 
@@ -18,14 +16,10 @@ class SearchRow extends Component{
         this.setState({username:{value:inputUserName, touched:fieldtouched}})
     }
 
-    updateUsernameToDisplay=(name)=>{
-        this.setState({usernameToDisplay:name})
-    }
-
     handleReset=(e)=>{
         e.preventDefault();
         this.context.getPostsByUser('followees');
-        this.updateUsernameToDisplay('your connections'); 
+        this.context.updateUsernameToDisplay('your connections'); 
         this.setState({error:null})
     }
 
@@ -39,7 +33,7 @@ class SearchRow extends Component{
         if(userid){
            // this.getPosts(userid)
            this.context.getPostsByUser(userid)
-            this.updateUsernameToDisplay(username);
+           this.context.updateUsernameToDisplay(username);
             search_username.value="";
         }
         else if(!userid){
@@ -52,7 +46,7 @@ class SearchRow extends Component{
 
         return(
             <section className="search-row">
-               <p>You are currently viewing posts of {this.state.usernameToDisplay} </p>
+               <p>You are currently viewing posts of {this.context.currentDisplay.user_posts_displayed} </p>
                 <form className="fsearch-form"
                       onSubmit={e=>this.handleSearchSubmit(e)}>  
                     {/*next version

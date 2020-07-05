@@ -74,6 +74,8 @@
 
 .post-icon{
     display: inline-block;
+    background-color: transparent;
+    border-width:0;
 }
 
 .post-icon svg{
