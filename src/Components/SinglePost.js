@@ -2,28 +2,46 @@ import React, { Component } from 'react';
 import '../libraries/fontawesome.js';
 import '../_styles/posts.css';
 import DeletePost from'./DeletePost';
-import AddBookmark from './AddBookmark'
+import AddBookmark from './AddBookmark';
+import UpdateBookmark from './UpdateBookmark'
 import OpenUpContext from '../OpenUpContext.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faBookmark, faPodcast, faMusic, faLink, faBookOpen, faSun} from '@fortawesome/free-solid-svg-icons';
+import { faPodcast, faMusic, faLink, faBookOpen, faSun} from '@fortawesome/free-solid-svg-icons';
 
 class SinglePost extends Component{
     static contextType=OpenUpContext;
+
+    static defaultProps = {
+        history: {
+          goBack: () => { }
+        },
+        match: {
+          params: {}
+        }
+      }
+
     render(){
 
-        const{post_id, post_type, title, by, link, content, start_date, username, user_id} = this.props;
+        const{post_id, post_type, title, by, link, content, start_date, username, user_id, bookmark_content, bookmark_id} = this.props;
         const currentUserId = this.context.currentUserInfo.user_id;
         let listItem ='';
         let button ='';
+        let form ='';
         let currentUser = this.context.currentUserInfo.username
         let bookmarkButton = <AddBookmark
                                 postId={post_id}
                                 currentUserId ={currentUserId}
+                                push={this.props.history.push}
                               />
         if(username===currentUser){
             button = <DeletePost
                         postId={post_id}/>
+        }
+        if(this.props.postsToDisplay==='bookmarks'){
+            form = <UpdateBookmark 
+                        bookmark_content={bookmark_content}
+                        bookmark_id={bookmark_id}/>
         }
         if(post_type==='music'){
             listItem = (<li className="single-post music-post" key={this.props.post_id}>
@@ -41,6 +59,7 @@ class SinglePost extends Component{
                     {bookmarkButton}
                 </div>
                 {button}
+                {form}
             </li>)
         }
         else if(post_type==='reflection'){
@@ -55,6 +74,7 @@ class SinglePost extends Component{
                     {bookmarkButton}
                 </div>
                 {button}
+                {form}
             </li>)
         }
         else if(post_type==='podcast'){
@@ -71,6 +91,7 @@ class SinglePost extends Component{
                     {bookmarkButton}
                 </div>
                 {button}
+                {form}
             </li>)
         }
         else if(post_type==='event'){
@@ -88,6 +109,7 @@ class SinglePost extends Component{
                     {bookmarkButton}
                 </div>
                 {button}
+                {form}
             </li>)
         }
         else if(post_type==='book'){
@@ -104,6 +126,7 @@ class SinglePost extends Component{
                     {bookmarkButton}
                 </div>
                 {button}
+                {form}
                 
             </li>)
         }

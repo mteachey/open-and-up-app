@@ -8,16 +8,14 @@ import { faBookmark} from '@fortawesome/free-solid-svg-icons';
 function addBookmarkRequest(postId, currentUserId, callback){
     let error = null;
     let newBookmark = {
-        user_id:1,
-        post_type:fieldType,
-        title:inputs.title.value,
-        link:inputs.link.value,
-        content:inputs.content.value,
-        by:byValue}
-    let url = `${config.API_DEV_ENDPOINT}/bookmarks/${postId}`;
+        user_id:currentUserId,
+        post_id:postId
+       }
+    let url = `${config.API_DEV_ENDPOINT}/bookmarks`;
     console.log(url)
-  /*  fetch(url,{
-        method: '',
+    fetch(url,{
+        method: 'POST',
+        body:JSON.stringify(newBookmark),
         headers: {
         'content-type': 'application/json',
         // 'Authorization': `Bearer ${config.API_KEY}`
@@ -29,15 +27,17 @@ function addBookmarkRequest(postId, currentUserId, callback){
         }
         return res.json()
     })
-    .then(() => {
+    .then((bookmark) => {
       // call the callback when the request is successful
-      // this is where the App component can remove it from state   
-       callback(postId)
-       console.log(`call worked`)
+      // this is where the App component can remove it from state 
+      console.log(bookmark)  ;
+      callback(bookmark);
+       //go to bookmark
+       console.log(`post call worked`)
     })
     .catch(error => {
        callback(postId, error)
-    })*/
+    })
   console.log(`button clicked`)
 }
 
@@ -49,6 +49,7 @@ export default function AddBookmark(props){
                     onClick={()=>{
                         addBookmarkRequest(props.postId,props.currentUserId,
                             context.addBookmark);
+                            props.push('/');
                     }}>
                    <FontAwesomeIcon icon={faBookmark} />
 

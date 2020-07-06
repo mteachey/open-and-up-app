@@ -21,6 +21,7 @@ class App extends Component{
                         "username":"mteachey",  
                         "fullname":"Melinda Teachey"},
       posts:data.posts,
+      //posts of logged in user's bookmarks with the bookmark_content and bookmark_id
       bookmarks:data.bookmarks,
       users:data.users,
       //of current user
@@ -51,6 +52,20 @@ class App extends Component{
     this.setState({
       currentDisplay:currentDisplay})
     
+  }
+
+  updateBookmark=(bookmarkId, updatedContent)=>{
+    console.log(this.state.bookmarks)
+    console.log(`${bookmarkId} ${updatedContent}`)
+    const { bookmarks } = this.state;
+    const newBookmarks = bookmarks.map(bookmark=>{
+      if(bookmark.bookmark_id===bookmarkId) 
+      { bookmark.bookmark_content=updatedContent
+         return bookmark}
+        else {return bookmark}}
+    )
+    console.log(newBookmarks)
+   // this.setState({bookmarks:newBookmarks})
   }
 
   updateUsernameToDisplay=(name)=>{
@@ -95,7 +110,14 @@ class App extends Component{
     this.setState({
       posts:newPosts
     })
+  }
 
+  addBookmark=(newbookmark)=>{
+    console.log(`addBookmark ran`)
+    console.log(newbookmark)
+    this.setState({
+      bookmarks:[...this.state.bookmarks, newbookmark]
+    })
   }
 
   getPostsByUser=(userToDisplay,currentUserId)=>{
@@ -174,8 +196,8 @@ getUsers=()=>{
   })
 }
 
-getConnections=()=>{
-  fetch(`${config.API_DEV_ENDPOINT}/connections?userid=${this.state.currentUserInfo.user_id}`,{
+getBookmarks=(userid)=>{
+  fetch(`${config.API_DEV_ENDPOINT}/posts?userbookmark=${userid}`,{
     method:'GET',
     header:{
       'content-type':'application/json',
@@ -188,10 +210,10 @@ getConnections=()=>{
     }
     return res.json()
   })
-  .then(connectiondata=>{
-    let currentUserConnectionIds = this.getConnectionsIds(connectiondata);
+  .then(bookmarkposts=>{
+    console.log(bookmarkposts)
     this.setState({
-      connectionIds:currentUserConnectionIds
+      bookmarks:bookmarkposts
     })
   
   })
@@ -200,19 +222,17 @@ getConnections=()=>{
       error:err.message
     });
   })
-
 }
 
   componentDidMount(){
     this.setState({error:null})
     //getting users
     this.getUsers();
-    //get connections
-    this.getConnections();
     //get posts on start of the current user's followees
     this.getPostsByUser('followees',this.state.currentUserInfo.user_id);  
+    //get bookmarks of current user
+    this.getBookmarks(this.state.currentUserInfo.user_id);
   }//end of cDM
-  
 
 
   render () {
@@ -229,6 +249,8 @@ getConnections=()=>{
       getPostsByUser:this.getPostsByUser,
       updateUsernameToDisplay:this.updateUsernameToDisplay,
       deletePost:this.deletePost,
+      addBookmark:this.addBookmark,
+      updateBookmark:this.updateBookmark
     }
     return (
       <div className="App">

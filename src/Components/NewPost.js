@@ -295,7 +295,6 @@ class NewPost extends Component{
                                  //   this.state.submitDisabled || this.validateLink()
                                  this.state.submitDisabled
                                 }
-
                             >
                                 Post</button>
                             <button type="reset">Cancel</button>

@@ -38,7 +38,9 @@ class Dashboard extends Component{
                     />
                     <SearchRow/>
                     <ResultList
-                    
+                      heading = {'Posts'}
+                       postsToDisplay = {'posts'}
+                       posts = {this.context.posts}
                     />
                 </main>
                 <footer>

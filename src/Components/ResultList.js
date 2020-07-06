@@ -8,20 +8,25 @@ class ResultList extends Component{
     static contextType = OpenUpContext;
     render(){
       
-        let posts=this.context.posts;
+        //component passes in either the default posts to display on the page
+        let posts=this.props.posts;
+       // console.log(posts)
+        let filteredResults = posts;
        // console.log(posts)
        
         let currentDisplay= this.context.currentDisplay;
         
-        let filteredResults = FilterPosts(posts, currentDisplay);
+        filteredResults = FilterPosts(posts, currentDisplay)
       //  console.log(filteredResults);
         return(
             <section className="results-list">
+                <h2>{this.props.heading}</h2>
                 <ul className="result-list">
                     {filteredResults.map((post, i)=>
                     <SinglePost
                       key={i}
                       {...post}
+                      postsToDisplay={this.props.postsToDisplay}
                     />)}
                 </ul>
             </section>

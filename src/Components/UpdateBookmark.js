@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import Nav from './Nav.js';
-import FilterButtons from './FilterButtons.js';
-import FilterButtonsForm from './FilterButtonsForm.js';
 import OpenUpContext from '../OpenUpContext'
 import '../_styles/Form.css';
-import ValidationError from './ValidationError'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from '../config.js';
-import { faCalendarAlt, faLightbulb,faPlusSquare, faIdCard, faSmile  } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faBookOpen,faUser, faHome} from '@fortawesome/free-solid-svg-icons';
-
 
 class UpdateBookmark extends Component{
 
@@ -20,57 +12,47 @@ class UpdateBookmark extends Component{
         this.state={
             error:null,
             submitDisabled:true,
-            content:{value:"",touched:false
+            bookmarkContent:{value:"",touched:false}
         }//end of state
     }
 
-    //updates the fields displayed depending on the type of post
-    updateFields=(fieldTypeSelected)=>{
-        //resetting any touched input values to false
-        content.touched=false;
-        //clear values
-        content.value="";
-          };
-        //clear all form fields 
-         this.refs.form.reset();
-
-        this.setState({
-       })
+    componentDidMount(){
+        let {bookmarkContent} = this.state;
+        bookmarkContent.value=this.props.bookmark_content || ''
+        this.setState({bookmarkContent:bookmarkContent})
     }
 
-    updateChange=(inputValue, id)=>{
-       const {content} = this.state;
-       content={value:inputValue,touched:true}
-       this.setState({content:content})
-     //  this.checkDisableSubmit();
+    updateChange=(inputContent)=>{
+       let {bookmarkContent} = this.state;
+       bookmarkContent={value:inputContent,touched:true}
+       this.setState({bookmarkContent:bookmarkContent})
     }
 
-    checkDisableSubmit(){
-          if( this.state.inputs.title.touched && this.state.inputs.link.touched && this.state.submitDisabled)
-           {this.setState({submitDisabled:false})}
+    updateTouched=()=>{
+        let {bookmarkContent} = this.state;
+        bookmarkContent={touched:false}
+        this.setState({bookmarkContent:bookmarkContent})
     }
 
-    validateContent(){
-        const content = this.state.inputs.content.value.trim();
-        if (content.length>800){
-            return 'Please keep posts under 800 characters.'
-        } 
+    handleClickCancel=()=>{
+        //resets the state of the form to the bookmark's current state and not the form's state
+        let {bookmarkContent} = this.state;
+        bookmarkContent.value=this.props.bookmark_content || ''
+        this.setState({bookmarkContent:bookmarkContent})
     }
-    
-    handleSubmit=(e)=>{
-        e.preventDefault();
-        const {content}=this.state;
-        console.log(content)
-        
-     //boomark plus new content
+
+    handleSubmit=(e, bookmark_id)=>{
+      e.preventDefault();
+      const {bookmarkContent}=this.state;
+
       let updatedBookmark = {
+          content:bookmarkContent.value
        }
-     //find bookmark and update
-        console.log(updatedBookmark)
 
-        let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmark_id}`
+      let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmark_id}`
+      console.log(url)
 
-       /* fetch(url, {
+       fetch(url, {
             method: 'PATCH',
             body: JSON.stringify(updatedBookmark),
             headers: {
@@ -86,70 +68,56 @@ class UpdateBookmark extends Component{
                   throw error
                 })
               }
-              return res.json()
+              return 
             })
-            .then(post => {
-            // title.value = ''
-             // url.value = ''
-             // description.value = ''
-              //rating.value = ''
-              console.log(`this is the new post from res`)
-              console.log(post)
-              this.props.history.push('/dashboard')
-              this.context.addPost(newPost)
-              //this.props.onAddBookmark(data)
+            .then(resData => {
+              this.context.updateBookmark(bookmark_id, bookmarkContent.value)
+              this.updateTouched()
+
             })
             .catch(error => {
               this.setState({ error })
-            })*/
+            })
     }
 
     render(){
 
         const { content } = this.state;
-       // const contentError = this.validateContent();
         
         return(
-            <div className="bookmark">
-                <header>
-                    <Nav 
-                    pageType={'interior'}
-                    />
-                </header>
-                <main>
-                    <form className="new-post-form" 
-                        onSubmit={e=>this.handleSubmit(e)}
+                    <form className="update-bookmark-form" 
+                        onSubmit={e=>this.handleSubmit(e, this.props.bookmark_id)}
                         ref="form">
                         <div className="form-intro">
-                            <p>Please use the space below to add or edit your bookmark comments.</p>
+                            <p>Be sure to save any changes you make to this note.</p>
                         </div>
                         <div>
-                           
-                            <div className={`form-field-group field-content ${areTypeSpecificFieldsVisible['content'] ? "" : " hidden"} `}>
-                                <label htmlFor="content">Content*</label>
-                                <textarea
-                                    type="textarea" name="content"
-                                    id="content"
-                                    onChange={e => this.updateChange(e.target.value, e.target.id)}
+                            <div className="form-field-group field-description">
+                                <label htmlFor="bookmark-content">Content*</label>
+                                <textarea 
+                                    type="textarea" name="bookmark-content"
+                                    id="bookmark-content"
+                                    value={this.state.bookmarkContent.value}
+                                    onChange={e => this.updateChange(e.target.value)}
+                                    className={`${this.state.bookmarkContent.touched ? "red-font" : ""} `}
                                     />
                             </div>
-                            {this.state.inputs.content.touched  && (<ValidationError message={contentError}/>)}
+                            {/*this.state.inputs.content.touched  && (<ValidationError message={contentError}/>)*/}
                         </div>
                             
                         <div className="form-buttons button-row">    
                             <button 
                                 type="submit"
                                 disabled={
-                                 //   this.state.submitDisabled || this.validateLink()
-                                 this.state.submitDisabled
-                                }
+                                    (!this.state.bookmarkContent.touched)}
                             >
-                                Post</button>
-                            <button type="reset">Cancel</button>
+                                Save</button>
+                            <button type="reset"
+                                onClick={this.handleClickCancel}
+                            >
+                                Cancel</button>
                         </div>
                     </form>
-                </main>
-            </div>
         )
     }
 }

@@ -16,23 +16,19 @@ const OpenUpContext = React.createContext({
       }
     ],
     bookmarks:[{
-      "bookmark_id":1,
-      "user_id":1,
       "post_id":1,
-      "content":'I really loved this post.....'
-    },
-    {
-      "bookmark_id":2,
       "user_id":1,
-      "post_id":2,
-      "content":'I really loved this post.....'
-    },
-    {
-      "bookmark_id":3,
-      "user_id":1,
-      "post_id":10,
-      "content":'I really loved this post.....'
-    }],
+      "username":"melinda",
+      "title":"",
+      "link":"",
+      "event_dates":"",
+      "by":"",
+      "content":"My inner growth propelled me to by my own 'I'-to be an authentic woman who was contained in herself, who chose and determined and handled her life from her own genuine spiritual center  -Sue Monk Kidd",
+      "type":"reflection",
+      "date_created":"June 7th 2020" ,
+      "bookmark_content":"",
+      "bookmark_id":1         
+   },],
       post:[ {
         "post_id":1,
         "user_id":1,
@@ -83,7 +79,8 @@ const OpenUpContext = React.createContext({
       updatePostType:()=>{},
       updatePostsDisplayed:()=>{},
       getPostsByUser:()=>{},
-      updateUsernameToDisplay:()=>{}
+      updateUsernameToDisplay:()=>{},
+      updateBookmark:()=>{}
 })
 
 export default OpenUpContext;
