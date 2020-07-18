@@ -91,6 +91,7 @@ class NewPost extends Component{
 
     updateChange=(inputValue, id)=>{
        const {inputs} = this.state;
+      // console.log(inputs.post_image.value)
        if(this.state.fieldType==='book'&& id==='by'){
            id='author'
        }
@@ -105,18 +106,23 @@ class NewPost extends Component{
 
     checkDisableSubmit(){
         console.log(`cDS ${this.state.fieldType} ${this.state.inputs.title.touched} ${this.state.inputs.author.touched} ${this.state.submitDisabled}`)
-        if(this.state.fieldType === 'music' || this.state.fieldType === 'event' || this.state.fieldType === 'podcast') {
-          if( this.state.inputs.title.touched && this.state.inputs.link.touched && this.state.submitDisabled)
-           {this.setState({submitDisabled:false})}
+        if(this.state.inputs.post_image.touched){
+            this.setState({submitDisabled:false})
         }
-        else if(this.state.fieldType==='reflection' && this.state.inputs.content.touched && this.state.submitDisabled){
-           console.log(`this reflection if ran `)
-           this.setState({submitDisabled:false})  
-        }
-        else if(this.state.fieldType==='book' && this.state.inputs.title.touched && this.state.inputs.author.touched && this.state.submitDisabled){
-            console.log(`this book if ran `)
+        else{
+            if(this.state.fieldType === 'music' || this.state.fieldType === 'event' || this.state.fieldType === 'podcast') {
+            if( this.state.inputs.title.touched && this.state.inputs.link.touched && this.state.submitDisabled)
+            {this.setState({submitDisabled:false})}
+            }
+            else if(this.state.fieldType==='reflection' && this.state.inputs.content.touched && this.state.submitDisabled){
+            console.log(`this reflection if ran `)
             this.setState({submitDisabled:false})  
-        }  
+            }
+            else if(this.state.fieldType==='book' && this.state.inputs.title.touched && this.state.inputs.author.touched && this.state.submitDisabled){
+                console.log(`this book if ran `)
+                this.setState({submitDisabled:false})  
+            }  
+        }
     }
 
     validateContent(){
@@ -141,6 +147,28 @@ class NewPost extends Component{
         const {inputs, fieldType}=this.state;
         console.log(inputs)
 
+        if(inputs.post_image.value){
+            let formData = new FormData();
+            const fileField = inputs.post_image.value;
+            console.log(fileField)
+            formData.append('image', fileField);
+            console.log(formData)
+
+            let image_url = `${config.API_DEV_ENDPOINT}/upload`;
+            console.log(image_url)
+
+            fetch(image_url, {
+                method: 'POST',
+                body: formData
+                })
+            .then(() => {
+                console.log(`called worked`)
+                //response.json()
+            })
+            .catch(error => console.error('Error:', error))
+            .then(response => console.log('Success:', JSON.stringify(response)))
+        }
+
         let byValue = ""
         if(fieldType==='book'){
             byValue = inputs.author.value
@@ -148,7 +176,6 @@ class NewPost extends Component{
         else if(fieldType==='music'){
             byValue = inputs.artist.value
         }
-        console.log(byValue)
         
       let newPost = {
         user_id:1,
@@ -162,7 +189,7 @@ class NewPost extends Component{
 
         let url = `${config.API_DEV_ENDPOINT}/posts`
 
-        fetch(url, {
+      /*  fetch(url, {
             method: 'POST',
             body: JSON.stringify(newPost),
             headers: {
@@ -193,7 +220,7 @@ class NewPost extends Component{
             })
             .catch(error => {
               this.setState({ error })
-            })
+            })*/
     }
 
     render(){
@@ -280,7 +307,8 @@ class NewPost extends Component{
                             <div className="form-field-group field-img">
                                 <label htmlFor="post-image">Upload Screenshot</label>
                                 <input
-                                    type="image" name="post_image"
+                                    type="file" name="post_image"
+                                    accept=".png,.jpg,.gif.bmp, .jpeg"
                                     id="post_image"
                                     alt="user-uploaded-image"
                                     onChange={e => this.updateChange(e.target.value, e.target.id)}
