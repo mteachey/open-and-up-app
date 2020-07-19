@@ -30,7 +30,7 @@ class NewPost extends Component{
             content:{value:"",touched:false},
             descrip:{value:"",touched:false},
             event_dates:{value:"",touched:false},
-            post_image:{value:"",touched:false}}
+            post_image:{value:"",touched:false, file:""}}
 
         }//end of state
     }
@@ -53,6 +53,7 @@ class NewPost extends Component{
         Object.keys(inputs).forEach(key => {
             inputs[key].value="";
           });
+        inputs.post_image.file="";
 
         if(fieldTypeSelected==='book'){
             areTypeSpecificFieldsVisible['title']=true;
@@ -98,7 +99,14 @@ class NewPost extends Component{
        else if(this.state.fieldType==='music' && id==='by'){
            id='artist'
        }
-       inputs[id]={value:inputValue,touched:true}
+       if(id!=='post_image'){
+          inputs[id]={value:inputValue,touched:true}
+       }
+       else if(id==='post_image'){
+           console.log(inputValue[0])
+           inputs[id]={file:inputValue[0],touched:true}
+       }
+       
        this.setState({inputs:inputs})
 
        this.checkDisableSubmit();
@@ -147,9 +155,9 @@ class NewPost extends Component{
         const {inputs, fieldType}=this.state;
         console.log(inputs)
 
-        if(inputs.post_image.value){
+        if(inputs.post_image.file){
             let formData = new FormData();
-            const fileField = inputs.post_image.value;
+            const fileField = inputs.post_image.file;
             console.log(fileField)
             formData.append('image', fileField);
             console.log(formData)
@@ -159,8 +167,8 @@ class NewPost extends Component{
 
             fetch(image_url, {
                 method: 'POST',
-                body: formData
-                })
+                body: formData,
+                })  
             .then(() => {
                 console.log(`called worked`)
                 //response.json()
@@ -311,7 +319,7 @@ class NewPost extends Component{
                                     accept=".png,.jpg,.gif.bmp, .jpeg"
                                     id="post_image"
                                     alt="user-uploaded-image"
-                                    onChange={e => this.updateChange(e.target.value, e.target.id)}
+                                    onChange={e => this.updateChange(e.target.files, e.target.id)}
                                     />
                             </div>
                         </div>
