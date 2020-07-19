@@ -154,6 +154,26 @@ class NewPost extends Component{
         e.preventDefault();
         const {inputs, fieldType}=this.state;
         console.log(inputs)
+        let image_path = '';
+
+        let byValue = ""
+        if(fieldType==='book'){
+            byValue = inputs.author.value
+        }
+        else if(fieldType==='music'){
+            byValue = inputs.artist.value
+        }
+
+        let newPostWithImage = {
+            user_id:1,
+            post_type:fieldType,
+            title:inputs.title.value,
+            link:inputs.link.value,
+            content:inputs.content.value,
+            by:byValue,
+            image_path:''
+        }
+        let url = `${config.API_DEV_ENDPOINT}/posts`
 
         if(inputs.post_image.file){
             let formData = new FormData();
@@ -169,35 +189,65 @@ class NewPost extends Component{
                 method: 'POST',
                 body: formData,
                 })  
-            .then(() => {
-                console.log(`called worked`)
-                //response.json()
+            .then(res => {
+                return res.json()
             })
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', JSON.stringify(response)))
+            .then(res => {
+                newPostWithImage.image_path = res.data.image;
+                console.log(newPostWithImage)
+               return  fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(newPostWithImage),
+                    headers: {
+                      'content-type': 'application/json',
+                     // 'authorization': `Bearer ${config.API_KEY}`
+                    }
+                  })
+            })
+           .then(resp => {
+                console.log(`this then ran`)
+                      if (!resp.ok) {
+                        // get the error message from the response,
+                        return resp.json().then(error => {
+                          // then throw it
+                          throw error
+                        })
+                      }
+                      return resp.json()
+                    })
+            .then(post => {
+                    // title.value = ''
+                     // url.value = ''
+                     // description.value = ''
+                      //rating.value = ''
+                      console.log(`this is the new post from res`)
+                      console.log(post)
+                    //  this.props.history.push('/dashboard')
+                    //  this.context.addPost(newPost)
+                      //this.props.onAddBookmark(data)
+            })
+            
+            .catch(error => {
+                        this.setState({ error })
+                      })
         }
 
-        let byValue = ""
-        if(fieldType==='book'){
-            byValue = inputs.author.value
-        }
-        else if(fieldType==='music'){
-            byValue = inputs.artist.value
-        }
+        console.log('Success:', image_path)
+       
         
-      let newPost = {
-        user_id:1,
-        post_type:fieldType,
-        title:inputs.title.value,
-        link:inputs.link.value,
-        content:inputs.content.value,
-        by:byValue}
-
+       /* let newPost = {
+            user_id:1,
+            post_type:fieldType,
+            title:inputs.title.value,
+            link:inputs.link.value,
+            content:inputs.content.value,
+            by:byValue,
+            image_path:''
+        }
+      
         console.log(newPost)
 
-        let url = `${config.API_DEV_ENDPOINT}/posts`
-
-      /*  fetch(url, {
+      fetch(url, {
             method: 'POST',
             body: JSON.stringify(newPost),
             headers: {
