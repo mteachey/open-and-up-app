@@ -21,7 +21,7 @@ class NewPost extends Component{
             error:null,
             submitDisabled:true,
             fieldType:'reflection',
-            areTypeSpecificFieldsVisible:{'title':false, 'author':false,'artist':false,'link':false,'content':true, 'descrip':false,'dates':false},
+            areTypeSpecificFieldsVisible:{'title':false, 'author':false,'artist':false,'link':false,'content':true, 'descrip':false},
             inputs:{
             title:{value:"",touched:false},
             author:{value:"",touched:false},
@@ -29,7 +29,6 @@ class NewPost extends Component{
             link:{value:"",touched:false},
             content:{value:"",touched:false},
             descrip:{value:"",touched:false},
-            event_dates:{value:"",touched:false},
             post_image:{value:"",touched:false, file:""}}
 
         }//end of state
@@ -74,7 +73,6 @@ class NewPost extends Component{
             areTypeSpecificFieldsVisible['descrip']=true;
             areTypeSpecificFieldsVisible['link']=true;
             areTypeSpecificFieldsVisible['title']=true;
-            areTypeSpecificFieldsVisible['dates']=true;
         }
         else if(fieldTypeSelected==='reflection'){
             areTypeSpecificFieldsVisible['content']=true;
