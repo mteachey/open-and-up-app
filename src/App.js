@@ -129,24 +129,29 @@ class App extends Component{
   }
 
   getPostsByUser=(userToDisplay,currentUserId)=>{
-    let url = `${config.API_DEV_ENDPOINT}/posts`
+    //let url = `${config.API_DEV_ENDPOINT}/posts`
+    let url = `${config.API_ENDPOINT}/posts`
    
     currentUserId = this.state.currentUserInfo.user_id
     
     if(userToDisplay==='followees'){
         //default
-        url=`${config.API_DEV_ENDPOINT}/posts?userconnection=${currentUserId}`;
+       // url=`${config.API_DEV_ENDPOINT}/posts?userconnection=${currentUserId}`;
+        url=`${config.API_ENDPOINT}/posts?userconnection=${currentUserId}`;
         
     }
     else if(userToDisplay==='allUsers'){
-      url = `${config.API_DEV_ENDPOINT}/posts`
+      //url = `${config.API_DEV_ENDPOINT}/posts`
+      url = `${config.API_ENDPOINT}/posts`
       
     }
     else if(userToDisplay==='user'){
-        url = `${config.API_DEV_ENDPOINT}/posts?userid=${currentUserId}`
+        //url = `${config.API_DEV_ENDPOINT}/posts?userid=${currentUserId}`
+        url = `${config.API_ENDPOINT}/posts?userid=${currentUserId}`
       }
     else {
-      url = `${config.API_DEV_ENDPOINT}/posts?userid=${userToDisplay}`
+      //url = `${config.API_DEV_ENDPOINT}/posts?userid=${userToDisplay}`
+      url = `${config.API_ENDPOINT}/posts?userid=${userToDisplay}`
     }
 
     fetch(url,{
@@ -174,7 +179,10 @@ class App extends Component{
 }
 
 getUsers=()=>{
-  fetch(`${config.API_DEV_ENDPOINT}/users`,{
+  //let url = `${config.API_ENDPOINT}/users`;
+  let url = `${config.API_ENDPOINT}/users`;
+
+  fetch(url,{
     method:'GET',
     header:{
       'content-type':'application/json',
@@ -200,7 +208,10 @@ getUsers=()=>{
 }
 
 getBookmarks=(userid)=>{
-  fetch(`${config.API_DEV_ENDPOINT}/posts?userbookmark=${userid}`,{
+ // let url = `${config.API_DEV_ENDPOINT}/posts?userbookmark=${userid}`;
+  let url = `${config.API_ENDPOINT}/posts?userbookmark=${userid}`;
+
+  fetch(url,{
     method:'GET',
     header:{
       'content-type':'application/json',
@@ -227,7 +238,10 @@ getBookmarks=(userid)=>{
 }
 
 getConnections=()=>{
-  fetch(`${config.API_DEV_ENDPOINT}/connections?userid=${this.state.currentUserInfo.user_id}`,{
+  //let url = `${config.API_DEV_ENDPOINT}/connections?userid=${this.state.currentUserInfo.user_id}`;
+  let url = `${config.API_ENDPOINT}/connections?userid=${this.state.currentUserInfo.user_id}`;
+
+  fetch(url,{
     method:'GET',
     header:{
       'content-type':'application/json',
