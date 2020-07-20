@@ -215,7 +215,7 @@ class NewPost extends Component{
        
          else if(!inputs.post_image.file){
                 let newPost = {
-                    user_id:9,
+                    user_id:2,
                     post_type:fieldType,
                     title:inputs.title.value,
                     link:inputs.link.value,
