@@ -10,14 +10,14 @@ class ResultList extends Component{
       
         //component passes in either the default posts to display on the page
         let posts=this.props.posts;
-       // console.log(posts)
+       
         let filteredResults = posts;
-       // console.log(posts)
+       
        
         let currentDisplay= this.context.currentDisplay;
         
         filteredResults = FilterPosts(posts, currentDisplay)
-        //console.log(currentDisplay);
+        
         return(
             <section className="results-list">
                 <h2>{this.props.heading}</h2>

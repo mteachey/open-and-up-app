@@ -7,13 +7,11 @@ export const FilterPosts = (posts,currentDisplay) =>{
         filteredPosts = filteredPosts.filter(post=>post.post_type===currentDisplay.dashboard.current_post_type)
     }
 
-     //need to sort by date/time  
-     return filteredPosts
+    //need to sort by date/time  
+    return filteredPosts
 }
 
 export const FindUserId = (usernameInput, users)=>{
-    console.log(`fUI ran`)
-    console.log(users)
     let user = users.find(user=>user.username===usernameInput)
     if(user){
       return user.id}

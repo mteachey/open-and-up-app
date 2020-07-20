@@ -29,19 +29,16 @@ function addBookmarkRequest(allPostInfo, currentUserId, callback){
     .then((bookmark) => {
       // call the callback when the request is successful
       // this is where the App component can remove it from state 
-    //  console.log(bookmark);
       
       newBookmarkPost = {...newBookmarkPost, bookmark_id:bookmark.id}
-     // console.log(newBookmarkPost)
+     
       callback(newBookmarkPost);
        //go to bookmark
-       console.log(`post call worked`)
     })
     .catch(error => {
         console.log(`there was an error`)
-      //callback(postId, error)
+        console.log(error)
     })
-  console.log(`button clicked`)
 }
 
 export default function AddBookmark(props){
@@ -52,13 +49,11 @@ export default function AddBookmark(props){
                     onClick={()=>{
                         addBookmarkRequest(props.allPostInfo,props.currentUserId,
                             context.addBookmark);
-                            //props.push('/');
                     }}>
                    <FontAwesomeIcon icon={faBookmark} />
 
                 </button>
             )}
-
 
         </OpenUpContext.Consumer>
     )

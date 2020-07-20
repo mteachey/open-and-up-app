@@ -11,7 +11,6 @@ function addConnectionRequest(userId, currentUserId, callback){
         followee_id:userId
        }
     let url = `${config.API_DEV_ENDPOINT}/connections`;
-    console.log(url)
    fetch(url,{
         method: 'POST',
         body:JSON.stringify(newConnection),
@@ -26,18 +25,14 @@ function addConnectionRequest(userId, currentUserId, callback){
         }
         return res.json()
     })
-    .then((connection) => {
+    .then(() => {
       // call the callback when the request is successful
       // this is where the App component can remove it from state 
-      console.log(connection)  ;
       callback();
-       //go to bookmark
-       console.log(`post call worked`)
     })
     .catch(error => {
        callback(userId, error)
     })
-  console.log(`button clicked`)
 }
 
 export default function AddConnection(props){
@@ -48,13 +43,11 @@ export default function AddConnection(props){
                     onClick={()=>{
                         addConnectionRequest(props.userId,props.currentUserId,
                             context.updateConnections);
-                            //props.push('/');
                     }}>
                    <FontAwesomeIcon icon={faLink} />
 
                 </button>
             )}
-
 
         </OpenUpContext.Consumer>
     )

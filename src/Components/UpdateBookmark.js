@@ -50,7 +50,6 @@ class UpdateBookmark extends Component{
        }
 
       let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmark_id}`
-      console.log(url)
 
        fetch(url, {
             method: 'PATCH',
@@ -82,8 +81,6 @@ class UpdateBookmark extends Component{
 
     render(){
 
-        const { content } = this.state;
-        
         return(
                     <form className="update-bookmark-form" 
                         onSubmit={e=>this.handleSubmit(e, this.props.bookmark_id)}

@@ -11,7 +11,7 @@ import OpenUpContext from '../OpenUpContext.js';
 import { isCurrentlyBookmarked } from '../Functions/GetConnectionId'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faUnlink, faBookOpen, faSun} from '@fortawesome/free-solid-svg-icons';
+import { faPodcast, faMusic, faBookOpen, faSun} from '@fortawesome/free-solid-svg-icons';
 
 class SinglePost extends Component{
     static contextType=OpenUpContext;
@@ -137,7 +137,7 @@ class SinglePost extends Component{
             </li>)
         }
         else if(post_type==='reflection'){
-            listItem = (<li className={`single-post reflection-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} key={this.props.post_id}>
+            listItem = (<li className={`single-post reflection-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
                 <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faLightbulb} /></span>
                     <div className="user-info">
@@ -155,7 +155,7 @@ class SinglePost extends Component{
             </li>)
         }
         else if(post_type==='podcast'){
-            listItem = (<li className={`single-post podcast-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} key={this.props.post_id}>
+            listItem = (<li className={`single-post podcast-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
                 <div className="post-info">
                  <span className="post-span post-icon"><FontAwesomeIcon icon={faPodcast} /></span>
                     <div className="user-info">
@@ -175,7 +175,7 @@ class SinglePost extends Component{
             </li>)
         }
         else if(post_type==='event'){
-            listItem = (<li className={`single-post event-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} key={this.props.post_id}>
+            listItem = (<li className={`single-post event-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} >
                 <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
                     <div className="user-info">
@@ -196,12 +196,12 @@ class SinglePost extends Component{
             </li>)
         }
         else if(post_type==='book'){
-            listItem = (<li className={`single-post book-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} key={this.props.post_id}>
+            listItem = (<li className={`single-post book-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} >
                 <div className="post-info">
                     <span className="post-span post-icon"><FontAwesomeIcon icon={faBookOpen} /></span>
                     <div className="user-info">
-                    <span className="post-span post-username">{username}</span>
-                    {connectionButton}
+                        <span className="post-span post-username">{username}</span>
+                        {connectionButton}
                     </div>
                     <span className="post-span post-title">{title}</span>
                     <span className="post-span post-author">{by}</span>

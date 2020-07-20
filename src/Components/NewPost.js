@@ -92,7 +92,6 @@ class NewPost extends Component{
 
     updateChange=(inputValue, id)=>{
        const {inputs} = this.state;
-      // console.log(inputs.post_image.value)
        if(this.state.fieldType==='book'&& id==='by'){
            id='author'
        }
@@ -103,7 +102,6 @@ class NewPost extends Component{
           inputs[id]={value:inputValue,touched:true}
        }
        else if(id==='post_image'){
-           console.log(inputValue[0])
            inputs[id]={file:inputValue[0],touched:true}
        }
        
@@ -113,7 +111,7 @@ class NewPost extends Component{
     }
 
     checkDisableSubmit(){
-        console.log(`cDS ${this.state.fieldType} ${this.state.inputs.title.touched} ${this.state.inputs.author.touched} ${this.state.submitDisabled}`)
+        
         if(this.state.inputs.post_image.touched){
             this.setState({submitDisabled:false})
         }
@@ -123,11 +121,9 @@ class NewPost extends Component{
             {this.setState({submitDisabled:false})}
             }
             else if(this.state.fieldType==='reflection' && this.state.inputs.content.touched && this.state.submitDisabled){
-            console.log(`this reflection if ran `)
             this.setState({submitDisabled:false})  
             }
             else if(this.state.fieldType==='book' && this.state.inputs.title.touched && this.state.inputs.author.touched && this.state.submitDisabled){
-                console.log(`this book if ran `)
                 this.setState({submitDisabled:false})  
             }  
         }
@@ -153,7 +149,6 @@ class NewPost extends Component{
     handleSubmit=(e)=>{
         e.preventDefault();
         const {inputs, fieldType}=this.state;
-        console.log(inputs)
 
         let byValue = ""
         if(fieldType==='book'){
@@ -177,12 +172,9 @@ class NewPost extends Component{
         if(inputs.post_image.file){
             let formData = new FormData();
             const fileField = inputs.post_image.file;
-            console.log(fileField)
             formData.append('image', fileField);
-            console.log(formData)
 
             let image_url = `${config.API_DEV_ENDPOINT}/upload`;
-            console.log(image_url)
 
             fetch(image_url, {
                 method: 'POST',
@@ -193,7 +185,6 @@ class NewPost extends Component{
             })
             .then(res => {
                 newPostWithImage.image_path = res.data.image;
-                console.log(newPostWithImage)
                return  fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(newPostWithImage),
@@ -204,7 +195,6 @@ class NewPost extends Component{
                   })
             })
            .then(resp => {
-                console.log(`this then ran`)
                       if (!resp.ok) {
                         // get the error message from the response,
                         return resp.json().then(error => {
@@ -215,15 +205,8 @@ class NewPost extends Component{
                       return resp.json()
                     })
             .then(post => {
-                    // title.value = ''
-                     // url.value = ''
-                     // description.value = ''
-                      //rating.value = ''
-                      console.log(`this is the new post from res`)
-                      console.log(post)
                       this.props.history.push('/dashboard')
                       this.context.addPost(newPostWithImage)
-                      //this.props.onAddBookmark(data)
             })
             .catch(error => {
                         this.setState({ error })
@@ -241,8 +224,6 @@ class NewPost extends Component{
                     image_path:''
                 }
             
-                console.log(newPost)
-
             fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(newPost),
@@ -262,15 +243,8 @@ class NewPost extends Component{
                     return res.json()
                     })
                     .then(post => {
-                    // title.value = ''
-                    // url.value = ''
-                    // description.value = ''
-                    //rating.value = ''
-                    console.log(`this is the new post from res`)
-                    console.log(post)
                     this.props.history.push('/dashboard')
                     this.context.addPost(newPost)
-                    //this.props.onAddBookmark(data)
                     })
                     .catch(error => {
                     this.setState({ error })

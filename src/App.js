@@ -8,7 +8,6 @@ import NewPost from './Components/NewPost.js';
 import BookmarkPage from './Components/BookmarkPage.js';
 import MyAccount from './Components/MyAccount.js';
 import OpenUpContext from './OpenUpContext.js';
-//import { AddUserNames } from '../Functions/FilterResults'
 import './_styles/App.css';
 import data from './data.js';
 import config from './config.js';
@@ -56,8 +55,6 @@ class App extends Component{
   }
 
   updateBookmark=(bookmarkId, updatedContent)=>{
-    console.log(this.state.bookmarks)
-    console.log(`${bookmarkId} ${updatedContent}`)
     const { bookmarks } = this.state;
     const newBookmarks = bookmarks.map(bookmark=>{
       if(bookmark.bookmark_id===bookmarkId) 
@@ -65,7 +62,6 @@ class App extends Component{
          return bookmark}
         else {return bookmark}}
     )
-    console.log(newBookmarks)
    // this.setState({bookmarks:newBookmarks})
   }
 
@@ -92,12 +88,6 @@ class App extends Component{
     })
   }
 
-  getConnectionsIds=(connections)=>{
-    let connectionIds = connections.map(connection=>connection.followee_id);
-    console.log(connectionIds)
-    return connectionIds;
-  }
-
   getBookmarkPostIds=(bookmarks)=>{
     let currentUserBookmarkedPostIds = bookmarks.map(bookmark=>bookmark.post_id);
     return currentUserBookmarkedPostIds;
@@ -112,8 +102,6 @@ class App extends Component{
   deletePost=(postId)=>{
     const newPosts = this.state.posts.filter(post=>
       post.post_id !== postId)
-      console.log(`this is the posts after delete`)
-    console.log(newPosts)
     this.setState({
       posts:newPosts
     })
@@ -122,24 +110,18 @@ class App extends Component{
   deleteBookmark=(bookmarkId)=>{
     const newBookmarkPosts = this.state.bookmarks.filter(bookmark=>
       bookmark.bookmark_id !== bookmarkId)
-      console.log(`this is the bookmarks after delete`)
-    console.log(newBookmarkPosts)
     this.setState({
       bookmarks:newBookmarkPosts
     })
-    console.log(`deleteBookmark ran`)
   }
 
   addBookmark=(newBookmarkPost)=>{
-    console.log(`addBookmark ran`)
-    console.log(newBookmarkPost)
     this.setState({
       bookmarks:[...this.state.bookmarks, newBookmarkPost]
     })
   }
 
   updateConnections=()=>{
-    console.log(`addConnection ran`)
     //need to call api again after added connection in order to get all the posts for that user from the db
     let currentUserId = this.state.currentUserInfo.user_id
     this.getConnections();
@@ -147,7 +129,6 @@ class App extends Component{
   }
 
   getPostsByUser=(userToDisplay,currentUserId)=>{
-    console.log(`this is the userToDisplay from Getposts ${userToDisplay} ${currentUserId}`)
     let url = `${config.API_DEV_ENDPOINT}/posts`
    
     currentUserId = this.state.currentUserInfo.user_id
@@ -155,19 +136,17 @@ class App extends Component{
     if(userToDisplay==='followees'){
         //default
         url=`${config.API_DEV_ENDPOINT}/posts?userconnection=${currentUserId}`;
-        console.log(url)
+        
     }
     else if(userToDisplay==='allUsers'){
       url = `${config.API_DEV_ENDPOINT}/posts`
-      console.log(url)
+      
     }
     else if(userToDisplay==='user'){
         url = `${config.API_DEV_ENDPOINT}/posts?userid=${currentUserId}`
-        console.log(url)
       }
     else {
       url = `${config.API_DEV_ENDPOINT}/posts?userid=${userToDisplay}`
-      console.log(url)
     }
 
     fetch(url,{
@@ -184,7 +163,6 @@ class App extends Component{
         return res.json()
     })
     .then(postdata=>{
-      console.log(postdata);
        this.updatePostType('all');
        this.updatePostsDisplayed(postdata)
     })
@@ -210,7 +188,6 @@ getUsers=()=>{
     return res.json()
   })
   .then(userdata=>{
-   console.log(userdata)
     this.setState({
       users:userdata
     })
@@ -237,7 +214,6 @@ getBookmarks=(userid)=>{
     return res.json()
   })
   .then(bookmarkposts=>{
-    console.log(bookmarkposts)
     this.setState({
       bookmarks:bookmarkposts
     })
@@ -265,7 +241,6 @@ getConnections=()=>{
     return res.json()
   })
   .then(connectiondata=>{
-    console.log(connectiondata)
     let currentUserConnectionIds = this.getConnectionsIds(connectiondata);
     this.setState({
       connectionUserIds:currentUserConnectionIds,
@@ -279,7 +254,6 @@ getConnections=()=>{
     });
   })
 }
-
 
   componentDidMount(){
     this.setState({error:null})
