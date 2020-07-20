@@ -3,10 +3,10 @@ import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faBookmark} from '@fortawesome/free-solid-svg-icons';
 
 function deleteBookmarkRequest(bookmarkId, callback){
     let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmarkId}`;
-    console.log(url)
     fetch(url,{
         method: 'DELETE',
         headers: {
@@ -18,23 +18,25 @@ function deleteBookmarkRequest(bookmarkId, callback){
         if(!res.ok){
         throw new Error('Something went wrong, please try again')
         }
-        console.log(`this then runs`)
         return 
     })
     .then(() => {
       // call the callback when the request is successful
       // this is where the App component can remove it from state
        callback(bookmarkId)
-       
     })
     .catch(error => {
         console.log(`there was an error`)
         console.log(error)
     })
-  console.log(`button clicked`)
 }
 
 export default function DeleteBookmark(props){
+    //change the icon depending if on the dashboard or bookmark page
+    let icon=faBookmark
+    if(props.displayType==='bookmarks'){
+        icon=faTrashAlt
+    }
     return(
         <OpenUpContext.Consumer>
             {(context)=>(
@@ -43,12 +45,10 @@ export default function DeleteBookmark(props){
                         deleteBookmarkRequest(props.bookmarkId,
                             context.deleteBookmark);
                     }}>
-                   <FontAwesomeIcon icon={faTrashAlt} />
+                   <FontAwesomeIcon icon={icon} />
 
                 </button>
             )}
-
-
         </OpenUpContext.Consumer>
     )
 }

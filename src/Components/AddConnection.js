@@ -44,7 +44,7 @@ export default function AddConnection(props){
     return(
         <OpenUpContext.Consumer>
             {(context)=>(
-                <button className="bookmark-button post-icon"
+                <button className="connection-button post-icon"
                     onClick={()=>{
                         addConnectionRequest(props.userId,props.currentUserId,
                             context.updateConnections);

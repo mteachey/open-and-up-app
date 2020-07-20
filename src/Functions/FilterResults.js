@@ -1,5 +1,4 @@
 export const FilterPosts = (posts,currentDisplay) =>{
-//this is just for dashboard not bookmark page yet
    // let currentUserInfo = users.find(user=>user.user_id===currentUserId);
     
     let filteredPosts = posts;

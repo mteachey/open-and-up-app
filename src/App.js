@@ -98,6 +98,11 @@ class App extends Component{
     return connectionIds;
   }
 
+  getBookmarkPostIds=(bookmarks)=>{
+    let currentUserBookmarkedPostIds = bookmarks.map(bookmark=>bookmark.post_id);
+    return currentUserBookmarkedPostIds;
+  }
+
   updatePostsDisplayed=(posts)=>{
     this.setState({
       posts:posts
@@ -273,8 +278,8 @@ getConnections=()=>{
       error:err.message
     });
   })
-
 }
+
 
   componentDidMount(){
     this.setState({error:null})
@@ -284,7 +289,7 @@ getConnections=()=>{
     this.getConnections();
     //get posts on start of the current user's followees
     this.getPostsByUser('followees',this.state.currentUserInfo.user_id);  
-    //get bookmarks of current user
+    //get bookmarked posts of current user
     this.getBookmarks(this.state.currentUserInfo.user_id);
   }//end of cDM
 
