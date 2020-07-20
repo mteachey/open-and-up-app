@@ -49,7 +49,8 @@ class UpdateBookmark extends Component{
           content:bookmarkContent.value
        }
 
-      let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmark_id}`
+      //let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmark_id}`
+      let url = `${config.API_ENDPOINT}/bookmarks/${bookmark_id}`
 
        fetch(url, {
             method: 'PATCH',

@@ -165,14 +165,16 @@ class NewPost extends Component{
             by:byValue,
             image_path:''
         }
-        let url = `${config.API_DEV_ENDPOINT}/posts`
+        //let url = `${config.API_DEV_ENDPOINT}/posts`
+        let url = `${config.API_ENDPOINT}/posts`
 
         if(inputs.post_image.file){
             let formData = new FormData();
             const fileField = inputs.post_image.file;
             formData.append('image', fileField);
 
-            let image_url = `${config.API_DEV_ENDPOINT}/upload`;
+            //let image_url = `${config.API_DEV_ENDPOINT}/upload`;
+            let image_url = `${config.API_ENDPOINT}/upload`;
 
             fetch(image_url, {
                 method: 'POST',
@@ -323,14 +325,6 @@ class NewPost extends Component{
                                     />
                             </div>
                             {this.state.inputs.content.touched  && (<ValidationError message={contentError}/>)}
-                            <div className={`form-field-group field-date ${areTypeSpecificFieldsVisible['dates'] ? "" : " hidden"} `}>
-                                <label htmlFor="event_date">Event Date</label>
-                                <input
-                                    type="date" name="event_date"
-                                    id="event_date"
-                                    onChange={e => this.updateChange(e.target.value, e.target.id)}
-                                    />
-                            </div>
                             <div className="form-field-group field-img">
                                 <label htmlFor="post-image">Upload Screenshot</label>
                                 <input

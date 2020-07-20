@@ -7,7 +7,8 @@ import { faUnlink } from '@fortawesome/free-solid-svg-icons';
 
 function deleteConnectionRequest(userId,connections, callback){
     let connectionId = GetConnectionId(userId, connections);
-    let url = `${config.API_DEV_ENDPOINT}/connections/${connectionId}`;
+   // let url = `${config.API_DEV_ENDPOINT}/connections/${connectionId}`;
+    let url = `${config.API_ENDPOINT}/connections/${connectionId}`;
     fetch(url,{
         method: 'DELETE',
         headers: {

@@ -3,8 +3,8 @@ import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
 
 function deletePostRequest(postId, callback){
-    let url = `${config.API_DEV_ENDPOINT}/posts/${postId}`;
-    console.log(url)
+   // let url = `${config.API_DEV_ENDPOINT}/posts/${postId}`;
+    let url = `${config.API_ENDPOINT}/posts/${postId}`;
     fetch(url,{
         method: 'DELETE',
         headers: {

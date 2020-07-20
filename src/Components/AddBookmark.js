@@ -11,7 +11,8 @@ function addBookmarkRequest(allPostInfo, currentUserId, callback){
         post_id:allPostInfo.post_id
     }
     let newBookmarkPost = allPostInfo
-    let url = `${config.API_DEV_ENDPOINT}/bookmarks`;
+   // let url = `${config.API_DEV_ENDPOINT}/bookmarks`;
+    let url = `${config.API_ENDPOINT}/bookmarks`;
     fetch(url,{
         method: 'POST',
         body:JSON.stringify(newBookmark),

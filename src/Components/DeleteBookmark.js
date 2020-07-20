@@ -6,7 +6,8 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark} from '@fortawesome/free-solid-svg-icons';
 
 function deleteBookmarkRequest(bookmarkId, callback){
-    let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmarkId}`;
+   // let url = `${config.API_DEV_ENDPOINT}/bookmarks/${bookmarkId}`;
+    let url = `${config.API_ENDPOINT}/bookmarks/${bookmarkId}`;
     fetch(url,{
         method: 'DELETE',
         headers: {
