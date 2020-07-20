@@ -17,7 +17,7 @@ class ResultList extends Component{
         let currentDisplay= this.context.currentDisplay;
         
         filteredResults = FilterPosts(posts, currentDisplay)
-      //  console.log(filteredResults);
+        //console.log(currentDisplay);
         return(
             <section className="results-list">
                 <h2>{this.props.heading}</h2>
@@ -26,6 +26,7 @@ class ResultList extends Component{
                     <SinglePost
                       key={i}
                       {...post}
+                      postInfo = {post}
                       postsToDisplay={this.props.postsToDisplay}
                     />)}
                 </ul>

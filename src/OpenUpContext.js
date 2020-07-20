@@ -39,7 +39,8 @@ const OpenUpContext = React.createContext({
         "by":"",
         "content":"My inner growth propelled me to by my own 'I'-to be an authentic woman who was contained in herself, who chose and determined and handled her life from her own genuine spiritual center  -Sue Monk Kidd",
         "type":"reflection",
-        "date_created":"June 7th 2020"           
+        "date_created":"June 7th 2020",
+        "image_path":''         
      },
      {
       "post_id":6,
@@ -51,10 +52,16 @@ const OpenUpContext = React.createContext({
       "by":"Glennon Doyle",
       "content":"Soulful and uproarious, forceful and tender, Untamed is both an intimate memoir and a galvanizing wake-up call. It is the story of how one woman learned that a responsible mother is not one who slowly dies for her children, but one who shows them how to fully live.",
       "type":"book",
-      "date_created":"June 9th 2020"            
+      "date_created":"June 9th 2020",
+      "image_path":''          
    }],
-   connectionIds:[],
-    currentDisplay:{
+   connectionUserIds:[],
+   connections:[{
+     "id":1,
+     "user_id":1,
+     "followee_id":2
+   }],
+   currentDisplay:{
       dashboard:{current_user:'default', current_post_type:'all'},
       bookmark_display:{current_user:'default', current_post_type:'all'}
     },
@@ -67,7 +74,7 @@ const OpenUpContext = React.createContext({
   },
       addPost:()=>{},
       addUserAccount:()=>{},
-      addFollower:()=>{},
+      updateConnections:()=>{},
       addBookmark:()=>{},
       deletePost:()=>{},
       deleteFollower:()=>{},

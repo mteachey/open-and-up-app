@@ -23,9 +23,10 @@ class App extends Component{
       posts:data.posts,
       //posts of logged in user's bookmarks with the bookmark_content and bookmark_id
       bookmarks:data.bookmarks,
+      connections:data.connections,
       users:data.users,
       //of current user
-      connectionIds:[],
+      connectionUserIds:[],
       currentDisplay:{
         user_posts_displayed:'your connections',
         dashboard:{current_user:'followees', current_post_type:'all'},
@@ -93,6 +94,7 @@ class App extends Component{
 
   getConnectionsIds=(connections)=>{
     let connectionIds = connections.map(connection=>connection.followee_id);
+    console.log(connectionIds)
     return connectionIds;
   }
 
@@ -112,12 +114,31 @@ class App extends Component{
     })
   }
 
-  addBookmark=(newbookmark)=>{
-    console.log(`addBookmark ran`)
-    console.log(newbookmark)
+  deleteBookmark=(bookmarkId)=>{
+    const newBookmarkPosts = this.state.bookmarks.filter(bookmark=>
+      bookmark.bookmark_id !== bookmarkId)
+      console.log(`this is the bookmarks after delete`)
+    console.log(newBookmarkPosts)
     this.setState({
-      bookmarks:[...this.state.bookmarks, newbookmark]
+      bookmarks:newBookmarkPosts
     })
+    console.log(`deleteBookmark ran`)
+  }
+
+  addBookmark=(newBookmarkPost)=>{
+    console.log(`addBookmark ran`)
+    console.log(newBookmarkPost)
+    this.setState({
+      bookmarks:[...this.state.bookmarks, newBookmarkPost]
+    })
+  }
+
+  updateConnections=()=>{
+    console.log(`addConnection ran`)
+    //need to call api again after added connection in order to get all the posts for that user from the db
+    let currentUserId = this.state.currentUserInfo.user_id
+    this.getConnections();
+    this.getPostsByUser('followees',currentUserId);
   }
 
   getPostsByUser=(userToDisplay,currentUserId)=>{
@@ -224,10 +245,43 @@ getBookmarks=(userid)=>{
   })
 }
 
+getConnections=()=>{
+  fetch(`${config.API_DEV_ENDPOINT}/connections?userid=${this.state.currentUserInfo.user_id}`,{
+    method:'GET',
+    header:{
+      'content-type':'application/json',
+     // 'Authorization':`Bearer ${config.API_KEY}`
+    },
+  })
+  .then(res=>{
+    if(!res.ok){
+      throw new Error('Something went wrong, please try again')
+    }
+    return res.json()
+  })
+  .then(connectiondata=>{
+    console.log(connectiondata)
+    let currentUserConnectionIds = this.getConnectionsIds(connectiondata);
+    this.setState({
+      connectionUserIds:currentUserConnectionIds,
+      connections:connectiondata
+    })
+  
+  })
+  .catch(err=>{
+    this.setState({
+      error:err.message
+    });
+  })
+
+}
+
   componentDidMount(){
     this.setState({error:null})
     //getting users
     this.getUsers();
+    //get connection Ids
+    this.getConnections();
     //get posts on start of the current user's followees
     this.getPostsByUser('followees',this.state.currentUserInfo.user_id);  
     //get bookmarks of current user
@@ -240,7 +294,8 @@ getBookmarks=(userid)=>{
       currentUserInfo:this.state.currentUserInfo,
       posts:this.state.posts,
       bookmarks:this.state.bookmarks,
-      connectionIds:this.state.connectionIds,
+      connections:this.state.connections,
+      connectionUserIds:this.state.connectionUserIds,
       users:this.state.users,
       currentDisplay:this.state.currentDisplay,
       updatePostType:this.updatePostType,
@@ -250,7 +305,9 @@ getBookmarks=(userid)=>{
       updateUsernameToDisplay:this.updateUsernameToDisplay,
       deletePost:this.deletePost,
       addBookmark:this.addBookmark,
-      updateBookmark:this.updateBookmark
+      updateBookmark:this.updateBookmark,
+      deleteBookmark:this.deleteBookmark,
+      updateConnections:this.updateConnections,
     }
     return (
       <div className="App">

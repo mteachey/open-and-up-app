@@ -5,7 +5,7 @@ import FilterButtons from './FilterButtons.js';
 import SearchRow from './SearchRow';
 import OpenUpContext from '../OpenUpContext.js';
 import { faCalendarAlt, faLightbulb, faPlusSquare, faIdCard  } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faBookOpen, faHome, faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark,faPodcast, faMusic, faBookOpen, faHome, faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -49,7 +49,7 @@ class Dashboard extends Component{
                         {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees'},
                         {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user'},
                         {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all'},
-                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all'}
+                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all'},{aria_label:'view bookmarks',icon_type:faBookmark, link:'/bookmarks', display_change:'all'}
                         ]}
                     
                     />

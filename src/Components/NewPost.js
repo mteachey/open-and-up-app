@@ -154,7 +154,6 @@ class NewPost extends Component{
         e.preventDefault();
         const {inputs, fieldType}=this.state;
         console.log(inputs)
-        let image_path = '';
 
         let byValue = ""
         if(fieldType==='book'){
@@ -222,63 +221,61 @@ class NewPost extends Component{
                       //rating.value = ''
                       console.log(`this is the new post from res`)
                       console.log(post)
-                    //  this.props.history.push('/dashboard')
-                    //  this.context.addPost(newPost)
+                      this.props.history.push('/dashboard')
+                      this.context.addPost(newPostWithImage)
                       //this.props.onAddBookmark(data)
             })
-            
             .catch(error => {
                         this.setState({ error })
-                      })
-        }
-
-        console.log('Success:', image_path)
+            })
+        }//end of if statement
        
-        
-       /* let newPost = {
-            user_id:1,
-            post_type:fieldType,
-            title:inputs.title.value,
-            link:inputs.link.value,
-            content:inputs.content.value,
-            by:byValue,
-            image_path:''
-        }
-      
-        console.log(newPost)
+         else if(!inputs.post_image.file){
+                let newPost = {
+                    user_id:9,
+                    post_type:fieldType,
+                    title:inputs.title.value,
+                    link:inputs.link.value,
+                    content:inputs.content.value,
+                    by:byValue,
+                    image_path:''
+                }
+            
+                console.log(newPost)
 
-      fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(newPost),
-            headers: {
-              'content-type': 'application/json',
-             // 'authorization': `Bearer ${config.API_KEY}`
-            }
-          })
-            .then(res => {
-              if (!res.ok) {
-                // get the error message from the response,
-                return res.json().then(error => {
-                  // then throw it
-                  throw error
+            fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(newPost),
+                    headers: {
+                    'content-type': 'application/json',
+                    // 'authorization': `Bearer ${config.API_KEY}`
+                    }
                 })
-              }
-              return res.json()
-            })
-            .then(post => {
-            // title.value = ''
-             // url.value = ''
-             // description.value = ''
-              //rating.value = ''
-              console.log(`this is the new post from res`)
-              console.log(post)
-              this.props.history.push('/dashboard')
-              this.context.addPost(newPost)
-              //this.props.onAddBookmark(data)
-            })
-            .catch(error => {
-              this.setState({ error })
-            })*/
+                    .then(res => {
+                    if (!res.ok) {
+                        // get the error message from the response,
+                        return res.json().then(error => {
+                        // then throw it
+                        throw error
+                        })
+                    }
+                    return res.json()
+                    })
+                    .then(post => {
+                    // title.value = ''
+                    // url.value = ''
+                    // description.value = ''
+                    //rating.value = ''
+                    console.log(`this is the new post from res`)
+                    console.log(post)
+                    this.props.history.push('/dashboard')
+                    this.context.addPost(newPost)
+                    //this.props.onAddBookmark(data)
+                    })
+                    .catch(error => {
+                    this.setState({ error })
+                    })
+        }//end of else if
     }
 
     render(){

@@ -19,6 +19,7 @@ class Nav extends Component{
                     <li><NavLink to={`/new-post`}>New Post</NavLink></li>
                     <li><NavLink to={`/my-account`}>My Account</NavLink></li>
                     <li><NavLink to={`/`}>Start Screen</NavLink></li>
+                    <li><NavLink to={`/bookmarks`}>My Bookmarks</NavLink></li>
                 </ul>
             </nav>)}
 

@@ -68,8 +68,10 @@
     padding-bottom:20px;
 }
 
-.post-username {
-    text-align: right;
+.post-username, .connect-icon {
+   width:100px;
+   text-align:right;
+   padding:0px 10px;
 }
 
 .post-icon{
@@ -93,4 +95,17 @@
 
 .reflection-post svg path, .podcast-post svg path{
     fill:#fff;
+}
+
+.post-image img {
+    max-width: 300px;
+    margin: auto;
+    display: block;
+}
+
+.user-info {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding-bottom: 35px;
 }
