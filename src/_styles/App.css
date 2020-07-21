@@ -30,8 +30,10 @@ h1 a{
 }
 
 nav{
-  background-color:#d97700;
+  background-color:#f28705;
   color:#391832;   
+  display: flex;
+  justify-content: space-between;
 }
 
 footer{
@@ -82,15 +84,19 @@ footer{
 
 main{
   padding:0px;
-  background-color: #e6ca7c;
+  background-color: #480000;
+  margin-top:162px;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  height:165px;
 }
 
 section{
   padding:10px;
-}
-
-section:nth-child(even){
-  background-color:#C2DD8A;
 }
 
 .individual-post-container{
@@ -118,6 +124,10 @@ h2{
 
 h3{
   font-size:1.25em;
+}
+
+p{
+  color:#fff;
 }
 
 form {
@@ -175,6 +185,10 @@ button{
   height:40px;
 }
 
+.orange-background{
+  background-color: #f28705;
+}
+
 .button-w-text {
   line-height: 40px;
   font-size: 1.5em;
@@ -220,6 +234,14 @@ ul{
 svg.filter-icon path {
   fill:#152604;
   fill:#480000;
+}
+
+.icon-button-container {
+  display: inline-block;
+}
+
+.icon-button-container svg {
+  font-size: 28px;
 }
 
 svg.inline-block-icon {

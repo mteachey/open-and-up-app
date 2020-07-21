@@ -3,7 +3,7 @@ import OpenUpContext from '../OpenUpContext.js';
 import { GetConnectionId } from '../Functions/GetConnectionId'
 import config from '../config.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUnlink } from '@fortawesome/free-solid-svg-icons';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 function deleteConnectionRequest(userId,connections, callback){
    
@@ -43,7 +43,7 @@ export default function DeleteConnection(props){
                     onClick={()=>{
                         deleteConnectionRequest(props.userId,context.connections,context.updateConnections);
                     }}>
-                   <FontAwesomeIcon icon={faUnlink} />
+                   <FontAwesomeIcon icon={faUserFriends} />
 
                 </button>
             )}

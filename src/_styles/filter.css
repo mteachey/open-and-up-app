@@ -1,10 +1,9 @@
 .filter-button-row{
-    background-color:#480000;
-    
+    background-color:#f2b705;
 }
 
 .filter-button-row h2{
-    color:#fff;
+    color:#000;
     font-size:16px;
     margin-block-start: 0.2em;
     margin-block-end: 0em;
@@ -15,34 +14,43 @@
     justify-content: space-around;
 }
 
-.filter-button-row svg{
-    font-size:28px;
-}
-
 svg.filter-icon {
     margin: 5px auto;
     display: block;
 }
+
 
 section.search-row{
     background-color:#391832!important;
     color:#fff;
 }
 
+/*have the same height so will align vertically*/
+.search-form .button-row, .search-input{
+    height:55px;
+}
+
 .search-row button, .search-row button[type="submit"]{
-    background-color:#e6ca7c;
+    background-color:#f2b705;
     color:#391832;
+    padding: 5px 8px;
+    height: 28px;
+    margin:0;
 }
 
 .filter-button-row .button-icon-link {
     background-color:transparent;
-    border:1px solid #fff;
+    border:1px solid #000;
 }
 
 .filter-button-row svg.filter-icon path {
-    fill: #fff;
+    fill: #000;
 }
 
 .filter-button-row .button-w-text{
-    color:#fff;
+    color:#000;
+}
+
+.orange-background{
+    background-color: #f28705;
 }

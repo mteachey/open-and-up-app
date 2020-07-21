@@ -25,7 +25,7 @@ class SearchRow extends Component{
 
     handleSearchSubmit=(e)=>{
         e.preventDefault();
-        console.log(`hSubmit is firing`)
+        
         const username = this.state.username.value;
         let {search_username} = e.target;
         let userid = FindUserId(username, this.context.users);
@@ -46,8 +46,7 @@ class SearchRow extends Component{
 
         return(
             <section className="search-row">
-               <p>You are currently viewing posts of {this.context.currentDisplay.user_posts_displayed} </p>
-                <form className="fsearch-form"
+                <form className="search-form"
                       onSubmit={e=>this.handleSearchSubmit(e)}>  
                     {/*next version
                         <div>    
@@ -55,13 +54,13 @@ class SearchRow extends Component{
                         <input id="search_tags" name="search_tags" type="text"
                         />
                     </div> */}
-                    <div>
-                         <label htmlFor="search_username">Search by username</label>
+                    <div className="search-input">
                          <input id="search_username" 
                                 name="search_username" 
                                 type="text"
                                 onChange={e => this.updateChange(e.target.value, true)}
                          />
+                         <label htmlFor="search_username">Search by username</label>
                     </div>
                     <div className="button-row">
                         <button className="button" type="submit">Search</button>
@@ -71,7 +70,6 @@ class SearchRow extends Component{
                     </div>
                 <div className="error-message">{this.state.error}</div>
                 </form>
-                
             </section>
         )
 

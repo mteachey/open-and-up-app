@@ -6,6 +6,13 @@
     text-align: left;
     padding:10px;
     border-bottom: 1px solid #1F4008;
+    background-color:#fff;
+}
+
+.top-post-icons {
+    display: flex;
+    justify-content: space-between;
+    width:100%;
 }
 
 .post-span {
@@ -29,21 +36,21 @@
 }
 
 .book-post{
-    background-color:#391832;
+    border-color:#1f4008;
 }
 
 .music-post{
-    background-color:#c2dd8a;
+    border-color:#bf4904;
 }
 .reflection-post{
-    background-color:#d97700;
+    border-color:#480000;
 }
 
 .event-post{
-    background-color:#c2dd8a;
+    border-color:#f28705;
 }
 .podcast-post{
-    background-color:#391832;
+    border-color:#391832;
 }
 
 .post-info a{
@@ -52,7 +59,7 @@
 }
 
 .reflection-post a, .reflection-post, .podcast-post, .podcast-post a, .book-post, .book-post a{
-    color:#fff;
+   /* color:#fff;*/
 }
 
 .post-icons-buttons {
@@ -65,7 +72,6 @@
 }
 
 .post-icon, .post-username {
-    width: 50%;
     padding-bottom:20px;
 }
 
@@ -73,6 +79,14 @@
    width:100px;
    text-align:right;
    padding:0px 10px;
+}
+
+.post-username{
+    padding-right:3px;
+}
+
+.connect-icon{
+    padding:0px;
 }
 
 .post-icon{
@@ -85,17 +99,42 @@
     font-size:28px;
 }
 
+.connection-button svg{
+    font-size:20px;
+}
+
 .post-icons-buttons svg{
     margin: 15px auto;
     display: block;
+}
+
+.bookmark-button svg, .bookmark-button{
+    margin:0;
+    text-align: right;
 }
 
 .post-icon svg path{
     fill:#152604;
 }
 
+.music-post .post-icon svg path{
+    fill:#bf4904;
+}
+.event-post .post-icon svg path{
+    fill:#f28705;
+}
+.reflection-post .post-icon svg path{
+    fill:#480000;
+}
+.podcast-post .post-icon svg path{
+    fill:#391832;
+}
+.book-post .post-icon svg path{
+    fill:#1f4008;
+}
+
 .reflection-post svg path, .podcast-post svg path, .book-post svg path{
-    fill:#fff;
+   /* fill:#fff;*/
 }
 
 .post-image img {
@@ -105,14 +144,14 @@
 }
 
 .user-info {
-    
-    width: 100%;
+    width: 150px;
     text-align:right;
     padding-bottom: 35px;
 }
+
 .connection-button{
-    width:50px;
-    padding-top:0;
+    width:25px;
+    padding:0;
     margin-top:0;
 }
 

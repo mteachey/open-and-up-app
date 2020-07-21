@@ -13,7 +13,7 @@
 label {
     margin-right: 5px;
     margin-bottom: 10px;
-    width: 100px;
+    width: 200px;
     display: inline-block;
 }
 
@@ -33,6 +33,18 @@ select {
 input, textarea{
     width: 210px;
     margin-bottom:10px;
+}
+
+form.search-form {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-form input{
+    width:200px;
+    margin-bottom:2px;
 }
 
 textarea{

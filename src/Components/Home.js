@@ -3,8 +3,6 @@ import Nav from './Nav.js';
 import About from './About.js'
 import '../_styles/home.css'
 
-
-
 class Home extends Component{
     state = {
         isBoxVisible:false,

@@ -3,7 +3,7 @@ import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faLink} from '@fortawesome/free-solid-svg-icons';
+import { faUser} from '@fortawesome/free-solid-svg-icons';
 
 function addConnectionRequest(userId, currentUserId, callback){
     let newConnection = {
@@ -45,7 +45,7 @@ export default function AddConnection(props){
                         addConnectionRequest(props.userId,props.currentUserId,
                             context.updateConnections);
                     }}>
-                   <FontAwesomeIcon icon={faLink} />
+                   <FontAwesomeIcon icon={faUser} />
 
                 </button>
             )}

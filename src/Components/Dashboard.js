@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import Nav from './Nav.js';
 import ResultList from './ResultList.js';
 import FilterButtons from './FilterButtons.js';
+
 import SearchRow from './SearchRow';
 import OpenUpContext from '../OpenUpContext.js';
 import { faCalendarAlt, faLightbulb, faPlusSquare, faIdCard  } from '@fortawesome/free-regular-svg-icons';
-import { faBookmark,faPodcast, faMusic, faBookOpen, faHome, faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faBookmark,faPodcast, faMusic, faBookOpen, faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
 
 class Dashboard extends Component{
@@ -21,9 +20,7 @@ class Dashboard extends Component{
                 <Nav 
                    pageType={'interior'}
                 />
-                </header>
-                <main>
-                    <FilterButtons
+                 <FilterButtons
                         buttonInfo={[{ariaLabel:'all types of posts',icon_type:'text-all', display_change:'all', link:'/dashboard'},
                         {aria_label:'reflection posts',icon_type:faLightbulb, link:'/dashboard',
                         display_change:'reflection'},
@@ -37,7 +34,10 @@ class Dashboard extends Component{
                         display_change:'event'}]}
                         heading={'Filter Posts By Type'}
                     />
-                    <SearchRow/>
+                </header>
+                <main>
+                   
+                    
                     <ResultList
                       heading = {'Posts'}
                        postsToDisplay = {'posts'}
@@ -54,6 +54,7 @@ class Dashboard extends Component{
                         ]}
                     
                     />
+                    <SearchRow/>
                 </footer>
             </div>
         )

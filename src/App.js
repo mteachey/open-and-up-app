@@ -28,6 +28,7 @@ class App extends Component{
       connectionUserIds:[],
       currentDisplay:{
         user_posts_displayed:'your connections',
+        type_posts_displayed:'all',
         dashboard:{current_user:'followees', current_post_type:'all'},
         bookmark_display:{current_user:'followees', current_post_type:'all'}
       }
@@ -42,12 +43,15 @@ class App extends Component{
      //change the posts displayed depending on type of user selected
       if(displayChange ==='allUsers' || displayChange ==='byUser' || displayChange === 'followees' || displayChange ==='user'){
         currentDisplay.dashboard.current_user=displayChange;
+        
         this.getPostsByUser(displayChange,currentUserId)
       }
       //changes the display for type of post
       if(displayChange ==='all' || displayChange ==='book' || displayChange === 'music' || displayChange ===
       'podcast' || displayChange === 'event' || displayChange === 'reflection'){
-        currentDisplay.dashboard.current_post_type=displayChange;}
+
+        currentDisplay.dashboard.current_post_type=displayChange;
+      }
 
     this.setState({
       currentDisplay:currentDisplay})
@@ -66,6 +70,7 @@ class App extends Component{
 
   updateUsernameToDisplay=(name)=>{
     const {currentDisplay} = this.state;
+    
     if(name==='allUsers'){
       currentDisplay.user_posts_displayed="all users"
     }
@@ -75,10 +80,9 @@ class App extends Component{
     else if(name==='user'){
       currentDisplay.user_posts_displayed="your own"
     }
-    else{
-    currentDisplay.user_posts_displayed=name}
     this.setState({
       currentDisplay:currentDisplay})
+
   }
 
   addPost=(newPost)=>{

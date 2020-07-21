@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../_styles/filter.css';
-import { Link } from 'react-router-dom';
+import IconButton from './IconButton.js'
 import OpenUpContext from '../OpenUpContext.js'
 
 class FilterButtons extends Component{
@@ -27,30 +26,15 @@ class FilterButtons extends Component{
             
             let button = (<button></button>)
 
-            if(iconType==='text-all'){
-                button = (<Link 
-                    key={i} 
-                    to={link}
-                    aria-label={`button-access ${ariaLabel}`}
-                    onClick={e=>{this.context.updatePostType(displayChange); this.context.updateUsernameToDisplay(displayChange);}}
-                    className="button-icon-link button-w-text"
-                >
-                All
-                </Link>);
-            }
-
-           // if(displayChange){
-            else{
-                button = (<Link 
-                    key={i} 
-                    to={link}
-                    aria-label={`button-access ${ariaLabel}`}
-                    onClick={e=>{this.context.updatePostType(displayChange); this.context.updateUsernameToDisplay(displayChange);}}
-                    className="button-icon-link"
-                >
-                <FontAwesomeIcon className="filter-icon" icon={iconType} />
-                </Link>);
-            }
+            button = (<IconButton
+                        key={i} 
+                        link={link}
+                        aria-label={`button-access ${ariaLabel}`}
+                        displayChange={displayChange}
+                        iconType={iconType}
+                      />
+                     );
+            
                 
             return(button)
 

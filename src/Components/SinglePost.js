@@ -11,7 +11,7 @@ import OpenUpContext from '../OpenUpContext.js';
 import { isCurrentlyBookmarked } from '../Functions/GetConnectionId'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faBookOpen, faSun} from '@fortawesome/free-solid-svg-icons';
+import { faPodcast, faMusic, faBookOpen, faSun, faUser, faUsers} from '@fortawesome/free-solid-svg-icons';
 
 class SinglePost extends Component{
     static contextType=OpenUpContext;
@@ -70,7 +70,6 @@ class SinglePost extends Component{
                 />
         }
        
-
         if(this.props.postsToDisplay ==='bookmarks' ){
             bookmarkButton = 
                 <DeleteBookmark
@@ -91,7 +90,7 @@ class SinglePost extends Component{
                     push={this.props.history.push}
                     displayType = {this.props.postsToDisplay}
                 />  
-                connectionButton = ''     
+                    
 
         }
         else{
@@ -118,20 +117,20 @@ class SinglePost extends Component{
         if(post_type==='music'){
             listItem = (<li className={`single-post music-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
                <div className="post-info">
-                    <span className="post-span post-icon"><FontAwesomeIcon icon={faMusic} /></span>
-                    <span className="post-span post-icon"><FontAwesomeIcon icon={faSun} /></span>
-                    <div className="user-info">
-                        <span className="post-span post-username">{username}</span>
-                        {connectionButton}
+                   <div className="top-post-icons">
+                        <span className="post-span post-icon"><FontAwesomeIcon icon={faMusic} /></span>
+                        <div className="user-info">
+                            <span className="post-span post-username">{username}</span>
+                            {connectionButton}
+                        </div>
                     </div>
                     <span className="post-span post-title">{title}</span>
                     <span className="post-span post-artist">{by}</span>
-                    <span className="post-span post-link"><a href={link}>Link to listen</a></span>
+                    {link ? <span className="post-span post-link"><a href={link}>Link to listen</a></span> : ""}
                     {uploadedImage}
                 </div>
-                <div className="post-icons-buttons">
-                    {bookmarkButton}
-                </div>
+                
+                {bookmarkButton}
                 {button}
                 {form}
             </li>)
@@ -147,9 +146,7 @@ class SinglePost extends Component{
                     <span className="post-span post-content">{content}</span>
                     {uploadedImage}
                 </div>
-                <div className="post-icons-buttons">
-                    {bookmarkButton}
-                </div>
+                {bookmarkButton}
                 {button}
                 {form}
             </li>)
@@ -167,9 +164,7 @@ class SinglePost extends Component{
                     <span className="post-span post-link"><a href={link}>Link to listen</a></span>
                     {uploadedImage}
                 </div>
-                <div className="post-icons-buttons">
-                    {bookmarkButton}
-                </div>
+                {bookmarkButton}
                 {button}
                 {form}
             </li>)
@@ -188,9 +183,7 @@ class SinglePost extends Component{
                     <span className="post-span post-link"><a href={link}>Link to learn more</a></span>
                     {uploadedImage}
                 </div>
-                <div className="post-icons-buttons">
-                    {bookmarkButton}
-                </div>
+                {bookmarkButton}
                 {button}
                 {form}
             </li>)
@@ -208,9 +201,7 @@ class SinglePost extends Component{
                     <span className="post-span post-description">{content}</span>
                     {uploadedImage}
                 </div>
-                <div className="post-icons-buttons">
-                    {bookmarkButton}
-                </div>
+                {bookmarkButton}
                 {button}
                 {form}
                 
