@@ -1,7 +1,18 @@
-.filter-button-row {
+.filter-button-row{
+    background-color:#480000;
+    
+}
+
+.filter-button-row h2{
+    color:#fff;
+    font-size:16px;
+    margin-block-start: 0.2em;
+    margin-block-end: 0em;
+}
+
+.filter-button-row div{
     display: flex;
     justify-content: space-around;
-    background-color:#480000;
 }
 
 .filter-button-row svg{
@@ -9,7 +20,7 @@
 }
 
 svg.filter-icon {
-    margin: 15px auto;
+    margin: 5px auto;
     display: block;
 }
 
@@ -21,4 +32,17 @@ section.search-row{
 .search-row button, .search-row button[type="submit"]{
     background-color:#e6ca7c;
     color:#391832;
+}
+
+.filter-button-row .button-icon-link {
+    background-color:transparent;
+    border:1px solid #fff;
+}
+
+.filter-button-row svg.filter-icon path {
+    fill: #fff;
+}
+
+.filter-button-row .button-w-text{
+    color:#fff;
 }

@@ -24,7 +24,7 @@ class Dashboard extends Component{
                 </header>
                 <main>
                     <FilterButtons
-                        buttonInfo={[{ariaLabel:'all types of posts',icon_type:faHome, display_change:'all', link:'/dashboard'},
+                        buttonInfo={[{ariaLabel:'all types of posts',icon_type:'text-all', display_change:'all', link:'/dashboard'},
                         {aria_label:'reflection posts',icon_type:faLightbulb, link:'/dashboard',
                         display_change:'reflection'},
                         {aria_label:'book posts',icon_type:faBookOpen, link:'/dashboard',
@@ -35,6 +35,7 @@ class Dashboard extends Component{
                         display_change:'music'},
                         {aria_label:'event posts',icon_type:faCalendarAlt, link:'/dashboard',
                         display_change:'event'}]}
+                        heading={'Filter Posts By Type'}
                     />
                     <SearchRow/>
                     <ResultList

@@ -27,7 +27,20 @@ class FilterButtons extends Component{
             
             let button = (<button></button>)
 
+            if(iconType==='text-all'){
+                button = (<Link 
+                    key={i} 
+                    to={link}
+                    aria-label={`button-access ${ariaLabel}`}
+                    onClick={e=>{this.context.updatePostType(displayChange); this.context.updateUsernameToDisplay(displayChange);}}
+                    className="button-icon-link button-w-text"
+                >
+                All
+                </Link>);
+            }
+
            // if(displayChange){
+            else{
                 button = (<Link 
                     key={i} 
                     to={link}
@@ -37,27 +50,18 @@ class FilterButtons extends Component{
                 >
                 <FontAwesomeIcon className="filter-icon" icon={iconType} />
                 </Link>);
+            }
                 
-          //  }
-          /*  else if(link){
-                button = (<Link 
-                    key={i} 
-                    aria-label={`link-access ${ariaLabel}`}
-                    to={link}
-                    className="button-icon-link"
-                >
-                <FontAwesomeIcon className="filter-icon" icon={iconType} />
-                </Link>);
-                
-            };*/
-
             return(button)
 
         })
             
         return(
             <section className="filter-button-row">
-                {Buttons}
+                <h2>{this.props.heading}</h2>
+                <div className="button-row">
+                  {Buttons}
+                </div>
             </section>
         )
     }

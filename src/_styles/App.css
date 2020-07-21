@@ -18,7 +18,7 @@ body{
 h1{
   color:#fff;
   margin-block-start: auto;
-  padding-top: 1.25em;
+  padding-top: .25em;
 }
 
 a{
@@ -36,7 +36,10 @@ nav{
 
 footer{
   background-color:#480000;
-  color:#391832;   
+  color:#391832; 
+  position: fixed;
+  bottom: 0;
+  width: 100%;  
 }
 
 .nav-list{
@@ -148,6 +151,10 @@ input[type=radio]{
   display:inline-block;
 }
 
+.button-row{
+  width:100%;
+}
+
 button{
   margin: 10px auto;
   background-color: #391832;
@@ -165,7 +172,13 @@ button{
   display: block;
   padding: 1px 6px;
   width: 50px;
+  height:40px;
+}
 
+.button-w-text {
+  line-height: 40px;
+  font-size: 1.5em;
+  color: #480000;
 }
 
 button[type="submit"]{

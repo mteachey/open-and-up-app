@@ -63,12 +63,15 @@ class SearchRow extends Component{
                                 onChange={e => this.updateChange(e.target.value, true)}
                          />
                     </div>
+                    <div className="button-row">
                         <button className="button" type="submit">Search</button>
-                </form>
-                <button className="button" 
+                        <button className="button button-reset" 
                         type="reset"
                         onClick={e=>this.handleReset(e)}>Reset</button>
+                    </div>
                 <div className="error-message">{this.state.error}</div>
+                </form>
+                
             </section>
         )
 
