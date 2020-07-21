@@ -29,9 +29,14 @@ h1 a{
   color:#fff;
 }
 
-nav, footer{
-  background-color:#152604;
-  color:#fff;   
+nav{
+  background-color:#d97700;
+  color:#391832;   
+}
+
+footer{
+  background-color:#480000;
+  color:#391832;   
 }
 
 .nav-list{
@@ -43,11 +48,17 @@ nav, footer{
 
 .nav-list li{
   padding:10px;
+  width: 115px;
 }
 
 .nav-list a{
   color:#fff;
   text-decoration: none;
+}
+
+.nav-list a:hover{
+  color:#480000;
+  border-bottom:1px solid #480000;
 }
 
 .home-nav-links{
@@ -68,6 +79,7 @@ nav, footer{
 
 main{
   padding:0px;
+  background-color: #e6ca7c;
 }
 
 section{
@@ -75,8 +87,7 @@ section{
 }
 
 section:nth-child(even){
-  background-color:#5B8C11;
-  color:#fff;
+  background-color:#C2DD8A;
 }
 
 .individual-post-container{
@@ -139,20 +150,27 @@ input[type=radio]{
 
 button{
   margin: 10px auto;
-  background-color: #fff;
+  background-color: #391832;
+  color:#fff;
+  padding:10px 20px;;
+  font-size:1em;
   display: block;
+  border:0px solid #391832;
+  border-radius:5px;
 }
+
 .button-icon-link{
   margin: 10px auto;
-  background-color: #fff;
+  background-color: #e6ca7c;
   display: block;
   padding: 1px 6px;
+  width: 50px;
 
 }
 
 button[type="submit"]{
   margin: 10px auto;
-  background-color: #fff;
+  background-color: #480000;
   display: block;
 }
 
@@ -188,6 +206,7 @@ ul{
 
 svg.filter-icon path {
   fill:#152604;
+  fill:#480000;
 }
 
 svg.inline-block-icon {

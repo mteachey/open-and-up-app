@@ -1,7 +1,5 @@
 export const GetConnectionId = (userId, connections) =>{
-    
-    let connectionId = connections.find(connection=>connection.followee_id===userId).id;
-    
+   let connectionId = connections.find(connection=>connection.followee_id===userId).id;
     return connectionId
 }
 

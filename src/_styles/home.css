@@ -1,3 +1,18 @@
+.header-home{
+    height:100vh;
+}
+
+.header-home h1{
+    color:#480000;
+    font-size:2.25em;
+    padding-top:2.25em;
+}
+
+.tagline{
+  color:#480000;
+  font-size:1.5em;
+}
+
 .box{
     border:1px solid #000;
     width:260px;
@@ -29,4 +44,19 @@
 .box button:hover{
     background-color:#40004b;
     color:#fff;
+}
+
+.home .nav-link{
+    margin: 10px auto;
+    background-color:transparent;
+    color:#391832;
+    border:0px solid #391832;
+    border-radius:0px;
+    margin:0;
+}
+
+.home .nav-link:hover{
+    color:#48000;
+    text-decoration:underline;
+
 }

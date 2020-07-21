@@ -62,7 +62,6 @@ class App extends Component{
          return bookmark}
         else {return bookmark}}
     )
-   // this.setState({bookmarks:newBookmarks})
   }
 
   updateUsernameToDisplay=(name)=>{
@@ -91,6 +90,11 @@ class App extends Component{
   getBookmarkPostIds=(bookmarks)=>{
     let currentUserBookmarkedPostIds = bookmarks.map(bookmark=>bookmark.post_id);
     return currentUserBookmarkedPostIds;
+  }
+
+  getConnectionsIds=(connections)=>{
+    let currentUserConnectionIds = connections.map(connection=>connection.followee_id);
+    return currentUserConnectionIds;
   }
 
   updatePostsDisplayed=(posts)=>{
@@ -219,6 +223,7 @@ getBookmarks=(userid)=>{
     },
   })
   .then(res=>{
+
     if(!res.ok){
       throw new Error('Something went wrong, please try again')
     }

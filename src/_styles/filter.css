@@ -1,6 +1,7 @@
 .filter-button-row {
     display: flex;
     justify-content: space-around;
+    background-color:#480000;
 }
 
 .filter-button-row svg{
@@ -10,4 +11,14 @@
 svg.filter-icon {
     margin: 15px auto;
     display: block;
+}
+
+section.search-row{
+    background-color:#391832!important;
+    color:#fff;
+}
+
+.search-row button, .search-row button[type="submit"]{
+    background-color:#e6ca7c;
+    color:#391832;
 }

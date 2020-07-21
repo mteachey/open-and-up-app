@@ -20,7 +20,7 @@ class ResultList extends Component{
         
         return(
             <section className="results-list">
-                <h2>{this.props.heading}</h2>
+                {/*<h2>{this.props.heading}</h2>*/}
                 <ul className="result-list">
                     {filteredResults.map((post, i)=>
                     <SinglePost

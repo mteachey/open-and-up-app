@@ -28,21 +28,22 @@
     text-align:center;
 }
 
+.book-post{
+    background-color:#391832;
+}
+
 .music-post{
-    background-color:#738c11;
+    background-color:#c2dd8a;
 }
 .reflection-post{
-    background-color:#324211;
+    background-color:#d97700;
 }
 
 .event-post{
-    background-color:#c4bd82;
+    background-color:#c2dd8a;
 }
 .podcast-post{
-    background-color:#292e10;
-}
-.music-post{
-    background-color:#738c11;
+    background-color:#391832;
 }
 
 .post-info a{
@@ -50,7 +51,7 @@
     text-decoration: underline;
 }
 
-.reflection-post a, .reflection-post, .podcast-post, .podcast-post a{
+.reflection-post a, .reflection-post, .podcast-post, .podcast-post a, .book-post, .book-post a{
     color:#fff;
 }
 
@@ -93,7 +94,7 @@
     fill:#152604;
 }
 
-.reflection-post svg path, .podcast-post svg path{
+.reflection-post svg path, .podcast-post svg path, .book-post svg path{
     fill:#fff;
 }
 
@@ -104,10 +105,15 @@
 }
 
 .user-info {
-    display: flex;
+    
     width: 100%;
-    justify-content: flex-end;
+    text-align:right;
     padding-bottom: 35px;
+}
+.connection-button{
+    width:50px;
+    padding-top:0;
+    margin-top:0;
 }
 
 .bookmarked .bookmark-button svg path{

@@ -48,15 +48,15 @@ learnMore=()=>{
             gotoLearnMore = {this.gotoLearnMore}
             />
                 <header className="header-home">
-                    <h1>Open and Up</h1>
-                    <h2 className="tagline">Some tagline here</h2>
+                    <h1>Uplift</h1>
+                    <h2 className="tagline">Uplift yourself.<br/>Uplift someone else</h2>
                        <button className="button" onClick={this.learnMore}>Learn More</button>
                         <button className="button" onClick={this.signUpPopUp}>Start</button>
                  </header>
                  <main> 
                     <div className={`box ${isBoxVisible ? "" : "hidden"}`}>
                        {/*} <span className="closebtn">&times;</span>*/}
-                        <p>Thanks for your interest in Open and Up!</p><p>This is the Beta version so we are not yet allowing users to sign-up. Please explore around, play with the forms, and check back soon!</p>
+                        <p>Thanks for your interest in Uplift!</p><p>This is the Beta version so we are not yet allowing users to sign-up. Please explore around, play with the forms, and check back soon!</p>
                         <button className="button" onClick={this.startExploring}>Explore</button>
                         <button className="button" onClick = {e => this.learnMore()}>Learn More</button>
                     </div> 

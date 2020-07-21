@@ -11,15 +11,12 @@ class Nav extends Component{
         if (this.props.pageType === 'interior'){
          List = ( 
             <nav className="main-nav nav">
-                <h1><Link className="site-heading" to={'/dashboard'}>Open and Up</Link></h1>
+                <h1><Link className="site-heading" to={'/dashboard'}>Uplift</Link></h1>
                 <ul className="nav-list">
                     <li><NavLink to={`/dashboard`}>Dashboard</NavLink></li>
+                    <li><NavLink to={`/bookmarks`}>Bookmarks</NavLink></li>
                     <li><NavLink to={`/learn-more`}>Learn More</NavLink></li>
-                    <li><NavLink to={`/user-signup`}>Sign Up</NavLink></li>
-                    <li><NavLink to={`/new-post`}>New Post</NavLink></li>
-                    <li><NavLink to={`/my-account`}>My Account</NavLink></li>
-                    <li><NavLink to={`/`}>Start Screen</NavLink></li>
-                    <li><NavLink to={`/bookmarks`}>My Bookmarks</NavLink></li>
+                    {/*<li><NavLink to={`/`}>Start Screen</NavLink></li>*/}
                 </ul>
             </nav>)}
 
