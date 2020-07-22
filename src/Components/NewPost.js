@@ -279,7 +279,7 @@ class NewPost extends Component{
                         ref="form">
                         <div className="form-intro">
                             <p>Please use the buttons above to select the type of post you want to create and the form below to share some positivity with others.<FontAwesomeIcon className="filter-icon inline-block-icon" icon={faSmile} /></p>
-                            <h2>You can currently create a new {this.state.fieldType} post</h2>
+                            <h2>Create a new {this.state.fieldType} post</h2>
                         </div>
                         <div>
                             <div className={`form-field-group field-title ${areTypeSpecificFieldsVisible['title'] ? "" : " hidden"}`}>

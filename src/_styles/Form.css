@@ -1,7 +1,21 @@
+.new-post main{
+    margin-top:61px;
+    margin-bottom:0;
+    background-color: #fff;
+}
 
 .new-post-form{
     font-size: 17px;
     width: 90%;
+}
+
+.new-post p{
+    color:#000;
+}
+
+.new-post h2{
+    font-size:1.25em;
+    text-align:center;
 }
 
 .form-field-group {
@@ -27,7 +41,7 @@ select {
     text-align: left;
     max-width: 600px;
     margin: auto;
-    margin-bottom:75px;
+    margin-bottom:25px;
 }
 
 input, textarea{
@@ -68,6 +82,11 @@ input{
     margin: 10px;
     text-decoration: none;
     display: inline-block;
+}
+
+.new-post .filter-button-row button{
+    width:50px;
+    padding:2px;
 }
 
 .form-buttons{
