@@ -33,6 +33,7 @@ class SinglePost extends Component{
         let listItem ='';
         let button ='';
         let form ='';
+        let icon ='';
         let uploadedImage ='';
         let bookmarkButton ='';
         let connectionButton ='';
@@ -42,11 +43,28 @@ class SinglePost extends Component{
         let connection = -1;
         let bookmarked = false;
 
+        if(post_type==='music'){
+            icon = faMusic
+        }
+        else if(post_type==='event'){
+            icon = faCalendarAlt
+        }
+        else if(post_type==='reflection'){
+            icon = faLightbulb
+        }
+        else if(post_type==='podcast'){
+            icon = faPodcast
+        }
+        else if(post_type==='book'){
+            icon = faBookOpen
+        }
+
+
         //determining if the user of post is a current connection
         connection = currentConnectionIds.findIndex(id=>id===user_id)
         bookmarked = isCurrentlyBookmarked(post_id, this.context.bookmarks);
         
-        if(currentDisplay.dashboard.current_user==='followees'){
+        if(currentDisplay.dashboard.current_user==='followees'&& username!==currentUser){
             connectionButton = 
                     <DeleteConnection
                         userId={user_id}
@@ -114,19 +132,19 @@ class SinglePost extends Component{
                         bookmark_content={bookmark_content}
                         bookmark_id={bookmark_id}/>
         }
-        if(post_type==='music'){
-            listItem = (<li className={`single-post music-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
+            listItem = (<li className={`single-post ${post_type}-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
                <div className="post-info">
                    <div className="top-post-icons">
-                        <span className="post-span post-icon"><FontAwesomeIcon icon={faMusic} /></span>
+                        <span className="post-span post-icon"><FontAwesomeIcon icon={icon} /></span>
                         <div className="user-info">
                             <span className="post-span post-username">{username}</span>
                             {connectionButton}
                         </div>
                     </div>
-                    <span className="post-span post-title">{title}</span>
-                    <span className="post-span post-artist">{by}</span>
-                    {link ? <span className="post-span post-link"><a href={link}>Link to listen</a></span> : ""}
+                    {title ? <span className="post-span post-title">{title}</span> :""}
+                    {by ? <span className="post-span post-artist">{by}</span> :""}
+                    {content ? <span className="post-span post-content">{content}</span> :""}
+                    {link ? <span className="post-span post-link"><a href={link}>Link to listen or learn more</a></span> : ""}
                     {uploadedImage}
                 </div>
                 
@@ -134,80 +152,7 @@ class SinglePost extends Component{
                 {button}
                 {form}
             </li>)
-        }
-        else if(post_type==='reflection'){
-            listItem = (<li className={`single-post reflection-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
-                <div className="post-info">
-                    <span className="post-span post-icon"><FontAwesomeIcon icon={faLightbulb} /></span>
-                    <div className="user-info">
-                        <span className="post-span post-username">{username}</span>
-                        {connectionButton}
-                    </div>
-                    <span className="post-span post-content">{content}</span>
-                    {uploadedImage}
-                </div>
-                {bookmarkButton}
-                {button}
-                {form}
-            </li>)
-        }
-        else if(post_type==='podcast'){
-            listItem = (<li className={`single-post podcast-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id}>
-                <div className="post-info">
-                 <span className="post-span post-icon"><FontAwesomeIcon icon={faPodcast} /></span>
-                    <div className="user-info">
-                        <span className="post-span post-username">{username}</span>
-                        {connectionButton}
-                    </div>
-                    <span className="post-span post-title">{title}</span>
-                    <span className="post-span post-description">{content}</span>
-                    <span className="post-span post-link"><a href={link}>Link to listen</a></span>
-                    {uploadedImage}
-                </div>
-                {bookmarkButton}
-                {button}
-                {form}
-            </li>)
-        }
-        else if(post_type==='event'){
-            listItem = (<li className={`single-post event-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} >
-                <div className="post-info">
-                    <span className="post-span post-icon"><FontAwesomeIcon icon={faCalendarAlt} /></span>
-                    <div className="user-info">
-                        <span className="post-span post-username">{username}</span>
-                        {connectionButton}
-                    </div>
-                    <span className="post-span post-title">{title}</span>
-                    <span className="post-span post-description">{content}</span>
-                    <span className="post-span post-start-date">{start_date}</span>
-                    <span className="post-span post-link"><a href={link}>Link to learn more</a></span>
-                    {uploadedImage}
-                </div>
-                {bookmarkButton}
-                {button}
-                {form}
-            </li>)
-        }
-        else if(post_type==='book'){
-            listItem = (<li className={`single-post book-post ${bookmarked ? "bookmarked" : "not-bookmarked"}`} key={this.props.post_id} >
-                <div className="post-info">
-                    <span className="post-span post-icon"><FontAwesomeIcon icon={faBookOpen} /></span>
-                    <div className="user-info">
-                        <span className="post-span post-username">{username}</span>
-                        {connectionButton}
-                    </div>
-                    <span className="post-span post-title">{title}</span>
-                    <span className="post-span post-author">{by}</span>
-                    <span className="post-span post-description">{content}</span>
-                    {uploadedImage}
-                </div>
-                {bookmarkButton}
-                {button}
-                {form}
-                
-            </li>)
-        }
-
+     
         return(
             listItem
         )

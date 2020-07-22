@@ -42,7 +42,6 @@ class FilterButtons extends Component{
             
         return(
             <section className="filter-button-row">
-                <h2>{this.props.heading}</h2>
                 <div className="button-row">
                   {Buttons}
                 </div>

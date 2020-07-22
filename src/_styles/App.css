@@ -13,12 +13,28 @@ html {
 body{
   margin:0;
   padding:0;
+  font-family: 'Nunito', sans-serif;
 }
 
 h1{
   color:#fff;
   margin-block-start: auto;
-  padding-top: .25em;
+  padding: .25em 0em;
+  font-family: 'Happy Monkey', cursive;
+  font-size:2.25em;
+  margin:0
+}
+
+h2{
+  font-size:1.5em;
+}
+
+h3{
+  font-size:1.25em;
+}
+
+p{
+  color:#fff;
 }
 
 a{
@@ -85,7 +101,8 @@ footer{
 main{
   padding:0px;
   background-color: #480000;
-  margin-top:162px;
+  margin-top:110px;
+  margin-bottom:135px;
 }
 
 header{
@@ -111,22 +128,6 @@ section{
 
 .individual-post-container:nth-child(odd){
   background-color:#5B8C11;
-  color:#fff;
-}
-
-h1{
-  font-size:1.75em;
-}
-
-h2{
-  font-size:1.5em;
-}
-
-h3{
-  font-size:1.25em;
-}
-
-p{
   color:#fff;
 }
 
@@ -177,12 +178,12 @@ button{
 }
 
 .button-icon-link{
-  margin: 10px auto;
+  margin: 5px auto;
   background-color: #e6ca7c;
   display: block;
   padding: 1px 6px;
   width: 50px;
-  height:40px;
+  height:35px;
 }
 
 .orange-background{
@@ -190,8 +191,8 @@ button{
 }
 
 .button-w-text {
-  line-height: 40px;
-  font-size: 1.5em;
+  line-height: 35px;
+  font-size: 24px;
   color: #480000;
 }
 
@@ -241,7 +242,7 @@ svg.filter-icon path {
 }
 
 .icon-button-container svg {
-  font-size: 28px;
+  font-size: 21px;
 }
 
 svg.inline-block-icon {
