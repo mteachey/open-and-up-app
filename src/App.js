@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Home from './Components/Home.js';
 import Dashboard from './Components/Dashboard.js';
-import LearnMore from './Components/LearnMore.js';
+import LearnMorePage from './Components/LearnMorePage.js';
 import UserSignUp from './Components/UserSignUp.js';
 import NewPost from './Components/NewPost.js';
 import BookmarkPage from './Components/BookmarkPage.js';
@@ -347,7 +347,7 @@ getConnections=()=>{
           <Route
             exact
             path="/learn-more"
-            component={LearnMore}
+            component={LearnMorePage}
           />
         </OpenUpContext.Provider>
       </div>

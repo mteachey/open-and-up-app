@@ -125,6 +125,33 @@ main{
   height:60px;
 }
 
+.learn-more-page main{
+  margin-top:0;
+  padding:20px;
+  margin-bottom:0;
+}
+
+.learnmore h2{
+  margin-block-start: 0em;
+  color:#fff;
+}
+
+.learnmore p, .about p {
+  text-align: left;
+  max-width: 300px;
+  margin: 35px auto 10px;
+}
+
+.learnmore img{
+  max-width:300px;
+  border:1px solid #fff;
+  border-radius:3px;
+}
+
+.learn-more-page .filter-button-row {
+  margin-top: 20px;
+}
+
 header{
   position:fixed;
   width:100%;
@@ -200,6 +227,18 @@ button{
 
 button:hover{
   background-color:#038990;
+}
+
+button:focus{
+  outline: 0px solid red ;
+}
+
+button:focus svg{
+  outline: solid 2px #f28705;
+}
+
+:focus .tooltip-message{
+  outline-style: dashed !important;
 }
 
 button.delete-button:hover,.new-post button:hover {
@@ -349,7 +388,7 @@ svg.inline-block-icon {
 
 .tooltip-message.top-right{
   top: calc(-1.2em - 14px);
-  left: 4vw;
+  left: 8vw;
 }
 
 .tooltip-message.top-center{
@@ -359,7 +398,7 @@ svg.inline-block-icon {
 
 .tooltip-message.top-left{
   top: calc(-1.2em - 14px);
-  right: 4vw;
+  right: 8vw;
 }
 
 
@@ -389,6 +428,18 @@ svg.inline-block-icon {
   opacity: 1;
   visibility: visible;
 }
+
+@media only screen and (min-width:400px){
+.learnmore p, .about p, .learnmore img{
+  max-width:350px
+}
+}/*end of MQmin400*/
+
+@media only screen and (min-width:440px){
+  .learnmore p, .about p, .learnmore img{
+    max-width:400px
+  }
+  }/*end of MQmin4540*/
 
 @media only screen and (min-width:760px){
   body {
