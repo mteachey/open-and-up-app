@@ -23,6 +23,8 @@ class FilterButtons extends Component{
             const iconType = buttonInfoObject.icon_type;
             const link = buttonInfoObject.link;
             const displayChange = buttonInfoObject.display_change;
+            const tooltipMessage = buttonInfoObject.tooltipMessage;
+            const tooltipClass = buttonInfoObject.tooltipClass;
             
             let button = (<button></button>)
 
@@ -32,6 +34,8 @@ class FilterButtons extends Component{
                         aria-label={`button-access ${ariaLabel}`}
                         displayChange={displayChange}
                         iconType={iconType}
+                        tooltipMessage = {tooltipMessage}
+                        tooltipClass = {tooltipClass}
                       />
                      );
             

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Nav from './Nav.js';
 import FilterButtons from './FilterButtons.js';
-import { faPlusSquare, faIdCard  } from '@fortawesome/free-regular-svg-icons';
-import { faUser, faUsers, faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare} from '@fortawesome/free-regular-svg-icons';
+import { faUser, faHome, faInfo } from '@fortawesome/free-solid-svg-icons';
 
 
 class MyAccount extends Component{
 
     render(){
         return(
-            <div>
+            <div className="account-page">
                 <Nav 
                    pageType={'interior'}
                 />
@@ -37,13 +37,11 @@ class MyAccount extends Component{
                     <button type="reset">Cancel</button>
                    </form>
                    <FilterButtons
-                        buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers'},
-                        {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees'},
-                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user'},
-                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all'},
-                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all'}
+                        buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view posts',tooltipClass:'top-right'},
+                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts',tooltipClass:'top-right'},
+                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-left'},
+                        {aria_label:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-left'}
                         ]}
-                    
                     />
             </div>
         )

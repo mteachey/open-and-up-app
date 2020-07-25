@@ -2,6 +2,7 @@ import React from 'react';
 import OpenUpContext from '../OpenUpContext.js';
 import { GetConnectionId } from '../Functions/GetConnectionId'
 import config from '../config.js';
+import Tooltip from './Tooltip'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
@@ -44,7 +45,7 @@ export default function DeleteConnection(props){
                         deleteConnectionRequest(props.userId,context.connections,context.updateConnections);
                     }}>
                    <FontAwesomeIcon icon={faUserFriends} />
-
+                   <Tooltip message={'Click icon to remove this user from your connections'} positionClass={'bottom-left'}/>
                 </button>
             )}
         </OpenUpContext.Consumer>

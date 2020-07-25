@@ -27,7 +27,7 @@ class App extends Component{
       //of current user
       connectionUserIds:[],
       currentDisplay:{
-        user_posts_displayed:'your connections',
+        user_posts_displayed:'of your connections',
         type_posts_displayed:'all',
         dashboard:{current_user:'followees', current_post_type:'all'},
         bookmark_display:{current_user:'followees', current_post_type:'all'}
@@ -60,7 +60,7 @@ class App extends Component{
 
   updateBookmark=(bookmarkId, updatedContent)=>{
     const { bookmarks } = this.state;
-    const newBookmarks = bookmarks.map(bookmark=>{
+    bookmarks.map(bookmark=>{
       if(bookmark.bookmark_id===bookmarkId) 
       { bookmark.bookmark_content=updatedContent
          return bookmark}
@@ -72,13 +72,13 @@ class App extends Component{
     const {currentDisplay} = this.state;
     
     if(name==='allUsers'){
-      currentDisplay.user_posts_displayed="all users"
+      currentDisplay.user_posts_displayed=" of all users"
     }
     else if(name==='followees'){
-      currentDisplay.user_posts_displayed="your connections"
+      currentDisplay.user_posts_displayed="of your connections"
     }
     else if(name==='user'){
-      currentDisplay.user_posts_displayed="your own"
+      currentDisplay.user_posts_displayed="that you created"
     }
     this.setState({
       currentDisplay:currentDisplay})

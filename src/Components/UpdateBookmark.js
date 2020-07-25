@@ -86,12 +86,10 @@ class UpdateBookmark extends Component{
                     <form className="update-bookmark-form" 
                         onSubmit={e=>this.handleSubmit(e, this.props.bookmark_id)}
                         ref="form">
-                        <div className="form-intro">
-                            <p>Be sure to save any changes you make to this note.</p>
-                        </div>
+                        
                         <div>
-                            <div className="form-field-group field-description">
-                                <label htmlFor="bookmark-content">Content*</label>
+                            <div className="form-field-group field-description large-text-area">
+                                <label htmlFor="bookmark-content">Your thoughts*</label>
                                 <textarea 
                                     type="textarea" name="bookmark-content"
                                     id="bookmark-content"
@@ -101,6 +99,9 @@ class UpdateBookmark extends Component{
                                     />
                             </div>
                             {/*this.state.inputs.content.touched  && (<ValidationError message={contentError}/>)*/}
+                        </div>
+                        <div className="form-intro">
+                            <p className="fine-print">Be sure to save any changes you make to your thoughts about this note.</p>
                         </div>
                             
                         <div className="form-buttons button-row">    

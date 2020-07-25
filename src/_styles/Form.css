@@ -1,12 +1,30 @@
+.account-page{
+    height:100vh;
+}
+
 .new-post main{
-    margin-top:61px;
-    margin-bottom:0;
+    margin-top:125px;
+    margin-bottom:70px;
     background-color: #fff;
 }
 
-.new-post-form{
-    font-size: 17px;
-    width: 90%;
+.new-post header{
+    height:61px;
+}
+.account-page > div{
+border-bottom: 2px solid #391832;
+}
+
+.new-post form + .filter-button-row, .account-page .filter-button-row{
+    position:fixed;
+    width:100%;
+    bottom:0;
+}
+
+.new-post .filter-button-row-form{
+    top: 61px;
+    width:100%;
+    position:fixed;
 }
 
 .new-post p{
@@ -16,6 +34,28 @@
 .new-post h2{
     font-size:1.25em;
     text-align:center;
+}
+
+.new-post-form {
+    text-align: left;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom:25px;
+    font-size: 17px;
+    width: 90%;
+    margin-top:130px;
+}
+
+.update-account-form{
+    background-color:#fff;
+    padding:10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width:90%;
+}
+
+.update-account-form p{
+    color:#000;
 }
 
 .form-field-group {
@@ -37,16 +77,19 @@ select {
     margin-bottom: 0px;
 }
 
-.new-post-form {
-    text-align: left;
-    max-width: 600px;
-    margin: auto;
-    margin-bottom:25px;
-}
-
 input, textarea{
     width: 210px;
     margin-bottom:10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.large-text-area {
+    flex-direction: column;
+    text-align: center;
+}
+
+.large-text-area textarea {
+    width: 96%;
 }
 
 form.search-form {
@@ -87,6 +130,7 @@ input{
 .new-post .filter-button-row button{
     width:50px;
     padding:2px;
+    margin: 5px;
 }
 
 .form-buttons{
@@ -118,8 +162,40 @@ input{
 }
 
 
-
-
 @media only screen and (min-width:760px){
+    .new-post header {
+        height: 75px;
+    }
 
+    .new-post main {
+        margin-top: 139px;
+        margin-bottom: 65px;
+    }
+
+    .new-post-form{
+        padding-top: 7px;
+        padding-bottom:20px;
+        margin-top: 0px;
+    }
+
+    .new-post .filter-button-row-form {
+        top: 75px;
+    }
+
+    .new-post .filter-button-row button {
+        margin: 5px 25px;
+    }
+
+    input, textarea {
+        width: 400px;
+    }
+}/*end of MQ760*/
+
+@media only screen and (min-width:1060px){
+input, textarea {
+    width: 800px;
 }
+.new-post .filter-button-row button {
+    margin: 5px 40px;
+}
+}/*end of MQ760*/

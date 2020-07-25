@@ -1,8 +1,9 @@
 import React from 'react';
 import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
+import Tooltip from './Tooltip'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faMinusSquare } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark} from '@fortawesome/free-solid-svg-icons';
 
 function deleteBookmarkRequest(bookmarkId, callback){
@@ -36,7 +37,7 @@ export default function DeleteBookmark(props){
     //change the icon depending if on the dashboard or bookmark page
     let icon=faBookmark
     if(props.displayType==='bookmarks'){
-        icon=faTrashAlt
+        icon=faMinusSquare
     }
     return(
         <OpenUpContext.Consumer>
@@ -47,7 +48,7 @@ export default function DeleteBookmark(props){
                             context.deleteBookmark);
                     }}>
                    <FontAwesomeIcon icon={icon} />
-
+                   <Tooltip message={'Click icon to remove this post from your bookmarks'} positionClass={'top-right'}/>
                 </button>
             )}
         </OpenUpContext.Consumer>

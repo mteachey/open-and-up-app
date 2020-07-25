@@ -11,7 +11,7 @@ import OpenUpContext from '../OpenUpContext.js';
 import { isCurrentlyBookmarked } from '../Functions/GetConnectionId'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faLightbulb } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faBookOpen, faSun, faUser, faUsers} from '@fortawesome/free-solid-svg-icons';
+import { faPodcast, faMusic, faBookOpen} from '@fortawesome/free-solid-svg-icons';
 
 class SinglePost extends Component{
     static contextType=OpenUpContext;
@@ -27,13 +27,13 @@ class SinglePost extends Component{
 
     render(){
 
-        const{post_id, post_type, title, by, link, content, start_date, username, user_id, bookmark_content, bookmark_id, image_path} = this.props;
+        const{post_id, post_type, title, by, link, content, username, user_id, bookmark_content, bookmark_id, image_path} = this.props;
         const allPostInfo = this.props.postInfo;
         const currentUserId = this.context.currentUserInfo.user_id;
         let listItem ='';
         let button ='';
         let form ='';
-        let icon ='';
+        let icon =faMusic;
         let uploadedImage ='';
         let bookmarkButton ='';
         let connectionButton ='';

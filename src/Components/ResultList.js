@@ -22,12 +22,12 @@ class ResultList extends Component{
         else if(this.props.postsToDisplay==='bookmarks'){
             typeOfPost = this.context.currentDisplay.bookmark_display.current_post_type;
         }
-         console.log(this.context.currentDisplay.user_posts_displayed)
+         
         filteredResults = FilterPosts(posts, currentDisplay)
         
         return(
             <section className="results-list">
-                <p>You are viewing {typeOfPost} posts of {this.context.currentDisplay.user_posts_displayed} </p>
+               {this.props.postsToDisplay==='posts'? <h2>You are viewing {typeOfPost} posts {this.context.currentDisplay.user_posts_displayed} </h2> : <h2>Your Bookmarks</h2>}
                 <ul className="result-list">
                     {filteredResults.map((post, i)=>
                     <SinglePost

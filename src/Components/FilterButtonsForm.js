@@ -23,12 +23,16 @@ class FilterButtonsForm extends Component{
             const ariaLabel= buttonInfoObject.aria_label;
             const iconType = buttonInfoObject.icon_type;
             const fieldType = buttonInfoObject.field_type;
+            const tooltipMessage = buttonInfoObject.tooltipMessage;
+            const tooltipClass = buttonInfoObject.tooltipClass;
             
             let button = ( <button
                 key={i} 
                 aria-label={`button-access ${ariaLabel}`}
                 onClick={()=>{this.props.updateFields(fieldType)}}
                 className="button-icon-link"
+                tooltipMessage = {tooltipMessage}
+                tooltipClass = {tooltipClass}
             >
                  <FontAwesomeIcon className="filter-icon" icon={iconType} />
             </button>);
@@ -38,7 +42,7 @@ class FilterButtonsForm extends Component{
         })
                 
         return(
-            <section className="filter-button-row">
+            <section className="filter-button-row filter-button-row-form">
                 {Buttons}
             </section>
         )

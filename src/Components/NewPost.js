@@ -7,8 +7,8 @@ import '../_styles/Form.css';
 import ValidationError from './ValidationError'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from '../config.js';
-import { faCalendarAlt, faLightbulb,faPlusSquare, faIdCard, faSmile  } from '@fortawesome/free-regular-svg-icons';
-import { faPodcast, faMusic, faBookOpen,faUser, faHome} from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faLightbulb,faIdCard, faSmile  } from '@fortawesome/free-regular-svg-icons';
+import { faPodcast, faMusic, faBookOpen,faUser, faHome, faInfo} from '@fortawesome/free-solid-svg-icons';
 
 
 class NewPost extends Component{
@@ -259,7 +259,7 @@ class NewPost extends Component{
         const linkError = this.validateLink();
 
         return(
-            <div className="new-post">
+            <div className="new-post form-page">
                 <header>
                     <Nav 
                     pageType={'interior'}
@@ -268,10 +268,10 @@ class NewPost extends Component{
                 <main>
                 <FilterButtonsForm
                         updateFields = {this.updateFields}
-                        buttonInfo={[{aria_label:'fields to create new reflection post',icon_type:faLightbulb,field_type:'reflection'},{ariaLabel:'fields to create new book post',icon_type:faBookOpen, field_type:'book'},
-                        {aria_label:'fields to create new podcast post',icon_type:faPodcast,field_type:'podcast'},
-                        {aria_label:'music posts',icon_type:faMusic, field_type:'music'},
-                        {aria_label:'event posts',icon_type:faCalendarAlt,field_type:'event'}]}
+                        buttonInfo={[{aria_label:'fields to create new reflection post',icon_type:faLightbulb,field_type:'reflection',tooltipClass:'bottom-right'},{ariaLabel:'fields to create new book post',icon_type:faBookOpen, field_type:'book',tooltipClass:'bottom-right'},
+                        {aria_label:'fields to create new podcast post',icon_type:faPodcast,field_type:'podcast',tooltipClass:'bottom-center'},
+                        {aria_label:'music posts',icon_type:faMusic, field_type:'music',tooltipClass:'bottom-left'},
+                        {aria_label:'event posts',icon_type:faCalendarAlt,field_type:'event',tooltipClass:'bottom-left'}]}
                     />
 
                     <form className="new-post-form" 
@@ -351,10 +351,10 @@ class NewPost extends Component{
                         <p className="form-disclaimer">We realize that what constitutes postivity is subjective. Please know we reserve the right to remove any post that we do not find meets our guidelines. You are welcome to dispute any removed post and share your feelings regarding it.  You also are always welcome to decide to no longer use our app. Thank you for understanding!</p>  
                     </form>
                     <FilterButtons
-                        buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers'},
-                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user'},
-                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all'},
-                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all'}
+                        buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view posts',tooltipClass:'top-right'},
+                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts',tooltipClass:'top-center'},
+                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-left'},
+                        {aria_label:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-left'}
                         ]}
                     
                     />

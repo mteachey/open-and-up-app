@@ -1,6 +1,7 @@
 import React from 'react';
 import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
+import Tooltip from './Tooltip'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faUser} from '@fortawesome/free-solid-svg-icons';
@@ -46,7 +47,7 @@ export default function AddConnection(props){
                             context.updateConnections);
                     }}>
                    <FontAwesomeIcon icon={faUser} />
-
+                   <Tooltip message={'Click icon to add this user to your connections'} positionClass={'bottom-left'}/>
                 </button>
             )}
 

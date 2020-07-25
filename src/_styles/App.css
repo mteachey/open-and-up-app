@@ -14,6 +14,24 @@ body{
   margin:0;
   padding:0;
   font-family: 'Nunito', sans-serif;
+  background-color:#f28705;
+  
+}
+
+body::after {
+  content: "";
+  background-image: url(../images/balloons-1-adjusted-bg.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position-x:20%;
+  background-attachment:fixed;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;   
 }
 
 h1{
@@ -43,6 +61,10 @@ a{
 
 h1 a{
   color:#fff;
+}
+
+h1 a:hover{
+   color:#480000;
 }
 
 nav{
@@ -82,17 +104,6 @@ footer{
   border-bottom:1px solid #480000;
 }
 
-.home-nav-links{
-  display:flex;
-  justify-content: flex-end;
-  padding-top:10px;
-}
-
-.home-nav-links button{
-  margin: 0px 10px;
-
-}
-
 .filter-form{
   display: flex;
   justify-content: space-around;
@@ -105,11 +116,21 @@ main{
   margin-bottom:135px;
 }
 
+.bookmark-results main{
+  margin-bottom:58px;
+  margin-top:60px;
+}
+
+.bookmark-results header{
+  height:60px;
+}
+
 header{
   position:fixed;
   width:100%;
   top:0;
-  height:165px;
+  height:118px;
+  z-index:10;
 }
 
 section{
@@ -177,6 +198,14 @@ button{
   border-radius:5px;
 }
 
+button:hover{
+  background-color:#038990;
+}
+
+button.delete-button:hover,.new-post button:hover {
+  background-color:#f28705;
+}
+
 .button-icon-link{
   margin: 5px auto;
   background-color: #e6ca7c;
@@ -184,6 +213,7 @@ button{
   padding: 1px 6px;
   width: 50px;
   height:35px;
+  position: relative;
 }
 
 .orange-background{
@@ -272,3 +302,114 @@ svg.inline-block-icon {
 .hidden{
   display: none;
 }
+
+:focus {
+  outline: #f28705 auto 1px;
+}
+
+.bookmark-results p{
+  color:#000;
+}
+
+.fine-print{
+  font-style:italic;
+  font-size:14px;
+}
+
+.tooltip {
+  position: absolute;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: block;
+    top: 0;
+}
+
+.tooltip-content {
+  color: #01A800;
+}
+
+.tooltip-message {
+  background-color: hsla(0, 0%, 10%, 0.9);
+  background-color:#fff;
+  border:1px solid #391832;
+  border-radius: 3px;
+  color: #fff;
+  color:#391832;
+  margin-bottom: 5px;
+  margin-left: -8vw;
+  min-width: 160px;
+  padding: 7px 10px;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  font-size:14px;
+  line-height:14px;
+}
+
+.tooltip-message.top-right{
+  top: calc(-1.2em - 14px);
+  left: 4vw;
+}
+
+.tooltip-message.top-center{
+  top: calc(-1.2em - 14px);
+  left: -12vw;
+}
+
+.tooltip-message.top-left{
+  top: calc(-1.2em - 14px);
+  right: 4vw;
+}
+
+
+.tooltip-message.bottom-center{
+  bottom: calc(-1.2em - 14px);
+  left: -12vw;
+}
+
+.tooltip-message.bottom-right{
+  bottom: calc(-1.2em - 14px);
+  left: 4vw;
+}
+
+.tooltip-message.bottom-left{
+  bottom: calc(-1.2em - 14px);
+  right: 4vw;
+}
+
+/* start hidden */
+.tooltip-message {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+/* show on hover */
+.tooltip:hover > .tooltip-message {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media only screen and (min-width:760px){
+  body {
+    font-size: 20px;
+  }
+
+header{
+  height:135px;
+}
+
+main{
+  margin-top:135px;
+}
+
+.icon-button-container svg {
+    font-size: 30px;
+}
+
+.button-icon-link {
+
+  height: 40px;
+}
+
+}/* end MQ min760*/

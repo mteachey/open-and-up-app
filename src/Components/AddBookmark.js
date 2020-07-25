@@ -1,6 +1,7 @@
 import React from 'react';
 import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
+import Tooltip from './Tooltip'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faBookmark} from '@fortawesome/free-solid-svg-icons';
@@ -52,7 +53,7 @@ export default function AddBookmark(props){
                             context.addBookmark);
                     }}>
                    <FontAwesomeIcon icon={faBookmark} />
-
+                   <Tooltip message={'Click icon to add this post to your bookmarks'} positionClass={'top-right'}/>
                 </button>
             )}
 

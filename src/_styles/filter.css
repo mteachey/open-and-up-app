@@ -42,9 +42,23 @@ section.search-row{
     margin:0;
 }
 
+.search-row .button-reset{
+    height:22px;
+    padding:2px 6px;
+    margin-top: 5px;
+}
+
+.search-row button:hover, .search-row button[type="submit"]:hover {
+    background-color:#fff;
+}
+
 .filter-button-row .button-icon-link{
     background-color:transparent;
    /* border:1px solid #000;*/
+}
+
+.filter-button-row .button-icon-link:hover svg.filter-icon path, .nav .button-icon-link.orange-background:hover svg.filter-icon path {
+   fill:#FFF;
 }
 
 .nav .button-icon-link{
@@ -57,6 +71,10 @@ section.search-row{
 
 .filter-button-row .button-w-text{
     color:#000;
+}
+
+.filter-button-row .button-w-text:hover{
+    color:#fff;
 }
 
 .orange-background{

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import IconButton from './IconButton.js';
-import { faPlusSquare, faInfoSquare} from '@fortawesome/free-regular-svg-icons';
+import { faPlusSquare} from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -18,6 +18,8 @@ class Nav extends Component{
                     displayChange={'all'}
                     iconType={faPlusSquare}
                     buttonColor={'orange-background'}
+                    tooltipMessage = {'create a new post'}
+                    tooltipClass={'bottom-right'}
                 />
                 <h1><Link className="site-heading" to={'/dashboard'}>Uplift</Link></h1>
                 <IconButton
@@ -26,14 +28,16 @@ class Nav extends Component{
                     displayChange={'all'}
                     iconType={faInfo}
                     buttonColor={'orange-background'}
+                    tooltipMessage = {'learn more about the Uplift app'}
+                    tooltipClass={'bottom-left'}
                 />
             </nav>)}
 
         if(this.props.pageType === 'home'){
          List = (
             <div className="home-nav-links">
-            <button className="nav-link" onClick={this.props.onSignUpInClick}>Sign-up</button>
-            <button className="nav-link" onClick={this.props.onSignUpInClick}>Sign-in</button>
+                <button className="nav-link" onClick={this.props.onSignUpInClick}>Sign-in</button>
+                <button className="nav-link" onClick={this.props.onSignUpInClick}>Sign-up</button>
         </div>)
             }
 

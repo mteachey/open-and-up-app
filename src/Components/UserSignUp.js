@@ -6,7 +6,7 @@ class UserSignUp extends Component{
 
     render(){
         return(
-            <div>
+            <div className="user-signin-page">
                 <main>
                    <Link to={'/'}>Sign In</Link>
                     <form class="signup-form">

@@ -9,6 +9,11 @@
     background-color:#fff;
 }
 
+.results-list h2{
+    color:#fff;
+    font-size:18px;
+  }
+
 .top-post-icons {
     display: flex;
     justify-content: space-between;
@@ -99,6 +104,13 @@
     font-size:28px;
 }
 
+.connection-button{
+    width:25px;
+    padding:0;
+    margin-top:0;
+    position:relative;
+}
+
 .connection-button svg{
     font-size:20px;
 }
@@ -108,33 +120,61 @@
     display: block;
 }
 
-.bookmark-button svg, .bookmark-button{
-    margin:0;
+.bookmark-button{
+    width: 23px;
     text-align: right;
+    padding: 0px;
+    margin:0;
+    position:relative;
+}
+
+.bookmark-button:hover, .connection-button:hover{
+    background-color: transparent;
+}
+
+.bookmark-button svg{
+    margin:auto;
+    display:block;
 }
 
 .post-icon svg path{
     fill:#152604;
 }
 
-.music-post .post-icon svg path{
+.music-post svg path{
     fill:#bf4904;
 }
-.event-post .post-icon svg path{
+.event-post svg path{
     fill:#f28705;
 }
-.reflection-post .post-icon svg path{
+.reflection-post svg path{
     fill:#480000;
 }
-.podcast-post .post-icon svg path{
+.podcast-post svg path{
     fill:#391832;
 }
-.book-post .post-icon svg path{
+.book-post svg path{
     fill:#1f4008;
 }
 
-.reflection-post svg path, .podcast-post svg path, .book-post svg path{
-   /* fill:#fff;*/
+.bookmarked .bookmark-button svg path{
+    fill: #d97700;
+}
+
+.single-post .bookmark-button svg path, .single-post .connection-button svg path{
+    fill:#480000;
+}
+
+.single-post .bookmark-button:hover svg path, .single-post .connection-button:hover svg path{
+    fill:#f2b705;
+}
+
+.single-post.not-bookmarked .bookmark-button:hover svg path,.single-post .connection-button:hover svg path{
+    fill:#8C0000;
+}
+
+.connection-button.delete-icon svg path,.bookmark-button.delete-icon svg path{
+    fill:#d97700;
 }
 
 .post-image img {
@@ -149,12 +189,56 @@
     padding-bottom: 35px;
 }
 
-.connection-button{
-    width:25px;
-    padding:0;
-    margin-top:0;
-}
 
-.bookmarked .bookmark-button svg path{
-    fill: #d97700;
+@media only screen and (min-width:760px){
+    .post-icon svg {
+        font-size: 35px;
+    }
+
+    .bookmark-button {
+        width: 26px;
+    }
+
+    .connection-button {
+        width: 50px;
+    }
+
+    .post-image img {
+        max-width: 500px;
+    }
+
+    .delete-button{
+        font-size:1em;
+    }
+
+    .search-row button, .search-row button[type="submit"] {
+        height: 32px;
+    }
+
+    .search-row .button-reset {
+        height: 25px;
+    }
+
+}/*end of MQ min760*/
+
+@media only screen and (min-width:960px){
+
+    .single-post {
+        padding: 26px;
+    }
+    .post-info {
+        margin-bottom: 25px;
+    }
+    .post-image img {
+        max-width: 650px;
+    }
+
+    .search-row button, .search-row button[type="submit"] {
+        height: 35px;
+    }
+
+    .search-row .button-reset {
+        height: 30px;
+    }
+
 }
