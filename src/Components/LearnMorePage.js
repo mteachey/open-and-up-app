@@ -18,10 +18,10 @@ class LearnMorePage extends Component{
                 </main>
                 <footer>
                 <FilterButtons
-                        buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers', tooltipMessage:'view posts'},
-                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts'},
-                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'view posts of all users'},
-                        {aria_label:'update your account info',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post'}
+                        buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers', tooltipMessage:'view posts',tooltipClass:'top-farright'},
+                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts', tooltipClass:'top-center'},
+                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'view posts of all users',tooltipClass:'top-left'},
+                        {aria_label:'update your account info',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-farleft'}
                         ]}
                     
                     />

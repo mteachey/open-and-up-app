@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../_styles/filter.css';
 import OpenUpContext from '../OpenUpContext.js';
+import Tooltip from './Tooltip'
 
 
 class FilterButtonsForm extends Component{
@@ -18,6 +19,7 @@ class FilterButtonsForm extends Component{
      
         let buttons=this.props.buttonInfo;
 
+
         const Buttons = buttons.map((buttonInfoObject,i)=>{
 
             const ariaLabel= buttonInfoObject.aria_label;
@@ -25,16 +27,15 @@ class FilterButtonsForm extends Component{
             const fieldType = buttonInfoObject.field_type;
             const tooltipMessage = buttonInfoObject.tooltipMessage;
             const tooltipClass = buttonInfoObject.tooltipClass;
-            
+ 
             let button = ( <button
                 key={i} 
                 aria-label={`button-access ${ariaLabel}`}
                 onClick={()=>{this.props.updateFields(fieldType)}}
                 className="button-icon-link"
-                tooltipMessage = {tooltipMessage}
-                tooltipClass = {tooltipClass}
             >
-                 <FontAwesomeIcon className="filter-icon" icon={iconType} />
+                 <FontAwesomeIcon className="filter-icon" icon={iconType}/>
+                 <Tooltip message={`Click icon to ${tooltipMessage}.`} positionClass={tooltipClass}/>
             </button>);
             
             return(button)

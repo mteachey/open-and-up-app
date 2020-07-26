@@ -143,7 +143,7 @@ main{
 }
 
 .learnmore img{
-  max-width:300px;
+  max-width:260px;
   border:1px solid #fff;
   border-radius:3px;
 }
@@ -250,7 +250,7 @@ button.delete-button:hover,.new-post button:hover {
   background-color: #e6ca7c;
   display: block;
   padding: 1px 6px;
-  width: 50px;
+  width: 45px;
   height:35px;
   position: relative;
 }
@@ -384,11 +384,17 @@ svg.inline-block-icon {
   white-space: nowrap;
   font-size:14px;
   line-height:14px;
+  z-index:2
 }
 
 .tooltip-message.top-right{
   top: calc(-1.2em - 14px);
-  left: 8vw;
+  left: -2vw;
+}
+
+.tooltip-message.top-farright{
+  top: calc(-1.2em - 14px);
+  left: 2vw;
 }
 
 .tooltip-message.top-center{
@@ -398,9 +404,13 @@ svg.inline-block-icon {
 
 .tooltip-message.top-left{
   top: calc(-1.2em - 14px);
-  right: 8vw;
+  right: -18vw;
 }
 
+.tooltip-message.top-farleft{
+  top: calc(-1.2em - 14px);
+  right: -1vw;
+}
 
 .tooltip-message.bottom-center{
   bottom: calc(-1.2em - 14px);
@@ -412,7 +422,17 @@ svg.inline-block-icon {
   left: 4vw;
 }
 
+.tooltip-message.bottom-farright{
+  bottom: calc(-1.2em - 14px);
+  left: 4vw;
+}
+
 .tooltip-message.bottom-left{
+  bottom: calc(-1.2em - 14px);
+  right: 4vw;
+}
+
+.tooltip-message.bottom-farleft{
   bottom: calc(-1.2em - 14px);
   right: 4vw;
 }
@@ -432,6 +452,16 @@ svg.inline-block-icon {
 @media only screen and (min-width:400px){
 .learnmore p, .about p, .learnmore img{
   max-width:350px
+}
+.tooltip-message.top-left{
+  right: 4vw;
+}
+.tooltip-message.top-right{
+  left: 8vw;
+}
+
+.tooltip-message.bottom-farright{
+  left: 7vw;
 }
 }/*end of MQmin400*/
 
@@ -459,8 +489,7 @@ main{
 }
 
 .button-icon-link {
-
-  height: 40px;
+   height: 40px;
 }
 
 }/* end MQ min760*/

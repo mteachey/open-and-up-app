@@ -45,7 +45,7 @@ export default function DeleteConnection(props){
                         deleteConnectionRequest(props.userId,context.connections,context.updateConnections);
                     }}>
                    <FontAwesomeIcon icon={faUserFriends} />
-                   <Tooltip message={'Click icon to remove this user from your connections'} positionClass={'bottom-left'}/>
+                   <Tooltip message={'Remove this user from your connections'} positionClass={'bottom-farleft'}/>
                 </button>
             )}
         </OpenUpContext.Consumer>

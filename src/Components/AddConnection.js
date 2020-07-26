@@ -47,7 +47,7 @@ export default function AddConnection(props){
                             context.updateConnections);
                     }}>
                    <FontAwesomeIcon icon={faUser} />
-                   <Tooltip message={'Click icon to add this user to your connections'} positionClass={'bottom-left'}/>
+                   <Tooltip message={'Add this user to your connections'} positionClass={'bottom-farleft'}/>
                 </button>
             )}
 

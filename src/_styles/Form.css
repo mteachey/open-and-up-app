@@ -4,8 +4,9 @@
 
 .new-post main{
     margin-top:119px;
-    margin-bottom:70px;
+    margin-bottom:59px;
     background-color: #fff;
+    padding-bottom:20px;
 }
 
 .new-post header{
@@ -70,6 +71,7 @@ label {
     margin-bottom: 10px;
     width: 200px;
     display: inline-block;
+    font-size:13px;
 }
 
 select {
@@ -129,7 +131,7 @@ input{
 }
 
 .new-post .filter-button-row button{
-    width:50px;
+    width:45px;
     padding:2px;
     margin: 5px;
 }
@@ -160,6 +162,12 @@ input{
 
 .red-font{
     color:red;
+}
+
+@media only screen and (min-width:400px){
+label {
+    font-size:14px;
+}
 }
 
 

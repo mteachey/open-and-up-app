@@ -19,7 +19,7 @@ class Nav extends Component{
                     iconType={faPlusSquare}
                     buttonColor={'orange-background'}
                     tooltipMessage = {'create a new post'}
-                    tooltipClass={'bottom-right'}
+                    tooltipClass={'bottom-farright'}
                 />
                 <h1><Link className="site-heading" to={'/dashboard'}>Uplift</Link></h1>
                 <IconButton
@@ -29,7 +29,7 @@ class Nav extends Component{
                     iconType={faInfo}
                     buttonColor={'orange-background'}
                     tooltipMessage = {'learn more about the Uplift app'}
-                    tooltipClass={'bottom-left'}
+                    tooltipClass={'bottom-farleft'}
                 />
             </nav>)}
 

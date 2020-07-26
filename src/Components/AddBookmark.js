@@ -53,7 +53,7 @@ export default function AddBookmark(props){
                             context.addBookmark);
                     }}>
                    <FontAwesomeIcon icon={faBookmark} />
-                   <Tooltip message={'Click icon to add this post to your bookmarks'} positionClass={'top-right'}/>
+                   <Tooltip message={'Add this post to your bookmarks'} positionClass={'top-farright'}/>
                 </button>
             )}
 

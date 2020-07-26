@@ -48,7 +48,7 @@ export default function DeleteBookmark(props){
                             context.deleteBookmark);
                     }}>
                    <FontAwesomeIcon icon={icon} />
-                   <Tooltip message={'Click icon to remove this post from your bookmarks'} positionClass={'top-right'}/>
+                   <Tooltip message={'Remove this post from your bookmarks'} positionClass={'top-farright'}/>
                 </button>
             )}
         </OpenUpContext.Consumer>
