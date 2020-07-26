@@ -3,8 +3,6 @@ import OpenUpContext from '../OpenUpContext.js';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tooltip from './Tooltip';
-import { TooltipMobile } from '../Functions/Tooltip.js'
-
 
 class IconButton extends Component{
     static contextType = OpenUpContext;
