@@ -20,8 +20,6 @@ body{
 
 body::after {
   content: "";
-  background-image: url(../images/balloons-1-adjusted-bg.jpg);
-  /*background-image: url(../images/stock-photo-balloons-isolated-on-a-white-background-floating-upwards-73332061.jpg);*/
   background-image: url(../images/balloons-orangebg.jpg);
   background-repeat:no-repeat;
   background-size:cover;
