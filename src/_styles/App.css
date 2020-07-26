@@ -237,9 +237,9 @@ button:focus svg{
   outline: solid 2px #f28705;
 }
 
-:focus .tooltip-message{
+/*:focus .tooltip-message{
   outline-style: dashed !important;
-}
+}*/
 
 button.delete-button:hover,.new-post button:hover {
   background-color:#f28705;
@@ -438,11 +438,18 @@ svg.inline-block-icon {
 }
 
 /* start hidden */
+
 .tooltip-message {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
+
+.tooltip-message.visible {
+  opacity:1;
+  visibility: visible;
+}
+
 
 
 @media only screen and (min-width:400px){
@@ -489,10 +496,15 @@ main{
 }
 
 /* show on hover */
+.tooltip-message.visible {
+  opacity:1;
+  visibility: hidden;
+}
 .tooltip:hover > .tooltip-message {
   opacity:1;
-  transition: visibility 2s ease-in-out;
   visibility: visible;
 }
+
+
 
 }/* end MQ min760*/
