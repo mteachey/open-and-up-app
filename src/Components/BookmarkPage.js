@@ -42,7 +42,7 @@ class BookmarkPage extends Component{
                 <footer>
                 <FilterButtons
                         buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers', tooltipMessage:'view posts of all users',tooltipClass:'top-farright'},
-                        {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees',tooltipMessage:'view posts of people you follow',tooltipClass:'top-right'},
+                        {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees',tooltipMessage:'view posts of your connections',tooltipClass:'top-right'},
                         {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user', tooltipMessage:'view your posts',tooltipClass:'top-center'},
                         {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all', tooltipMessage:'update your account info',tooltipClass:'top-left'},
                         {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-farleft'}

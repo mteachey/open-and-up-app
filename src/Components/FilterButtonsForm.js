@@ -35,7 +35,7 @@ class FilterButtonsForm extends Component{
                 className="button-icon-link"
             >
                  <FontAwesomeIcon className="filter-icon" icon={iconType}/>
-                 <Tooltip message={`Click icon to ${tooltipMessage}.`} positionClass={tooltipClass}/>
+                 <Tooltip message={`${tooltipMessage}.`} positionClass={tooltipClass}/>
             </button>);
             
             return(button)

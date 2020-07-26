@@ -12,7 +12,7 @@ class IconButton extends Component{
     //change the icon depending if on the dashboard or bookmark page
     const {ariaLabel, iconType, displayChange, link, buttonColor,tooltipMessage, tooltipClass} = this.props;
     
-    let tooltip =(<Tooltip message={`Click icon to ${tooltipMessage}.`} positionClass={tooltipClass}/>)
+    let tooltip =(<Tooltip message={`${tooltipMessage}.`} positionClass={tooltipClass}/>)
 
 
     let button = (<button></button>)

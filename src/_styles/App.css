@@ -21,9 +21,12 @@ body{
 body::after {
   content: "";
   background-image: url(../images/balloons-1-adjusted-bg.jpg);
+  /*background-image: url(../images/stock-photo-balloons-isolated-on-a-white-background-floating-upwards-73332061.jpg);*/
+  background-image: url(../images/balloons-orangebg.jpg);
   background-repeat:no-repeat;
   background-size:cover;
-  background-position-x:20%;
+  background-position-x:25%;
+  background-position-y:26%;
   background-attachment:fixed;
   opacity: 0.2;
   top: 0;
@@ -237,9 +240,6 @@ button:focus svg{
   outline: solid 2px #f28705;
 }
 
-/*:focus .tooltip-message{
-  outline-style: dashed !important;
-}*/
 
 button.delete-button:hover,.new-post button:hover {
   background-color:#f28705;
