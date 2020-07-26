@@ -445,8 +445,22 @@ svg.inline-block-icon {
 }
 /* show on hover */
 .tooltip:hover > .tooltip-message {
-  opacity: 1;
+  opacity:1;
+  animation-name:tooltipAnimate;
+  animation-duration: 600ms;
+  animation-fill-mode: backwards;
+  animation-timing-function: ease-in-out;
   visibility: visible;
+}
+
+@keyframes tooltipAnimate {
+  0% {
+    visibility: hidden;
+  }
+  
+  100% {
+    opacity: visible;
+  }
 }
 
 @media only screen and (min-width:400px){
