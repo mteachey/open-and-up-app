@@ -15,7 +15,7 @@ class Dashboard extends Component{
 
     render(){
         return(
-            <div>
+            <div className="dashboard">
                 <header>
                 <Nav 
                    pageType={'interior'}
@@ -44,18 +44,21 @@ class Dashboard extends Component{
                        posts = {this.context.posts}
                     />
                 </main>
-                <footer>
-                <FilterButtons
-                        buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view all posts of all users', tooltipClass:'top-farright'},
-                        {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees',tooltipMessage:'view all posts of your connections',tooltipClass:'top-right'},
-                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view all your posts',tooltipClass:'top-center'},
-                        {aria_label:'view bookmarks',icon_type:faBookmark, link:'/bookmarks', display_change:'all', tooltipMessage:'view all your bookmarked posts',tooltipClass:'top-left'},
-                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-farleft'}
-                        ]}
-                    
-                    />
-                    <SearchRow/>
-                </footer>
+                <section className="bottom-filter-row">
+                    <FilterButtons
+                            buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view all posts of all users', tooltipClass:'top-farright'},
+                            {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees',tooltipMessage:'view all posts of your connections',tooltipClass:'top-right'},
+                            {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view all your posts',tooltipClass:'top-center'},
+                            {aria_label:'view bookmarks',icon_type:faBookmark, link:'/bookmarks', display_change:'all', tooltipMessage:'view all your bookmarked posts',tooltipClass:'top-left'},
+                            {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-farleft'}
+                            ]}
+                        
+                        />
+                    </section>
+                    <section className="search-row-section">
+                        <SearchRow/>
+                    </section>
+                
             </div>
         )
     }

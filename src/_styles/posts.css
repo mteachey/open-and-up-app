@@ -142,7 +142,7 @@
 }
 
 .music-post svg path{
-    fill:#bf4904;
+    fill:#038990;
 }
 .event-post svg path{
     fill:#f28705;
@@ -225,18 +225,36 @@
         height: 25px;
     }
 
+    .single-post {
+        padding: 26px;
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .post-info {
+        margin-bottom: 25px;
+    }
+    .post-image img {
+        max-width: 450px;
+    }
+
 }/*end of MQ min760*/
 
 @media only screen and (min-width:960px){
 
     .single-post {
         padding: 26px;
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: 20px;
     }
+
     .post-info {
         margin-bottom: 25px;
     }
     .post-image img {
-        max-width: 650px;
+        max-width: 450px;
     }
 
     .search-row button, .search-row button[type="submit"] {
@@ -246,5 +264,7 @@
     .search-row .button-reset {
         height: 30px;
     }
+
+    
 
 }

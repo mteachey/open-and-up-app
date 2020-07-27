@@ -198,6 +198,10 @@ label {
     input, textarea {
         width: 400px;
     }
+
+    .search-form{
+        max-width:600px
+    }
 }/*end of MQ760*/
 
 @media only screen and (min-width:1060px){

@@ -18,9 +18,7 @@ class BookmarkPage extends Component{
                 <Nav 
                    pageType={'interior'}
                 />
-                </header>
-                <main>
-                    <FilterButtons
+                <FilterButtons
                         buttonInfo={[{ariaLabel:'all types of posts',icon_type:'text-all', display_change:'all', link:'/dashboard',tooltipMessage:'view posts of all types',tooltipClass:'bottom-farright'},
                         {aria_label:'reflection posts',icon_type:faLightbulb, link:'/bookmarks',
                         display_change:'reflection', tooltipMessage:'view only reflection posts',tooltipClass:'bottom-right'},
@@ -32,14 +30,16 @@ class BookmarkPage extends Component{
                         display_change:'music', tooltipMessage:'view only music posts',tooltipClass:'bottom-left'},
                         {aria_label:'event posts',icon_type:faCalendarAlt, link:'/bookmarks',
                         display_change:'event', tooltipMessage:'view only event posts', tooltipClass:'bottom-farleft'}]}/>
+                </header>
+                <main>
+                    
                     <ResultList
                        heading = {'Your Bookmarks'}
                        postsToDisplay = {'bookmarks'}
                        posts = {this.context.bookmarks}
                      />
                 </main>
-                <footer>
-                <footer>
+                <section className="bottom-filter-row">
                 <FilterButtons
                         buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers', tooltipMessage:'view posts of all users',tooltipClass:'top-farright'},
                         {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees',tooltipMessage:'view posts of your connections',tooltipClass:'top-right'},
@@ -49,8 +49,7 @@ class BookmarkPage extends Component{
                         ]}
                     
                     />
-                </footer>
-                </footer>
+                </section>
             </div>
         )
     }

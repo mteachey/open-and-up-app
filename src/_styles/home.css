@@ -121,10 +121,18 @@
 @media only screen and (min-width:960px){
 
 body {
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .header-home h1 {
     padding-top: 2.25em;
+}
+
+.home .nav-link, .box{
+    font-size: 1em;
+}
+
+.box{
+    top: 32vh;
 }
 }

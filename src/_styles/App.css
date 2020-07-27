@@ -83,6 +83,27 @@ footer{
   width: 100%;  
 }
 
+.bottom-filter-row, .search-row-section{
+  position:fixed;
+  width:100%;
+  bottom:0;
+  padding:0px;
+}
+
+.bottom-filter-row{
+  bottom:75px;
+}
+
+.bottom-filter-row .filter-button-row{
+border:0px solid #fff;
+}
+
+.bookmark-results .bottom-filter-row{
+  bottom:0;
+  padding:0;
+  border:0px solid #fff;
+}
+
 .nav-list{
   display: flex;
   justify-content: space-around;
@@ -118,7 +139,7 @@ main{
 }
 
 .bookmark-results main{
-  margin-bottom:58px;
+  margin-bottom:48px;
   margin-top:60px;
 }
 
@@ -503,6 +524,108 @@ main{
   visibility: visible;
 }
 
+/* next two styles should be same px*/
+header {
+  height: 76px;
+}
+
+main {
+  margin-top: 76px;
+  margin-bottom: 75px;
+}
+
+.bookmark-results main {
+  margin-bottom: 0px;
+}
+
+header > div{
+  border-bottom: 2px solid #391832;
+}
+
+.bottom-filter-row, .search-row-section{
+  z-index:10;
+  width:100%;
+  padding:0;
+}
+
+.search-row-section{
+  border-top:2px #f2b705 solid;
+}
+
+.bottom-filter-row{
+  width:80px;
+  top: 79px;
+  position:fixed;
+  right:0;
+  height:100%;
+  z-index:10;
+  padding:5px 10px;
+  background-color: #f2b705;
+
+}
+
+.bottom-filter-row .filter-button-row{
+  padding:0;
+  border-top: 0px solid #391832;
+  border-bottom: 0px solid #391832;
+}
+
+.dashboard header .filter-button-row, .bookmark-results header .filter-button-row {
+  position: fixed;
+  width: 80px;
+  height: 100%;
+  left: 0;
+  border-top: 0px solid #391832;
+  border-bottom: 0px solid #391832;
+}
+
+.search-form .button-row, .search-input{
+  max-width: 300px;
+}
+
+.search-input {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.search-form .button-row, .search-input {
+  height: 32px;
+}
+
+
+.filter-button-row .tooltip-message.top-right, .filter-button-row.tooltip-message.top-farright, .filter-button-row .tooltip-message.top-center, .filter-button-row .tooltip-message.top-left, .filter-button-row .tooltip-message.top-farleft{
+  left: unset;
+  right: 5vw;
+}
+
+.filter-button-row .tooltip-message.bottom-center, .filter-button-row .tooltip-message.bottom-right, .filter-button-row .tooltip-message.bottom-farright, .filter-button-row .tooltip-message.bottom-left, .filter-button-row .tooltip-message.bottom-farleft{
+  left:13vw;
+  right: unset;
+  top: calc(-1.2em - 14px);
+  bottom:unset;
+}
 
 
 }/* end MQ min760*/
+
+@media only screen and (min-width:960px){
+  .learnmore-section {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+    margin-bottom:40px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+  .learnmore p {
+    width:400px;
+    margin: 0;
+    padding-top:30px
+  }
+
+  .about p{
+    max-width:1000px;
+  }
+
+  }/* end MQ min760*/
