@@ -57,7 +57,7 @@ class UpdateBookmark extends Component{
             body: JSON.stringify(updatedBookmark),
             headers: {
               'content-type': 'application/json',
-             // 'authorization': `Bearer ${config.API_KEY}`
+              'Authorization':`Bearer ${config.API_KEY}`
             }
           })
             .then(res => {
@@ -101,7 +101,7 @@ class UpdateBookmark extends Component{
                             {/*this.state.inputs.content.touched  && (<ValidationError message={contentError}/>)*/}
                         </div>
                         <div className="form-intro">
-                            <p className="fine-print">Be sure to save any changes you make to your thoughts about this note.</p>
+                            <p className="fine-print">Be sure to save any changes you made to your thoughts about this note.</p>
                         </div>
                             
                         <div className="form-buttons button-row">    

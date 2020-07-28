@@ -19,7 +19,7 @@ function addBookmarkRequest(allPostInfo, currentUserId, callback){
         body:JSON.stringify(newBookmark),
         headers: {
         'content-type': 'application/json',
-        // 'Authorization': `Bearer ${config.API_KEY}`
+        'Authorization': `Bearer ${config.API_KEY}`
         },
     })
    .then(res=>{

@@ -18,7 +18,7 @@ function addConnectionRequest(userId, currentUserId, callback){
         body:JSON.stringify(newConnection),
         headers: {
         'content-type': 'application/json',
-        // 'Authorization': `Bearer ${config.API_KEY}`
+        'Authorization': `Bearer ${config.API_KEY}`
         },
     })
    .then(res=>{

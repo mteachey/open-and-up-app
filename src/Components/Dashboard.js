@@ -36,8 +36,6 @@ class Dashboard extends Component{
                     />
                 </header>
                 <main>
-                   
-                    
                     <ResultList
                       heading = {'Posts'}
                        postsToDisplay = {'posts'}

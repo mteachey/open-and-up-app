@@ -38,15 +38,15 @@ class LearnMoreContent extends Component{
                    <img src={bookmark} alt="ui of posts user has bookmarked"/>
                 </div>
                 <div className="learnmore-section">
-                    <p>When viewing your bookmarks, each post will also include a space to write, save, and edit comments you have about that posts. These comments are only for you and are not visible to any other users.</p>
+                    <p>When viewing your bookmarks, each post will also include a space to write, save, and edit comments you have about that post. These comments are only for you and are not visible to any other users.</p>
                     <img src={bookmarkcontent} alt='ui of posts user has bookmarked with comment field displayed'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>You can filter the posts in both the dashboard and bookmark views by type of post, such as books or reflections. </p>
+                    <p>You can filter the posts in both the dashboard and bookmark views by type of post, such as books or podcasts. </p>
                     <img src={filterbuttons}  alt='ui of filter buttons at top in dahboard view'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>You can choose to see posts by all users, just posts of your connections (people you follow) or just your posts by clicking th icons on the bottom of the screen.</p>
+                    <p>You can choose to view posts by all users, posts of just your connections (people you follow), or just the posts you created by clicking the icons on the bottom of the screen.</p>
                     <img src={filteruser}  alt='ui of buttons on bottom of screen to use to view posts of all users, connections, or your own'/>
                 </div>
                 <div className="learnmore-section">
@@ -54,19 +54,19 @@ class LearnMoreContent extends Component{
                     <img src={yourpost}  alt='ui of posts of user'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>You can click the icon beside the user's name to make them a connection or to remove them form being a connection. The icon with two people means tht user is a connection, one person means they are not.</p>
+                    <p>You can click the icon beside a user's name to make them a connection or to remove them from being a connection. The icon of two people means that user is a connection, the icon of one person means they are not.</p>
                     <img src={makeconnection}  alt='ui of icon to click to add or remove a connection'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>You can create a new post by clicking on plus icon at the top of the screen (and sometimes on the bottom of the screen).</p>
+                    <p>You can create a new post by clicking on the plus icon at the top of the screen (and sometimes on the bottom of the screen).</p>
                     <img src={createpost}  alt='ui of button at top left of screen to click to create a new post'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>Use the buttons at the top of the form to select the type of post you would like to create - reflection, music, podcast, book, or event. This will change the form fields. This is the fields for a reflection post.</p>
+                    <p>On the new post form, you can use the buttons at the top of the form to select the type of post you would like to create - reflection, music, podcast, book, or event. This will change the form fields to match that type of post. This would be the fields for a reflection post.</p>
                     <img src={newpost}  alt='ui of form to create a new post'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>or a music post</p>
+                    <p>and this would be the fields for a music post</p>
                     <img src={newpostmusic}  alt='ui of form to create a new music post'/>
                 </div>
                 <div className="learnmore-section">

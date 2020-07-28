@@ -166,7 +166,7 @@ class App extends Component{
         method:'GET',
         header:{
         'content-type':'application/json',
-        // 'Authorization':`Bearer ${config.API_KEY}`
+        'Authorization':`Bearer ${config.API_KEY}`
         },
     })
     .then(res=>{
@@ -194,7 +194,7 @@ getUsers=()=>{
     method:'GET',
     header:{
       'content-type':'application/json',
-     // 'Authorization':`Bearer ${config.API_KEY}`
+      'Authorization':`Bearer ${config.API_KEY}`
     },
   })
   .then(res=>{
@@ -223,7 +223,7 @@ getBookmarks=(userid)=>{
     method:'GET',
     header:{
       'content-type':'application/json',
-     // 'Authorization':`Bearer ${config.API_KEY}`
+      'Authorization':`Bearer ${config.API_KEY}`
     },
   })
   .then(res=>{
@@ -254,7 +254,7 @@ getConnections=()=>{
     method:'GET',
     header:{
       'content-type':'application/json',
-     // 'Authorization':`Bearer ${config.API_KEY}`
+      'Authorization':`Bearer ${config.API_KEY}`
     },
   })
   .then(res=>{
