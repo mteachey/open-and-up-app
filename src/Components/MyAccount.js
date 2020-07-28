@@ -38,9 +38,9 @@ class MyAccount extends Component{
                    </form>
                    <FilterButtons
                         buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view posts',tooltipClass:'top-right'},
-                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts',tooltipClass:'top-right'},
-                        {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-left'},
-                        {aria_label:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-farleft'}
+                        {ariaLabel:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts',tooltipClass:'top-right'},
+                        {ariaLabel:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-left'},
+                        {ariaLabel:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-farleft'}
                         ]}
                         rowPosition={'row-bottom-all-screen'}
                     />

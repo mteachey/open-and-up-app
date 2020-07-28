@@ -272,10 +272,10 @@ class NewPost extends Component{
                 <main>
                 <FilterButtonsForm
                         updateFields = {this.updateFields}
-                        buttonInfo={[{aria_label:'fields to create new reflection post',icon_type:faLightbulb,field_type:'reflection',tooltipMessage:'create a reflection post',tooltipClass:'bottom-farright'},{ariaLabel:'fields to create new book post',icon_type:faBookOpen, field_type:'book',tooltipMessage:'create a book post',tooltipClass:'bottom-right'},
-                        {aria_label:'fields to create new podcast post',icon_type:faPodcast,field_type:'podcast',tooltipMessage:'create a podcast post',tooltipClass:'bottom-center'},
-                        {aria_label:'music posts',icon_type:faMusic, field_type:'music',tooltipMessage:'create a music post',tooltipClass:'bottom-left'},
-                        {aria_label:'event posts',icon_type:faCalendarAlt,field_type:'event' ,tooltipMessage:'create an event post',tooltipClass:'bottom-farleft'}]}
+                        buttonInfo={[{ariaLabel:'fields to create new reflection post',icon_type:faLightbulb,field_type:'reflection',tooltipMessage:'create a reflection post',tooltipClass:'bottom-farright'},{ariaLabel:'fields to create new book post',icon_type:faBookOpen, field_type:'book',tooltipMessage:'create a book post',tooltipClass:'bottom-right'},
+                        {ariaLabel:'fields to create new podcast post',icon_type:faPodcast,field_type:'podcast',tooltipMessage:'create a podcast post',tooltipClass:'bottom-center'},
+                        {ariaLabel:'music posts',icon_type:faMusic, field_type:'music',tooltipMessage:'create a music post',tooltipClass:'bottom-left'},
+                        {ariaLabel:'event posts',icon_type:faCalendarAlt,field_type:'event' ,tooltipMessage:'create an event post',tooltipClass:'bottom-farleft'}]}
                     />
 
                     <form className="new-post-form" 
@@ -356,9 +356,9 @@ class NewPost extends Component{
                     </form>
                     <FilterButtons
                         buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view posts',tooltipClass:'top-farright'},
-                        {aria_label:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts',tooltipClass:'top-center'},
-                        {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-left'},
-                        {aria_label:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-farleft'}
+                        {ariaLabel:'my posts',icon_type:faUser, link:'/dashboard', display_change:'user',tooltipMessage:'view your posts',tooltipClass:'top-center'},
+                        {ariaLabel:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-left'},
+                        {ariaLabel:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-farleft'}
                         ]}
                         rowPosition={'row-bottom-all-screens'}
                     

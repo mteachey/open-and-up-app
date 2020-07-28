@@ -125,7 +125,10 @@ class SinglePost extends Component{
                         postId={post_id}/>
         }
         if(image_path){
-            uploadedImage = <span className="post-span post-image"><img src={image_path} alt={content}/></span>
+            uploadedImage = <span className="post-span post-image">
+                             <img src={image_path} 
+                                alt={`an user uploaded image - ${post_type==='reflection' ? content : title}`}/>
+                            </span>
         }
         if(this.props.postsToDisplay==='bookmarks'){
             form = <UpdateBookmark 

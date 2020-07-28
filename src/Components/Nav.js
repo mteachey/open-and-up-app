@@ -14,7 +14,7 @@ class Nav extends Component{
             <nav className="main-nav nav">
                 <IconButton
                     link={'/new-post'}
-                    aria-label={`button-access add new post`}
+                    ariaLabel={`add new post`}
                     displayChange={'all'}
                     iconType={faPlusSquare}
                     buttonColor={'orange-background'}
@@ -24,7 +24,7 @@ class Nav extends Component{
                 <h1><Link className="site-heading" to={'/dashboard'}>Uplift</Link></h1>
                 <IconButton
                     link={'/learn-more'}
-                    aria-label={`button-access learn more page`}
+                    ariaLabel={`learn more page`}
                     displayChange={'all'}
                     iconType={faInfo}
                     buttonColor={'orange-background'}

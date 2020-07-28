@@ -19,7 +19,7 @@ class FilterButtons extends Component{
 
         const Buttons = buttons.map((buttonInfoObject,i)=>{
 
-            const ariaLabel= buttonInfoObject.aria_label;
+            const ariaLabel= buttonInfoObject.ariaLabel;
             const iconType = buttonInfoObject.icon_type;
             const link = buttonInfoObject.link;
             const displayChange = buttonInfoObject.display_change;
@@ -31,7 +31,7 @@ class FilterButtons extends Component{
             button = (<IconButton
                         key={i} 
                         link={link}
-                        aria-label={`button-access ${ariaLabel}`}
+                        ariaLabel={ariaLabel}
                         displayChange={displayChange}
                         iconType={iconType}
                         tooltipMessage = {tooltipMessage}
