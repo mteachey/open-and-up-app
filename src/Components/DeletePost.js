@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import OpenUpContext from '../OpenUpContext.js';
 import config from '../config.js';
+
 
 function deletePostRequest(postId, callback){
    // let url = `${config.API_DEV_ENDPOINT}/posts/${postId}`;
@@ -28,21 +29,46 @@ function deletePostRequest(postId, callback){
     })
 }
 
-export default function DeletePost(props){
-    return(
-        <OpenUpContext.Consumer>
-            {(context)=>(
+class DeletePost extends Component{
+
+    state = {
+        isBoxVisible:false,
+    }
+
+    static contextType=OpenUpContext;
+
+    showAreYouSurePopUp=()=>{
+        this.setState(prevState => ({ isBoxVisible: true }));
+    }
+
+    cancelDeleteRequest=()=>{
+        this.setState(prevState => ({ isBoxVisible: false }));
+    }
+
+    render(){
+        const { isBoxVisible } = this.state;
+        return(
+            <div className="delete-post-area">
                 <button className="delete-button"
-                    onClick={()=>{
-                        deletePostRequest(props.postId,
-                            context.deletePost);
-                    }}>
+                    onClick={this.showAreYouSurePopUp}>
                     Delete Post
-
                 </button>
-            )}
-
-
-        </OpenUpContext.Consumer>
-    )
+                <div className={`box are-you-sure-box ${isBoxVisible ? "" : "hidden"}`}>
+                        <p>Are you sure you want to delete this post? This action can not be undone.</p>
+                        <button 
+                            className="button" 
+                            onClick={()=>{
+                             deletePostRequest(this.props.postId,
+                            this.context.deletePost);
+                            }}>
+                            Delete Post
+                        </button>
+                        <button className="button" onClick = {this.cancelDeleteRequest}>Whoops-nevermind</button>
+                    </div> 
+            </div>
+            
+        )
+    }
 }
+
+export default DeletePost;

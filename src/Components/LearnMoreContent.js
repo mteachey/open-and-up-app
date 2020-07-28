@@ -11,6 +11,7 @@ import filteruser from '../images/uplift-dashboard-filteruser-ui.jpg';
 import buttontobookmark from '../images/uplift-dashboard-w-buttontobookmarkpost-ui.jpg';
 import createpost from '../images/uplift-dashboard-w-createpost-ui.jpg';
 import makeconnection from '../images/uplift-dashboard-addconnection-ui.jpg';
+import deletepost from '../images/uplift-delete-post-ui.jpg';
 
 
 
@@ -70,7 +71,8 @@ class LearnMoreContent extends Component{
                     <img src={newpostmusic}  alt='ui of form to create a new music post'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>For this early version, you can not edit your posts once they have been created, but you can delete your posts and then try again.  Editing your posts will be coming soon!</p>
+                    <p>For this early version, you can not edit your posts once they have been created, but you can delete your posts then try again. To delete a post, go to your post view by clicking on the icon of a single person. On this screen view, your posts should have a delete button. Editing your posts will be coming in future versions soon!</p>
+                    <img src={deletepost} alt='ui of delete button to delete a post'/>
                 </div>
             </section>
         )

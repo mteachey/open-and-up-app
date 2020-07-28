@@ -120,7 +120,7 @@ class SinglePost extends Component{
                     push={this.props.history.push}
                 />
         }
-        if(username===currentUser){
+        if(username===currentUser && currentDisplay.dashboard.current_user==='user'){
             button = <DeletePost
                         postId={post_id}/>
         }
