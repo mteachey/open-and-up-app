@@ -138,7 +138,7 @@ class App extends Component{
 
   getPostsByUser=(userToDisplay,currentUserId)=>{
     //let url = `${config.API_DEV_ENDPOINT}/posts`
-    let url = `${config.API_ENDPOINT}/posts`
+     let url = `${config.API_ENDPOINT}/posts`
    
     currentUserId = this.state.currentUserInfo.user_id
     
@@ -164,7 +164,7 @@ class App extends Component{
 
     fetch(url,{
         method:'GET',
-        header:{
+        headers:{
         'content-type':'application/json',
         'Authorization':`Bearer ${config.API_KEY}`
         },
@@ -187,14 +187,14 @@ class App extends Component{
 }
 
 getUsers=()=>{
-  //let url = `${config.API_ENDPOINT}/users`;
+  //let url = `${config.API_DEV_ENDPOINT}/users`;
   let url = `${config.API_ENDPOINT}/users`;
 
   fetch(url,{
     method:'GET',
-    header:{
+    headers:{
       'content-type':'application/json',
-      'Authorization':`Bearer ${config.API_KEY}`
+      'Authorization':`Bearer ${config.API_KEY}`,
     },
   })
   .then(res=>{
@@ -221,7 +221,7 @@ getBookmarks=(userid)=>{
 
   fetch(url,{
     method:'GET',
-    header:{
+    headers:{
       'content-type':'application/json',
       'Authorization':`Bearer ${config.API_KEY}`
     },
@@ -252,7 +252,7 @@ getConnections=()=>{
 
   fetch(url,{
     method:'GET',
-    header:{
+    headers:{
       'content-type':'application/json',
       'Authorization':`Bearer ${config.API_KEY}`
     },

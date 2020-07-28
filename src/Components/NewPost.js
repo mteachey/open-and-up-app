@@ -179,6 +179,10 @@ class NewPost extends Component{
             fetch(image_url, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': `Bearer ${config.API_KEY}`
+                   },
                 })  
             .then(res => {
                 return res.json()
@@ -189,9 +193,9 @@ class NewPost extends Component{
                     method: 'POST',
                     body: JSON.stringify(newPostWithImage),
                     headers: {
-                      'content-type': 'application/json',
-                     // 'authorization': `Bearer ${config.API_KEY}`
-                    }
+                        'content-type': 'application/json',
+                        'Authorization': `Bearer ${config.API_KEY}`
+                       },
                   })
             })
            .then(resp => {
@@ -228,9 +232,9 @@ class NewPost extends Component{
                     method: 'POST',
                     body: JSON.stringify(newPost),
                     headers: {
-                    'content-type': 'application/json',
-                    // 'authorization': `Bearer ${config.API_KEY}`
-                    }
+                        'content-type': 'application/json',
+                        'Authorization': `Bearer ${config.API_KEY}`
+                       },
                 })
                     .then(res => {
                     if (!res.ok) {
