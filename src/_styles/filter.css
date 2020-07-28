@@ -3,7 +3,6 @@
     padding:5px 10px;
     border-top:2px solid #391832;
     border-bottom:2px solid #391832;
-
 }
 
 .filter-button-row h2{
@@ -22,7 +21,6 @@ svg.filter-icon {
     margin: 5px auto;
     display: block;
 }
-
 
 section.search-row{
     background-color:#391832!important;
@@ -81,6 +79,32 @@ section.search-row{
     background-color: #f28705;
 }
 
+.row-bottom, .search-row-section{
+    position:fixed;
+    width:100%;
+    bottom:0;
+    padding:0px;
+  }
+  
+  .row-bottom{
+    bottom:75px;
+  }
+  
+  .row-bottom.filter-button-row{
+  border:0px solid #fff;
+  }
+  
+  .bookmark-results .row-bottom{
+    bottom:0;
+    padding:0;
+    border:0px solid #fff;
+  }
+
+
+.learn-more-page .filter-button-row {
+    margin-top: 20px;
+  }
+
 @media only screen and (min-width:520px){
 .search-row button, .search-row button[type="submit"]{
     height: 32px;
@@ -90,3 +114,57 @@ section.search-row{
     height:26px;
 }
 }
+
+@media only screen and (min-width:760px){
+/****screen width when button rows go to sides****/
+.row-bottom, .search-row-section{
+    z-index:10;
+    width:100%;
+    padding:0;
+  }
+  
+  .search-row-section{
+    border-top:2px #f2b705 solid;
+  }
+  
+  .row-bottom{
+    width:80px;
+    top: 79px;
+    position:fixed;
+    right:0;
+    height:100%;
+    z-index:10;
+    padding:5px 10px;
+    background-color: #f2b705;
+  
+  }
+  
+  .row-bottom.filter-button-row{
+    padding:0;
+    border-top: 0px solid #391832;
+    border-bottom: 0px solid #391832;
+  }
+  
+  .dashboard header .filter-button-row, .bookmark-results header .filter-button-row {
+    position: fixed;
+    width: 80px;
+    height: 100%;
+    left: 0;
+    border-top: 0px solid #391832;
+    border-bottom: 0px solid #391832;
+  }
+  
+  .search-form .button-row, .search-input{
+    max-width: 300px;
+  }
+  
+  .search-input {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .search-form .button-row, .search-input {
+    height: 32px;
+  }
+
+}/*end MQ min760*/

@@ -33,6 +33,7 @@ class Dashboard extends Component{
                         {aria_label:'event posts',icon_type:faCalendarAlt, link:'/dashboard',
                         display_change:'event',tooltipMessage:'view only event posts',tooltipClass:'bottom-farleft'}]}
                         heading={'Filter Posts By Type'}
+                        rowPosition={'row-top'}
                     />
                 </header>
                 <main>
@@ -42,7 +43,6 @@ class Dashboard extends Component{
                        posts = {this.context.posts}
                     />
                 </main>
-                <section className="bottom-filter-row">
                     <FilterButtons
                             buttonInfo={[{ariaLabel:'all users',icon_type:faUsers, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view all posts of all users', tooltipClass:'top-farright'},
                             {ariaLabel:'all users you follow',icon_type:faUserFriends, link:'/dashboard',display_change:'followees',tooltipMessage:'view all posts of your connections',tooltipClass:'top-right'},
@@ -50,9 +50,10 @@ class Dashboard extends Component{
                             {aria_label:'view bookmarks',icon_type:faBookmark, link:'/bookmarks', display_change:'all', tooltipMessage:'view all your bookmarked posts',tooltipClass:'top-left'},
                             {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-farleft'}
                             ]}
+                            rowPosition={'row-bottom'}
                         
                         />
-                    </section>
+
                     <section className="search-row-section">
                         <SearchRow/>
                     </section>

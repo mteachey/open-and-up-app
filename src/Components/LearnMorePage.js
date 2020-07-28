@@ -23,6 +23,7 @@ class LearnMorePage extends Component{
                         {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'view posts of all users',tooltipClass:'top-left'},
                         {aria_label:'update your account info',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-farleft'}
                         ]}
+                        rowPosition={'row-top'}
                     
                     />
                 </footer>

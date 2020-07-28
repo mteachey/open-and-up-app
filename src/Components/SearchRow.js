@@ -8,7 +8,7 @@ class SearchRow extends Component{
         super(props);
         this.state={
             error:null,
-            username:{value:"current", touched:false},
+            username:{value:"", touched:false},
         }
     }//end of constructor
 
@@ -18,9 +18,13 @@ class SearchRow extends Component{
 
     handleReset=(e)=>{
         e.preventDefault();
+
+        //reset the posts being displayed to connnections
         this.context.getPostsByUser('followees');
         this.context.updateUsernameToDisplay('your connections'); 
-        this.setState({error:null})
+
+        //cler error message and input value
+        this.setState({error:null, username:{value:"",touched:false}});
     }
 
     handleSearchSubmit=(e)=>{
@@ -58,6 +62,7 @@ class SearchRow extends Component{
                          <input id="search_username" 
                                 name="search_username" 
                                 type="text"
+                                value={this.state.username.value}
                                 onChange={e => this.updateChange(e.target.value, true)}
                          />
                          <label htmlFor="search_username">Search by username</label>
@@ -68,8 +73,8 @@ class SearchRow extends Component{
                         type="reset"
                         onClick={e=>this.handleReset(e)}>Reset</button>
                     </div>
-                <div className="error-message">{this.state.error}</div>
                 </form>
+                <div className="error-message">{this.state.error}</div>
             </section>
         )
 

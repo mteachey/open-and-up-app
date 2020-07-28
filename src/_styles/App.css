@@ -18,6 +18,7 @@ body{
   
 }
 
+/*the background image*/
 body::after {
   content: "";
   background-image: url(../images/balloons-orangebg.jpg);
@@ -83,25 +84,8 @@ footer{
   width: 100%;  
 }
 
-.bottom-filter-row, .search-row-section{
-  position:fixed;
-  width:100%;
-  bottom:0;
-  padding:0px;
-}
-
-.bottom-filter-row{
-  bottom:75px;
-}
-
-.bottom-filter-row .filter-button-row{
-border:0px solid #fff;
-}
-
-.bookmark-results .bottom-filter-row{
-  bottom:0;
-  padding:0;
-  border:0px solid #fff;
+section{
+  padding:10px;
 }
 
 .nav-list{
@@ -126,31 +110,43 @@ border:0px solid #fff;
   border-bottom:1px solid #480000;
 }
 
-.filter-form{
+/*.filter-form{
   display: flex;
   justify-content: space-around;
-}
+}*/
 
 main{
   padding:0px;
   background-color: #480000;
   margin-top:110px;
-  margin-bottom:135px;
+  margin-bottom:119px;
 }
 
 .bookmark-results main{
-  margin-bottom:48px;
+  margin-bottom:45px;
   margin-top:60px;
+}
+
+.learn-more-page main{
+  margin-top:0;
+  padding:20px;
+  margin-bottom:60px;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  height:118px;
+  z-index:10;
 }
 
 .bookmark-results header{
   height:60px;
 }
 
-.learn-more-page main{
-  margin-top:0;
-  padding:20px;
-  margin-bottom:0;
+.bookmark-results p{
+  color:#000;
 }
 
 .learnmore h2{
@@ -168,22 +164,6 @@ main{
   max-width:260px;
   border:1px solid #fff;
   border-radius:3px;
-}
-
-.learn-more-page .filter-button-row {
-  margin-top: 20px;
-}
-
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  height:118px;
-  z-index:10;
-}
-
-section{
-  padding:10px;
 }
 
 .individual-post-container{
@@ -259,7 +239,6 @@ button:focus svg{
   outline: solid 2px #f28705;
 }
 
-
 button.delete-button:hover,.new-post button:hover {
   background-color:#f28705;
 }
@@ -293,7 +272,6 @@ button[type="submit"]{
 .icon-button{
   margin:0;
   border-width: 0px;
-  
 }
 
 ul{
@@ -339,12 +317,6 @@ svg.inline-block-icon {
   margin: auto;
 }
 
-.form-disclaimer{
-  font-size:.75em;
-  text-align: center;
-  font-style: italic;
-}
-
 /****start page****/
 .start-page h1{
   color:#000;
@@ -365,15 +337,17 @@ svg.inline-block-icon {
   outline: #f28705 auto 1px;
 }
 
-.bookmark-results p{
-  color:#000;
-}
-
 .fine-print{
   font-style:italic;
   font-size:14px;
 }
 
+.error-message{
+  font-size:.8em;
+  padding:4px 0px 0px;
+}
+
+/***Tooltip Styles***/
 .tooltip {
   position: absolute;
     cursor: pointer;
@@ -468,8 +442,7 @@ svg.inline-block-icon {
   opacity:1;
   visibility: visible;
 }
-
-
+/****end of tooltip styles***/
 
 @media only screen and (min-width:400px){
 .learnmore p, .about p, .learnmore img{
@@ -494,44 +467,23 @@ svg.inline-block-icon {
   }/*end of MQmin4540*/
 
 @media only screen and (min-width:760px){
+/****screen width when button rows go to sides****/
   body {
     font-size: 20px;
   }
 
-header{
-  height:135px;
-}
-
-main{
-  margin-top:135px;
-}
-
-.icon-button-container svg {
-    font-size: 30px;
-}
-
-.button-icon-link {
-   height: 40px;
-}
-
-/* show on hover */
-.tooltip-message.visible {
-  opacity:1;
-  visibility: hidden;
-}
-.tooltip:hover > .tooltip-message {
-  opacity:1;
-  visibility: visible;
-}
-
-/* next two styles should be same px*/
+/* next two styles should be same px for height and margin-top*/
 header {
   height: 76px;
 }
 
 main {
   margin-top: 76px;
-  margin-bottom: 75px;
+  margin-bottom: 53px;
+}
+
+.learnmore {
+  margin-bottom: 53px;
 }
 
 .bookmark-results main {
@@ -542,56 +494,23 @@ header > div{
   border-bottom: 2px solid #391832;
 }
 
-.bottom-filter-row, .search-row-section{
-  z-index:10;
-  width:100%;
-  padding:0;
+.icon-button-container svg {
+    font-size: 30px;
 }
 
-.search-row-section{
-  border-top:2px #f2b705 solid;
+.button-icon-link {
+   height: 40px;
 }
 
-.bottom-filter-row{
-  width:80px;
-  top: 79px;
-  position:fixed;
-  right:0;
-  height:100%;
-  z-index:10;
-  padding:5px 10px;
-  background-color: #f2b705;
-
+/* show tootlip on hover for this screen size and greater*/
+.tooltip-message.visible {
+  opacity:1;
+  visibility: hidden;
 }
-
-.bottom-filter-row .filter-button-row{
-  padding:0;
-  border-top: 0px solid #391832;
-  border-bottom: 0px solid #391832;
+.tooltip:hover > .tooltip-message {
+  opacity:1;
+  visibility: visible;
 }
-
-.dashboard header .filter-button-row, .bookmark-results header .filter-button-row {
-  position: fixed;
-  width: 80px;
-  height: 100%;
-  left: 0;
-  border-top: 0px solid #391832;
-  border-bottom: 0px solid #391832;
-}
-
-.search-form .button-row, .search-input{
-  max-width: 300px;
-}
-
-.search-input {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.search-form .button-row, .search-input {
-  height: 32px;
-}
-
 
 .filter-button-row .tooltip-message.top-right, .filter-button-row.tooltip-message.top-farright, .filter-button-row .tooltip-message.top-center, .filter-button-row .tooltip-message.top-left, .filter-button-row .tooltip-message.top-farleft{
   left: unset;
@@ -604,7 +523,7 @@ header > div{
   top: calc(-1.2em - 14px);
   bottom:unset;
 }
-
+/***end of tooltip styles for min760px*/
 
 }/* end MQ min760*/
 

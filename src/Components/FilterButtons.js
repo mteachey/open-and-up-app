@@ -45,7 +45,7 @@ class FilterButtons extends Component{
         })
             
         return(
-            <section className="filter-button-row">
+            <section className={`${this.props.rowPosition} filter-button-row`}>
                 <div className="button-row">
                   {Buttons}
                 </div>

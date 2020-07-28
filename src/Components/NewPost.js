@@ -360,6 +360,7 @@ class NewPost extends Component{
                         {aria_label:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-left'},
                         {aria_label:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-farleft'}
                         ]}
+                        rowPosition={'row-bottom-all-screens'}
                     
                     />
                 </main>

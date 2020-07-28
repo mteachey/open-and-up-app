@@ -145,7 +145,7 @@ class SinglePost extends Component{
                     {title ? <span className="post-span post-title">{title}</span> :""}
                     {by ? <span className="post-span post-artist">{by}</span> :""}
                     {content ? <span className="post-span post-content">{content}</span> :""}
-                    {link ? <span className="post-span post-link"><a href={link}>Link to listen or learn more</a></span> : ""}
+                    {link ? <span className="post-span post-link"><a href={link}>{ post_type==='event' ?`Link to learn more` : `Link to listen`}</a></span> : ""}
                 </div>
                 
                 {bookmarkButton}

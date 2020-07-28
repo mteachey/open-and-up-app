@@ -7,7 +7,12 @@ class Tooltip extends Component{
 
 showTooltip=()=>{
   this.setState({isTooltipVisible:true});
-  setTimeout(() =>  this.setState({isTooltipVisible:false}), 2000);
+  this.timerHandle = setTimeout(() =>  this.setState({isTooltipVisible:false}), 2000);
+}
+
+componentWillUnmount=() =>{
+  // To clear the timeout if event take you to another route
+   clearTimeout(this.timerHandle);
 }
 
   render(){

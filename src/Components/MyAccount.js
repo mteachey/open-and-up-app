@@ -42,6 +42,7 @@ class MyAccount extends Component{
                         {aria_label:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-left'},
                         {aria_label:'learn more',icon_type:faInfo, link:'/learn-more', display_change:'all',tooltipMessage:'learn more about the Uplift app',tooltipClass:'top-farleft'}
                         ]}
+                        rowPosition={'row-bottom'}
                     />
             </div>
         )
