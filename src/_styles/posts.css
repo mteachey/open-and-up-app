@@ -181,6 +181,8 @@
     max-width: 275px;
     margin: auto;
     display: block;
+    border-radius: 3px;
+    border: 2px solid black;
 }
 
 .user-info {
