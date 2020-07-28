@@ -22,12 +22,10 @@ function deletePostRequest(postId, callback){
       // call the callback when the request is successful
       // this is where the App component can remove it from state   
        callback(postId)
-       console.log(`call worked`)
     })
     .catch(error => {
        callback(postId, error)
     })
-  console.log(`button clicked`)
 }
 
 export default function DeletePost(props){

@@ -174,13 +174,13 @@ class NewPost extends Component{
             formData.append('image', fileField);
 
             //let image_url = `${config.API_DEV_ENDPOINT}/upload`;
-            let image_url = `${config.API_ENDPOINT}/upload`;
+           let image_url = `${config.API_ENDPOINT}/upload`;
 
             fetch(image_url, {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'content-type': 'application/json',
+                   // 'content-type': 'application/json',
                     'Authorization': `Bearer ${config.API_KEY}`
                    },
                 })  
