@@ -175,6 +175,8 @@ class NewPost extends Component{
 
             //let image_url = `${config.API_DEV_ENDPOINT}/upload`;
            let image_url = `${config.API_ENDPOINT}/upload`;
+           
+           this.context.showLoadAnimation();
 
             fetch(image_url, {
                 method: 'POST',
@@ -209,6 +211,7 @@ class NewPost extends Component{
                       return resp.json()
                     })
             .then(post => {
+                      this.context.showLoadAnimation();
                       this.props.history.push('/dashboard')
                       this.context.addPost(newPostWithImage)
             })
@@ -227,7 +230,7 @@ class NewPost extends Component{
                     by:byValue,
                     image_path:''
                 }
-            
+            this.context.showLoadAnimation();
             fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(newPost),
@@ -247,6 +250,7 @@ class NewPost extends Component{
                     return res.json()
                     })
                     .then(post => {
+                    this.context.showLoadAnimation();
                     this.props.history.push('/dashboard')
                     this.context.addPost(newPost)
                     })

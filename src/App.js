@@ -11,6 +11,7 @@ import OpenUpContext from './OpenUpContext.js';
 import './_styles/App.css';
 import data from './data.js';
 import config from './config.js';
+import balloonanimation from './images/animate-balloon2.gif';
 
 class App extends Component{
   constructor(props){
@@ -31,7 +32,8 @@ class App extends Component{
         type_posts_displayed:'all',
         dashboard:{current_user:'followees', current_post_type:'all'},
         bookmark_display:{current_user:'followees', current_post_type:'all'}
-      }
+      },
+      loadAnimation:false,
     }//end of state
 
   }
@@ -56,6 +58,10 @@ class App extends Component{
     this.setState({
       currentDisplay:currentDisplay})
     
+  }
+
+  showLoadAnimation=()=>{
+    this.setState(prevState => ({ loadAnimation: !prevState.loadAnimation }));
   }
 
   updateBookmark=(bookmarkId, updatedContent)=>{
@@ -161,7 +167,7 @@ class App extends Component{
       //url = `${config.API_DEV_ENDPOINT}/posts?userid=${userToDisplay}`
       url = `${config.API_ENDPOINT}/posts?userid=${userToDisplay}`
     }
-
+    this.showLoadAnimation();
     fetch(url,{
         method:'GET',
         headers:{
@@ -176,6 +182,7 @@ class App extends Component{
         return res.json()
     })
     .then(postdata=>{
+       this.showLoadAnimation();
        this.updatePostType('all');
        this.updatePostsDisplayed(postdata)
     })
@@ -310,10 +317,12 @@ getConnections=()=>{
       updateBookmark:this.updateBookmark,
       deleteBookmark:this.deleteBookmark,
       updateConnections:this.updateConnections,
+      showLoadAnimation:this.showLoadAnimation,
     }
     return (
       <div className="App">
         <OpenUpContext.Provider value={contextValue}>
+          <div className={`loading-animation ${this.state.loadAnimation ? '':'hidden'}`}><img alt="animation of a balloon floating in the air while server responds" src={balloonanimation}/></div>
           <Route
             exact
             path="/"

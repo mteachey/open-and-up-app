@@ -181,6 +181,28 @@ header{
   color:#fff;
 }
 
+.results-list {
+  position: relative;
+}
+
+.results-list h2 {
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  position: fixed;
+  height: 50px;
+  line-height: 50px;
+  top: 102px;
+  left: 0;
+  font-size: 1em;
+  background-color: #391832;
+  border-bottom: 1px solid #f2b705;
+}
+
+.result-list {
+  margin-top: 70px;
+}
+
 form {
   text-align: left;
   width: 95%;
@@ -444,7 +466,21 @@ svg.inline-block-icon {
 }
 /****end of tooltip styles***/
 
+/****loading animation****/
+.loading-animation {
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  right: 0px;
+}
+
+.loading-animation img{
+  width:200px;
+}
+
+
 @media only screen and (min-width:400px){
+
 .learnmore p, .about p, .learnmore img{
   max-width:350px
 }
@@ -494,6 +530,15 @@ header > div{
   border-bottom: 2px solid #391832;
 }
 
+.results-list h2 {
+  top: 60px;
+  font-size: .8em;
+}
+
+.result-list {
+  margin-top: 70px;
+}
+
 .icon-button-container svg {
     font-size: 30px;
 }
@@ -512,7 +557,7 @@ header > div{
   visibility: visible;
 }
 
-.filter-button-row .tooltip-message.top-right, .filter-button-row.tooltip-message.top-farright, .filter-button-row .tooltip-message.top-center, .filter-button-row .tooltip-message.top-left, .filter-button-row .tooltip-message.top-farleft{
+.filter-button-row .tooltip-message.top-farright, .filter-button-row .tooltip-message.top-right, .filter-button-row.tooltip-message.top-farright, .filter-button-row .tooltip-message.top-center, .filter-button-row .tooltip-message.top-left, .filter-button-row .tooltip-message.top-farleft{
   left: unset;
   right: 5vw;
 }

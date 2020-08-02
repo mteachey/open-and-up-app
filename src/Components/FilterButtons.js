@@ -16,6 +16,8 @@ class FilterButtons extends Component{
     render(){
      
         let buttons=this.props.buttonInfo;
+        
+        
 
         const Buttons = buttons.map((buttonInfoObject,i)=>{
 
@@ -36,6 +38,7 @@ class FilterButtons extends Component{
                         iconType={iconType}
                         tooltipMessage = {tooltipMessage}
                         tooltipClass = {tooltipClass}
+                        pageType = {this.props.pageType}
                       />
                      );
             

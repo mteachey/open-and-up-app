@@ -6,6 +6,7 @@ import config from '../config.js';
 function deletePostRequest(postId, callback){
    // let url = `${config.API_DEV_ENDPOINT}/posts/${postId}`;
     let url = `${config.API_ENDPOINT}/posts/${postId}`;
+    this.context.showLoadAnimation();
     fetch(url,{
         method: 'DELETE',
         headers: {
@@ -20,6 +21,7 @@ function deletePostRequest(postId, callback){
         return res.json()
     })
     .then(() => {
+        this.context.showLoadAnimation();
       // call the callback when the request is successful
       // this is where the App component can remove it from state   
        callback(postId)

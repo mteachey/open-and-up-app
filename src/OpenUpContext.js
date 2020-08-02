@@ -87,7 +87,8 @@ const OpenUpContext = React.createContext({
       updatePostsDisplayed:()=>{},
       getPostsByUser:()=>{},
       updateUsernameToDisplay:()=>{},
-      updateBookmark:()=>{}
+      updateBookmark:()=>{},
+      showLoadAnimation:()=>{}
 })
 
 export default OpenUpContext;

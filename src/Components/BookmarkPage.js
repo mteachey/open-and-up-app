@@ -30,7 +30,8 @@ class BookmarkPage extends Component{
                         display_change:'music', tooltipMessage:'view only music posts',tooltipClass:'bottom-left'},
                         {ariaLabel:'event posts',icon_type:faCalendarAlt, link:'/bookmarks',
                         display_change:'event', tooltipMessage:'view only event posts', tooltipClass:'bottom-farleft'}]}
-                        rowPosition={'row-top'}/>
+                        rowPosition={'row-top'}
+                        pageType={'bookmark_display'}/>
                 </header>
                 <main>
                     
@@ -48,6 +49,7 @@ class BookmarkPage extends Component{
                         {ariaLabel:'add new post',icon_type:faPlusSquare, link:'/new-post', display_change:'all',tooltipMessage:'create a new post',tooltipClass:'top-farleft'}
                         ]}
                         rowPosition={'row-bottom'}
+                        pageType={'bookmark_display'}
                     />
             </div>
         )

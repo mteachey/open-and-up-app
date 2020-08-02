@@ -56,7 +56,7 @@ section.search-row{
 }
 
 .filter-button-row .button-icon-link:hover svg.filter-icon path, .nav .button-icon-link.orange-background:hover svg.filter-icon path {
-   fill:#FFF;
+   fill:#480000;
 }
 
 .nav .button-icon-link{
@@ -72,7 +72,7 @@ section.search-row{
 }
 
 .filter-button-row .button-w-text:hover{
-    color:#fff;
+    color:#480000;
 }
 
 .orange-background{
@@ -104,6 +104,15 @@ section.search-row{
 .learn-more-page .filter-button-row {
     margin-top: 20px;
   }
+
+/**icon colors when active**/
+.allUsers-activeUsers svg.fa-users path, .followees-activeUsers svg.fa-user-friends path, .user-activeUsers svg.fa-user path, .reflection-activeType svg.fa-lightbulb path, .book-activeType svg.fa-book-open path, .podcast-activeType svg.fa-podcast path, .music-activeType svg.fa-music path, .event-activeType svg.fa-calendar-alt path {
+  fill:#fff;
+}
+
+.all-activeType.button-w-text{
+  color:#fff;
+}
 
 @media only screen and (min-width:520px){
 .search-row button, .search-row button[type="submit"]{

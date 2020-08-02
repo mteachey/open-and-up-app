@@ -34,6 +34,7 @@ class Dashboard extends Component{
                         display_change:'event',tooltipMessage:'view only event posts',tooltipClass:'bottom-farleft'}]}
                         heading={'Filter Posts By Type'}
                         rowPosition={'row-top'}
+                        pageType={'dashboard'}
                     />
                 </header>
                 <main>
@@ -51,6 +52,7 @@ class Dashboard extends Component{
                             {ariaLabel:'my account',icon_type:faIdCard, link:'/my-account',display_change:'all',tooltipMessage:'update your account info',tooltipClass:'top-farleft'}
                             ]}
                             rowPosition={'row-bottom'}
+                            pageType={'dashboard'}
                         
                         />
 

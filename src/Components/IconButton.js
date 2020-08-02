@@ -10,8 +10,16 @@ class IconButton extends Component{
 
     render(){
     //change the icon depending if on the dashboard or bookmark page
-    const {ariaLabel, iconType, displayChange, link, buttonColor,tooltipMessage, tooltipClass} = this.props;
-    
+    const {ariaLabel, iconType, displayChange, link, buttonColor,tooltipMessage, tooltipClass, pageType} = this.props;
+
+    let currentDisplay= this.context.currentDisplay;
+    let activeTypeClass='';
+    let activeUserClass='';
+    if(pageType){
+      activeUserClass = currentDisplay[pageType].current_user;
+      activeTypeClass = currentDisplay[pageType].current_post_type;
+    }
+
     let tooltip =(<Tooltip message={`${tooltipMessage}.`} positionClass={tooltipClass}/>)
 
 
@@ -21,7 +29,7 @@ class IconButton extends Component{
                       to={link}
                       aria-label={`button-access ${ariaLabel}`}
                       onClick={e=>{this.context.updatePostType(displayChange); this.context.updateUsernameToDisplay(displayChange);}}
-                      className={`button-icon-link button-w-text ${buttonColor}`}
+                      className={`button-icon-link button-w-text ${buttonColor} ${activeUserClass}-activeUsers ${activeTypeClass}-activeType`}
                   >
                       All
                       {tooltip}
@@ -32,7 +40,7 @@ class IconButton extends Component{
                     to={link}
                     aria-label={`button-access ${ariaLabel}`}
                     onClick={e=>{this.context.updatePostType(displayChange); this.context.updateUsernameToDisplay(displayChange);}}
-                    className={`button-icon-link ${buttonColor}`}
+                    className={`button-icon-link ${buttonColor ? buttonColor:''} ${activeUserClass}-activeUsers ${activeTypeClass}-activeType`}
                 >
                     <FontAwesomeIcon className="filter-icon" icon={iconType} />
                     {tooltip}

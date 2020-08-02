@@ -52,12 +52,6 @@ class SearchRow extends Component{
             <section className="search-row">
                 <form className="search-form"
                       onSubmit={e=>this.handleSearchSubmit(e)}>  
-                    {/*next version
-                        <div>    
-                        <label htmlFor="search_tags">Search by tags</label>
-                        <input id="search_tags" name="search_tags" type="text"
-                        />
-                    </div> */}
                     <div className="search-input">
                          <input id="search_username" 
                                 name="search_username" 
