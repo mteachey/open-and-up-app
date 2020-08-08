@@ -127,7 +127,7 @@ class SinglePost extends Component{
         if(image_path){
             uploadedImage = <span className="post-span post-image">
                              <img src={image_path} 
-                                alt={`an user uploaded image - ${post_type==='reflection' ? content : title}`}/>
+                                alt={`user uploaded - ${post_type==='reflection' ? content : title}`}/>
                             </span>
         }
         if(this.props.postsToDisplay==='bookmarks'){

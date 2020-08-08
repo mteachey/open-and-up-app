@@ -24,6 +24,18 @@ class ResultList extends Component{
         }
          
         filteredResults = FilterPosts(posts, currentDisplay)
+       
+        //sort in desc order by date created
+        filteredResults.sort((a,b)=>{
+            
+            if (a.date_created < b.date_created)
+            return 1;
+            if(a.date_created > b.date_created)
+            return -1;
+            return 0;
+        })
+        
+        
         
         return(
             <section className="results-list">

@@ -11,7 +11,8 @@ import OpenUpContext from './OpenUpContext.js';
 import './_styles/App.css';
 import data from './data.js';
 import config from './config.js';
-import balloonanimation from './images/animate-balloon2.gif';
+import confetti from './images/confetti-changing.gif';
+
 
 class App extends Component{
   constructor(props){
@@ -95,6 +96,7 @@ class App extends Component{
     this.setState({
       posts:[...this.state.posts, newPost]
     })
+    this.props.history.push('/dashboard')
   }
 
   getBookmarkPostIds=(bookmarks)=>{
@@ -322,7 +324,7 @@ getConnections=()=>{
     return (
       <div className="App">
         <OpenUpContext.Provider value={contextValue}>
-          <div className={`loading-animation ${this.state.loadAnimation ? '':'hidden'}`}><img alt="animation of a balloon floating in the air while server responds" src={balloonanimation}/></div>
+          <div className={`loading-animation ${this.state.loadAnimation ? '':'hidden'}`}><img alt="animation of a balloon floating in the air while server responds" src={confetti}/></div>
           <Route
             exact
             path="/"

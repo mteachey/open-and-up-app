@@ -51,11 +51,11 @@ class LearnMoreContent extends Component{
                     <img src={filteruser}  alt='ui of buttons on bottom of screen to use to view posts of all users, connections, or your own'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>View of user posts</p>
+                    <p>View of your posts</p>
                     <img src={yourpost}  alt='ui of posts of user'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>You can click the icon beside a user's name to make them a connection or to remove them from being a connection. The icon of two people means that user is a connection, the icon of one person means they are not.</p>
+                    <p>You can click the icon beside a user's name to make them a connection or to remove them from being a connection. The icon of two people means that user is already one of your connections, the icon of one person (beside the user's name) means they are not.</p>
                     <img src={makeconnection}  alt='ui of icon to click to add or remove a connection'/>
                 </div>
                 <div className="learnmore-section">
@@ -63,11 +63,11 @@ class LearnMoreContent extends Component{
                     <img src={createpost}  alt='ui of button at top left of screen to click to create a new post'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>On the new post form, you can use the buttons at the top of the form to select the type of post you would like to create - reflection, music, podcast, book, or event. This will change the form fields to match that type of post. This would be the fields for a reflection post.</p>
+                    <p>On the new post form, you can use the buttons at the top of the form to select the type of post you would like to create - reflection, music, podcast, book, or event. This will change the form fields to match that type of post.</p>
                     <img src={newpost}  alt='ui of form to create a new post'/>
                 </div>
                 <div className="learnmore-section">
-                    <p>and this would be the fields for a music post</p>
+                    <p>New music post form</p>
                     <img src={newpostmusic}  alt='ui of form to create a new music post'/>
                 </div>
                 <div className="learnmore-section">

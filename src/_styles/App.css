@@ -124,7 +124,7 @@ main{
 
 .bookmark-results main{
   margin-bottom:45px;
-  margin-top:60px;
+  margin-top:90px;
 }
 
 .learn-more-page main{
@@ -197,6 +197,7 @@ header{
   font-size: 1em;
   background-color: #391832;
   border-bottom: 1px solid #f2b705;
+  z-index:2;
 }
 
 .result-list {
@@ -475,7 +476,7 @@ svg.inline-block-icon {
 }
 
 .loading-animation img{
-  width:200px;
+  
 }
 
 
@@ -560,12 +561,13 @@ header > div{
 .filter-button-row .tooltip-message.top-farright, .filter-button-row .tooltip-message.top-right, .filter-button-row.tooltip-message.top-farright, .filter-button-row .tooltip-message.top-center, .filter-button-row .tooltip-message.top-left, .filter-button-row .tooltip-message.top-farleft{
   left: unset;
   right: 5vw;
+  top:0
 }
 
 .filter-button-row .tooltip-message.bottom-center, .filter-button-row .tooltip-message.bottom-right, .filter-button-row .tooltip-message.bottom-farright, .filter-button-row .tooltip-message.bottom-left, .filter-button-row .tooltip-message.bottom-farleft{
   left:13vw;
   right: unset;
-  top: calc(-1.2em - 14px);
+  top: 0;
   bottom:unset;
 }
 /***end of tooltip styles for min760px*/
