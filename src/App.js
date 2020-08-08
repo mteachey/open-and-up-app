@@ -35,6 +35,7 @@ class App extends Component{
         bookmark_display:{current_user:'followees', current_post_type:'all'}
       },
       loadAnimation:false,
+      intialRequest:true,
     }//end of state
 
   }
@@ -169,7 +170,9 @@ class App extends Component{
       //url = `${config.API_DEV_ENDPOINT}/posts?userid=${userToDisplay}`
       url = `${config.API_ENDPOINT}/posts?userid=${userToDisplay}`
     }
-    this.showLoadAnimation();
+    //only show load animation after initial server request*/
+    if(!this.state.intialRequest){
+       this.showLoadAnimation();}
     fetch(url,{
         method:'GET',
         headers:{
@@ -184,9 +187,11 @@ class App extends Component{
         return res.json()
     })
     .then(postdata=>{
-       this.showLoadAnimation();
+      if(!this.state.intialRequest){this.showLoadAnimation();}
        this.updatePostType('all');
-       this.updatePostsDisplayed(postdata)
+       this.updatePostsDisplayed(postdata);
+       //sets intialRequset to false so load animation will display on future requests*/
+       if(this.state.intialRequest){this.setState({intialRequest:false})}
     })
     .catch(err=>{
       this.setState({
