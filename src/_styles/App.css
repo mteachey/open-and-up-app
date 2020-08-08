@@ -548,16 +548,7 @@ header > div{
    height: 40px;
 }
 
-/* show tootlip on hover for this screen size and greater*/
-.tooltip-message.visible {
-  opacity:1;
-  visibility: hidden;
-}
-.tooltip:hover > .tooltip-message {
-  opacity:1;
-  visibility: visible;
-}
-
+/****changing tooltip position when filter buttons go to sides**/
 .filter-button-row .tooltip-message.top-farright, .filter-button-row .tooltip-message.top-right, .filter-button-row.tooltip-message.top-farright, .filter-button-row .tooltip-message.top-center, .filter-button-row .tooltip-message.top-left, .filter-button-row .tooltip-message.top-farleft{
   left: unset;
   right: 5vw;
@@ -570,7 +561,7 @@ header > div{
   top: 0;
   bottom:unset;
 }
-/***end of tooltip styles for min760px*/
+
 
 }/* end MQ min760*/
 
@@ -593,5 +584,16 @@ header > div{
   .about p{
     max-width:1000px;
   }
+
+  /* show tootlip on hover for this screen size and greater*/
+.tooltip-message.visible {
+  opacity:1;
+  visibility: hidden;
+}
+.tooltip:hover > .tooltip-message {
+  opacity:1;
+  visibility: visible;
+}
+/***end of tooltip styles for min960px*/
 
   }/* end MQ min760*/

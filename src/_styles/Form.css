@@ -178,7 +178,7 @@ label {
 
     .new-post main {
         margin-top: 139px;
-        margin-bottom: 65px;
+        height:100vh;
     }
 
     .new-post-form{
