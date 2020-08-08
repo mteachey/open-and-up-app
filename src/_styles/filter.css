@@ -55,10 +55,6 @@ section.search-row{
    /* border:1px solid #000;*/
 }
 
-.filter-button-row .button-icon-link:hover svg.filter-icon path, .nav .button-icon-link.orange-background:hover svg.filter-icon path {
-   fill:#480000;
-}
-
 .nav .button-icon-link{
     margin:10px 5px;
 }
@@ -177,3 +173,9 @@ section.search-row{
   }
 
 }/*end MQ min760*/
+
+@media only screen and (min-width:960px){
+.filter-button-row .button-icon-link:hover svg.filter-icon path, .nav .button-icon-link.orange-background:hover svg.filter-icon path {
+  fill:#480000;
+}
+}
