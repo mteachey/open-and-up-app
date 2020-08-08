@@ -7,13 +7,33 @@ import { faUser, faHome, faInfo } from '@fortawesome/free-solid-svg-icons';
 
 class MyAccount extends Component{
 
+    state = {
+        isBoxVisible:false,
+    }
+
+    BetaVersionPopUp=(e)=>{
+        e.preventDefault();
+        this.setState({ isBoxVisible: true });
+    }
+    closeWindow=()=>{
+        this.setState({ isBoxVisible: false });
+    }
+
     render(){
         return(
             <div className="account-page">
                 <Nav 
                    pageType={'interior'}
                 />
-                <form className="update-account-form">
+                 <div className={`box beta-version-box ${this.state.isBoxVisible ? "" : "hidden"}`}>
+                        <p>Since this is still the Beta version of the app, you cannot update account information. Please check back soon to be able to sign-up and update your account whenever!</p>
+                        <button 
+                            className="button" 
+                            onClick={this.closeWindow}>
+                            Close
+                        </button>
+                </div> 
+                <form className="update-account-form" onSubmit={e=>this.BetaVersionPopUp(e)}>
                     <h2>My Account</h2>
                     <p>The account information for melinda is below.</p>
                     <p>Please use the form to update your name, email address or password.</p>
@@ -34,7 +54,7 @@ class MyAccount extends Component{
                         <input placeholder="*******" type="password" name='password' id='password'/>
                     </div>
                     <button type="submit">Update</button>
-                    <button type="reset">Cancel</button>
+                    <button type="reset" onClick={this.BetaVersionPopUp}>Cancel</button>
                    </form>
                    <FilterButtons
                         buttonInfo={[{ariaLabel:'all users',icon_type:faHome, link:'/dashboard',display_change:'allUsers',tooltipMessage:'view posts',tooltipClass:'top-right'},

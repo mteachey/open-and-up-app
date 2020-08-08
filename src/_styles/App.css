@@ -475,8 +475,9 @@ svg.inline-block-icon {
   right: 0px;
 }
 
-.loading-animation img{
-  
+.beta-version-box{
+  background-color:#f2b705;
+  color:#fff;
 }
 
 
